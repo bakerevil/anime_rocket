@@ -80,7 +80,7 @@ class modules extends mysqli
         $anio = $_POST['año'];
         $id = $_POST['id'];
 
-        $consulta = "UPDATE listas set titulo = '$titulo', capitulo = '$cap', sipnosis = '$sipnosis', thumbnail = '$thumbnail', fecha_insercion = '$fecha', votos = '$votos', anio = '$año' WHERE id =  $id";
+        $consulta = "UPDATE listas set titulo = '$titulo', capitulos = '$capitulo', sipnosis = '$sipnosis', thumbnail = '$thumbnail', fecha_insercion = '$fecha_insercion', votos = '$votos', anio = '$anio' WHERE id =  $id";
         $array = [
             "status" => "success",
             "text" => "Se editó correctamente"
@@ -121,7 +121,7 @@ if (isset($_POST)) {
             $modules->insert_data();
             break;
         case 'update_data':
-            $modules->update_data();
+            $modules->update_data($_POST['id']);
             break;
         case 'delete_data':
             $modules->delete_data();
