@@ -143,7 +143,7 @@ btnBorrar.addEventListener("click", event => {
         const formData = new FormData()
         formData.append("funcion", "delete_data")
         formData.append("data", itemsCheckbox)
-        fetch("consulta.php", {
+        fetch("cons.php", {
             method: "POST",
             body: formData
         })
