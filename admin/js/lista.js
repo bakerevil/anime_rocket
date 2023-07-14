@@ -8,7 +8,7 @@ let formdata = new FormData()
 function get_data () {
     formdata.append("funcion", "get_data")
     opciones.body = formdata
-    fetch('consulta.php', opciones)
+    fetch('cons.php', opciones)
         .then(respuesta => respuesta.json())
         .then(resultado => {
             let template = ``
@@ -19,11 +19,13 @@ function get_data () {
                                 <th>
                                     <input type="checkbox" value="${elemento.id}"  class="checkboxes">
                                 </th>
-                                <td>${elemento.correo}</td>
-                                <td>${elemento.passwords}</td>
-                                <td>${elemento.nombre}</td>
-                                <td>${elemento.rol}</td>
-                                <td>${elemento.status}</td>
+                                <td>${elemento.titulo}</td>
+                                <td>${elemento.sipnosis}</td>
+                                <td>${elemento.foto}</td>
+                                <td>${elemento.cap}</td>
+                                <td>${elemento.fecha}</td>
+                                <td>${elemento.voto}</td>
+                                <td>${elemento.año}</td>
                                 <td>
                                 <a href="#" class="btn_editar" data-id="${elemento.id}">Editar</a>
                                 </td>
@@ -48,7 +50,7 @@ btnNew.addEventListener("click", (event) => {
 })
 btnSave.addEventListener("click", (event) => {
     event.preventDefault()
-    if (nombre.value != "" && passwords.value != "" && rol.value != "" && statuses.value != "" && correo.value != "") {
+    if( titulo.value != "" &&  sipnosis.value != "" && thumbnail.value != "" && cap.value != "" && fecha.value != "" && votos.value != "" && año.value != "" ){
         let formdata = new FormData(form)
         formdata.append("funcion", "insert_data")
         if (btnSave.hasAttribute("data-id")) {
@@ -56,7 +58,7 @@ btnSave.addEventListener("click", (event) => {
             formdata.append("id", btnSave.getAttribute("data-id"))
         }
         opciones.body = formdata
-        fetch('consulta.php', opciones)
+        fetch('cons.php', opciones)
             .then(respuesta => respuesta.json())
             .then(resultado => {
                 alert(resultado.text)
@@ -106,17 +108,19 @@ tabla.addEventListener("click", event => {
         const id = event.target.getAttribute('data-id')
         formData.append("funcion", "get_one")
         formData.append("id", id)
-        fetch("consulta.php", {
+        fetch("cons.php", {
             method: "POST",
             body: formData
         })
             .then(response => response.json())
             .then(row => {
-                nombre.value = row.nombre
-                passwords.value = row.passwords
-                rol.value = row.rol
-                statuses.value = row.status
-                correo.value = row.correo
+                titulo.value = row.titulo
+                sipnosis.value = row.sipnosis
+                thumbnail.value = row.foto
+                cap.value = row.cap
+                fecha.value = row.fecha
+                votos.value = row.voto
+                año.value = row.año
                 btnSave.setAttribute("data-id", row.id)
                 btnSave.innerText = "Editar"
             })
