@@ -46,15 +46,17 @@ class modules extends mysqli
     public function insert_data()
     {
         mysqli_report(MYSQLI_REPORT_OFF);
-        $nombre = $_POST['nombre'];
-        $correo = $_POST['correo'];
-        $passwords = $_POST['passwords'];
-        $rol = $_POST['rol'];
-        $status = $_POST['status'];
+        $titulo = $_POST['titulo'];
+        $sipnosis = $_POST['sipnosis'];
+        $thumbnail = $_POST['thumbnail'];
+        $capitulo = $_POST['cap'];
+        $fecha_insercion = $_POST['fecha'];
+        $votos = $_POST['votos'];
+        $anio = $_POST['año'];
 
-        $consulta = "INSERT IGNORE INTO usuarios (correo, passwords, rol, status, nombre) VALUES ('$correo', '$passwords', '$rol', '$status', '$nombre')";
+        $consulta = "INSERT INTO listas (titulo, sipnosis, thumbnail, capitulos, fecha_insercion, votos, anio) VALUES ('$titulo', '$sipnosis', '$thumbnail', '$capitulo', '$fecha_insercion','$votos','$anio')";
         $result = mysqli::query($consulta);
-        if (!mysqli::query($consulta)) {
+        if ($result) {
             $array = [
             "status" => "success",
             "text" => "Se insertó correctamente"
