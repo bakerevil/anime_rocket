@@ -56,7 +56,7 @@ class modules extends mysqli
 
         $consulta = "INSERT INTO listas (titulo, sipnosis, thumbnail, capitulos, fecha_insercion, votos, anio) VALUES ('$titulo', '$sipnosis', '$thumbnail', '$capitulo', '$fecha_insercion','$votos','$anio')";
         $result = mysqli::query($consulta);
-        if (!mysqli::query($consulta)) {
+        if ($result) {
             $array = [
             "status" => "success",
             "text" => "Se insertó correctamente"
