@@ -146,3 +146,25 @@ nav ul a:hover {
   display: inline-block;
   margin-bottom: 5px;
 }
+.episode_cat {
+  
+  background: rgb(64, 255, 0);
+  padding: 5px;
+  font-weight: bold;
+  border-radius: 5px;
+  display: right;
+  margin-bottom: 55px;
+  font-size: 0.8rem;
+  
+}
+.episode_lis {
+  
+  background: rgb(255, 0, 191);
+  padding: 5px;
+  font-weight: bold;
+  border-radius: 5px;
+  display: right;
+  margin-bottom: 55px;
+  font-size: 0.8rem;
+  
+}
