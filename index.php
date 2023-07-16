@@ -51,6 +51,7 @@
         <p class="icon">►</p>
         <img src="<?php echo $row ['thumbnail']; ?>" alt="">
         <div class="episode_description">
+        <h3 class="episode_cat"><?php echo $row['categoria']  ?></h3>
           <p class="episode_number">Episodio <?php echo $row ['id'];?></p>
           <h3 class="episode_title"><?php echo $row ['titulo'];?></h3>
         </div>
@@ -78,6 +79,7 @@
         <p class="icon">►</p>
         <img src="<?php echo $row ['thumbnail']; ?>" alt="">
         <div class="episode_description">
+        <h3 class="episode_lis"><?php echo $row['l_categoria']  ?></h3>
           <p class="episode_number">Anime <?php echo $row ['id'];?></p>
           <h3 class="episode_title"><?php echo $row ['titulo'];?></h3>
         </div>
