@@ -50,7 +50,7 @@ class modules extends mysqli
 
         $consulta = "INSERT IGNORE INTO usuarios (correo, passwords, rol, status, nombre) VALUES ('$correo', '$passwords', '$rol', '$status', '$nombre')";
         $result = mysqli::query($consulta);
-        if (!mysqli::query($consulta)) {
+        if ($result) {
             $array = [
             "status" => "success",
             "text" => "Se insertó correctamente"
