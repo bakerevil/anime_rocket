@@ -104,6 +104,7 @@ class modules extends mysqli
         }
         echo json_encode($array);
     }
+    
     public function delete_data()
     {
         $datos = $_POST["data"];
