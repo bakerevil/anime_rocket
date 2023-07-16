@@ -8,21 +8,21 @@ class modules extends mysqli
 
     public function get_data()
     {
-        $consulta = "SELECT * FROM videos";
+        $consulta = "SELECT v.id, v.capitulo, v.thumbnail, v.thumbnail, v.fecha_insercion, v.fecha_publicacion, v.orden, rsc.rv_status, ur.categoria, rsl.titulo FROM videos v LEFT JOIN rv_status rsc ON v.v_status = rsc.rv_id LEFT JOIN rv_categoria ur ON v.categoria = ur.id LEFT JOIN listas rsl ON v.anime = rsl.id";
         $result = mysqli::query($consulta);
         $array = [];
         while ($row = $result->fetch_array(MYSQLI_ASSOC)) {
             $array[] = [
             "id" => $row["id"],
-            "titulo" => $row["titulo"],
+            "capitulo" => $row["capitulo"],
             "foto" => $row["thumbnail"],
-            "video" => $row["archivo"],
+            "video" => $row["thumbnail"],
             "categoria" => $row["categoria"],
-            "lista" => $row["lista"],
+            "anime" => $row["titulo"],
             "fechai" => $row["fecha_insercion"],
             "fechap" => $row["fecha_publicacion"],
             "orden" => $row["orden"],
-            "status" => $row["v_status"],
+            "status" => $row["rv_status"],
             ];
         }
         echo json_encode($array);
@@ -34,11 +34,11 @@ class modules extends mysqli
         $row = $result->fetch_array(MYSQLI_ASSOC);
         $array = [
             "id" => $row["id"],
-            "titulo" => $row["titulo"],
+            "capitulo" => $row["capitulo"],
             "foto" => $row["thumbnail"],
             "video" => $row["archivo"],
             "categoria" => $row["categoria"],
-            "lista" => $row["lista"],
+            "anime" => $row["anime"],
             "fechai" => $row["fecha_insercion"],
             "fechap" => $row["fecha_publicacion"],
             "orden" => $row["orden"],
@@ -50,11 +50,11 @@ class modules extends mysqli
     public function insert_data()
     {
         mysqli_report(MYSQLI_REPORT_OFF);
-        $titulo = $_POST['titulo'];
+        $capitulo = $_POST['capitulo'];
         $thumbnail = $_POST['thumbnail'];
         $archivo = $_POST['archivo'];
         $categoria = $_POST['categoria'];
-        $lista = $_POST['lista'];
+        $anime = $_POST['anime'];
         $fecha_insercion = $_POST['fecha_insertada'];
         $fecha_publicacion = $_POST['fecha_publicacion'];
         $orden = $_POST['orden'];
@@ -79,18 +79,18 @@ class modules extends mysqli
     public function update_data()
     {
         mysqli_report(MYSQLI_REPORT_OFF);
-        $titulo = $_POST['titulo'];
+        $capitulo = $_POST['capitulo'];
         $thumbnail = $_POST['thumbnail'];
-        $archivo = $_POST['archivo'];
+        $archivo = $_POST['thumbnail'];
         $categoria = $_POST['categoria'];
-        $lista = $_POST['lista'];
+        $anime = $_POST['anime'];
         $fecha_insercion = $_POST['fecha_insertada'];
         $fecha_publicacion = $_POST['fecha_publicacion'];
         $orden = $_POST['orden'];
         $status = $_POST['v_status'];
         $id = $_POST['id'];
 
-        $consulta = "UPDATE videos set titulo = '$titulo', thumbnail = '$thumbnail', archivo = '$archivo', categoria = '$categoria', lista = '$lista', fecha_insercion = '$fecha_insercion, fecha_publicacion = '$fecha_publicacion', orden = '$orden', status = $status WHERE id =  $id";
+        $consulta = "UPDATE videos set capitulo = '$capitulo', thumbnail = '$thumbnail', archivo = '$archivo', categoria = '$categoria', anime = '$anime', fecha_insercion = '$fecha_insercion, fecha_publicacion = '$fecha_publicacion', orden = '$orden', status = $status WHERE id =  $id";
         $array = [
             "status" => "success",
             "text" => "Se editó correctamente"
