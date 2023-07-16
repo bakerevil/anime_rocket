@@ -16,13 +16,13 @@
         </div>
         <div class="menu">
             <ul>
-                <a href="#"><i class="fa-solid fa-list"></i> listas</a>
+                <a href="../listas/index.html"><i class="fa-solid fa-list"></i> listas</a>
             </ul>
             <ul>
-                <a href="#"><i class="fas fa-video"></i> videos</a>
+                <a href="../videos/index.html"><i class="fas fa-video"></i> videos</a>
             </ul>
             <ul>
-                <a href=""><i class="fa-solid fa-user"></i> usuarios</a>
+                <a href="../usuarios/index.html"><i class="fa-solid fa-user"></i> usuarios</a>
             </ul>
         </div>
     </aside>
@@ -43,11 +43,11 @@
                         <th>
                             <input type="checkbox" id="SelectAll">
                         </th>
-                        <th> titulo</th>
+                        <th> capitulo</th>
                         <th> thumbnail</th>
                         <th> archivo</th>
                         <th> categoria</th>
-                        <th> listas</th>
+                        <th> anime</th>
                         <th> fecha insertada</th>
                         <th> fecha publicada</th>
                         <th> orden</th>
@@ -63,12 +63,12 @@
                 <form action="consultav.php" method="POST" id="form">
                     <div class="row mt-5">
                         <div class="col-6">
-                            <label for="correo" class="form-label">titulo</label>
-                            <input type="email" class="form-control" name="titulo" id="titulo">
+                            <label for="correo" class="form-label">capitulo</label>
+                            <input type="text" class="form-control" name="capitulo" id="capitulo">
                         </div>
                         <div class="col-6">
                             <label for="passwords" class="form-label">foto</label>
-                            <input type="password" class="form-control" name="foto" id="foto">
+                            <input type="text" class="form-control" name="foto" id="foto">
                         </div>
                         <div class="col-6">
                             <label for="rol" class="form-label">video</label>
@@ -79,8 +79,8 @@
                             <input type="text" class="form-control" name="categoria" id="categoria">
                         </div>
                         <div class="col-12 mb-3">
-                            <label for="nombre" class="form-label">listas</label>
-                            <input type="text" class="form-control" name="listas" id="listas">
+                            <label for="nombre" class="form-label">anime</label>
+                            <input type="text" class="form-control" name="anime" id="anime">
                         </div>
                         <div class="col-12 mb-3">
                             <label for="nombre" class="form-label">fecha insertado</label>
