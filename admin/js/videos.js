@@ -23,7 +23,7 @@ function get_data () {
                                 <td>${elemento.foto}</td>
                                 <td>${elemento.video}</td>
                                 <td>${elemento.categoria}</td>
-                                <td>${elemento.lista}</td>
+                                <td>${elemento.anime}</td>
                                 <td>${elemento.fechai}</td>
                                 <td>${elemento.fechap}</td>
                                 <td>${elemento.orden}</td>
@@ -52,7 +52,7 @@ btnNew.addEventListener("click", (event) => {
 })
 btnSave.addEventListener("click", (event) => {
     event.preventDefault()
-    if (titulo.value != "" && foto.value != "" && video.value != "" && categoria.value != "" && listas.value != "" && fecha_insertada.value != "" && fecha_publicada.value != ""  && statuses.value != "" ){
+    if (capitulo.value != "" && foto.value != "" && video.value != "" && categoria.value != "" && anime.value != "" && fecha_insertada.value != "" && fecha_publicada.value != ""  && statuses.value != "" ){
         let formdata = new FormData(form)
         formdata.append("funcion", "insert_data")
         if (btnSave.hasAttribute("data-id")) {
@@ -116,14 +116,14 @@ tabla.addEventListener("click", event => {
         })
             .then(response => response.json())
             .then(row => {
-                titulo.value = row.capitulo
+                capitulo.value = row.capitulo
                 foto.value = row.foto
                 video.value = row.video
                 categoria.value = row.categoria
-                listas.value = row.anime
-                fecha_insertada.value = row.fecha_insertada
-                fecha_publicada.value = row.fecha_publicada
-                orden.value = row.orden
+                anime.value = row.anime
+                fecha_insertada.value = row.fecha_insercion
+                fecha_publicada.value = row.fecha_publicacion
+                //orden.value = row.orden
                 statuses.value = row.status
                 btnSave.setAttribute("data-id", row.id)
                 btnSave.innerText = "Editar"
@@ -147,7 +147,7 @@ btnBorrar.addEventListener("click", event => {
         const formData = new FormData()
         formData.append("funcion", "delete_data")
         formData.append("data", itemsCheckbox)
-        fetch("consultarv.php", {
+        fetch("consultav.php", {
             method: "POST",
             body: formData
         })
