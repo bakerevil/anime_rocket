@@ -34,13 +34,16 @@ function get_data () {
                             
                     `
             });
-            tabla.innerHTML = template
+            tabla.innerHTML = template;
+            showDeleteIcon();
+            refresh.style.display = "none";
         });
 }
 const showForm = () => {
     if (data.style.display != "none") {
         data.style.display = "none"
         insert_data.style.display = "block"
+        refresh.style.display = "inline-block";
     }
 }
 get_data()
@@ -71,7 +74,7 @@ btnSave.addEventListener("click", (event) => {
                     btnSave.removeAttribute("data-id")
                 }
             })
-    }
+        }
 })
 let refresh = document.getElementById('refresh');
 refresh.addEventListener('click', _ => {
@@ -151,6 +154,7 @@ btnBorrar.addEventListener("click", event => {
             .then(json => {
                 if (json.status == "success") {
                     get_data()
+                    showDeleteIcon();
                 }
             })
     }
