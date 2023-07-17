@@ -9,25 +9,40 @@
     <title>Document</title>
 </head>
 <body>
-    <aside>
+    <nav id="sideBar" class="sideBar">
         <div class="logo">
-            <img src="https://picsum.photos/50" alt="">
-            <h1>anime rocket admin</h1>
+            <img src="https://picsum.photos/50" alt="" class="img-info" id="img-info">
+            <div id="texto-info">
+                <h1>anime rocket</h1>
+            </div>
         </div>
         <div class="menu">
             <ul>
-                <a href="../listas/index.html"><i class="fa-solid fa-list"></i> listas</a>
-            </ul>
-            <ul>
-                <a href="../videos/index.html"><i class="fas fa-video"></i> videos</a>
-            </ul>
-            <ul>
-                <a href="../usuarios/index.html"><i class="fa-solid fa-user"></i> usuarios</a>
+                <li class="selected">
+                    <a href="../listas/index.html">
+                        <i class="fa-solid fa-list"></i>
+                        <span class="txtLink">listas</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="../videos/index.html">
+                        <i class="fas fa-video"></i>
+                        <span class="txtLink">videos</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="../usuarios/index.html">
+                        <i class="fa-solid fa-user"></i>
+                        <span class="txtLink">usuario</span>
+                    </a>
+                </li>
             </ul>
         </div>
-    </aside>
-    <main>
-        <i class="fa-sharp fa-solid fa-chevron-left"></i>
+    </nav>
+    <main id="main" class="main">
+        <a href="javascript:void(0)" onclick="showHideSideBar()">
+            <i class="fa-sharp fa-solid fa-chevron-left"></i>
+        </a>
         <div class="header">
             <h2>usuarios</h2>
             <div class= actions>
