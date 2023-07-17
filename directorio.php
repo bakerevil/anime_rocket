@@ -43,7 +43,7 @@
         <p class="icon">►</p>
         <img src="<?php echo $row ['thumbnail']; ?>" alt="">
         <div class="episode_description">
-        <h3 class="episode_lis"><?php echo $row['l_status'];?></h3>
+        <h3 class="episode_lis"><?php echo $row['rv_status'];?></h3>
           <p class="episode_number">ANIME <?php echo $row ['id'];?></p>
           <h3 class="episode_title"><?php echo $row ['titulo'];?></h3>
         </div>
