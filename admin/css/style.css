@@ -3,35 +3,71 @@
     padding: 0;
     margin: 0;
 }
-body{
-    display: grid;
-    grid-template-columns: 1fr 4fr;
+.sideBar{
+    position: fixed;
+    width: 250px;
+    height: 100%;
+    border-right: 1px solid #c2c2c2;
+    /* padding: 0 10px ; */
+    /* top: 80px; */
+    left: 0;
+    overflow: hidden;
+    transition: .5s;
 }
-aside{
-    background: rgb(246, 236, 249);
-    min-height: 100vh;
-    border-right: 1px solid rgba(207, 204, 207, 0.856);
-    padding: 10px 0 10px 10px ;
-}
-.logo{
+.sideBar .logo{
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 7px;
+    /* gap: 7px; */
 }
-.logo img{
+.sideBar .logo .img-info{
+    padding-top: 5px;
+    width: 112px;
+    transition: .5s;
     border-radius: 100px;
 }
-
-.logo h1{
-    font-size: 1.3rem;
-    line-height: 1.4rem;
+.sideBar ul li{
+    border-left: 3px solid transparent;
+    height: 50px;
+    padding: 0 0 0 10px;
+}
+.sideBar ul li:hover{
+    border-left: 3px solid #555;
+    background: #f9f9f9;
+}
+.sideBar ul .selected {
+    /* border-left: 3px solid #555; */
+    background: #f9f9f9;
+}
+.sideBar ul .selected a{
+    background: #f9f9f9;
+    color: #555;
+}
+.sideBar ul li i{
+    font-size: 25px;
+    /* line-height: 40px; */
+}
+.sideBar ul li a .txtLink{
+    overflow: hidden;
+    transition: .5s;
+    margin-left: 10px;
+}
+.sideBar ul li a{
+    overflow: hidden;
+    text-decoration: none;
+    color: #606060;
+    font-size: 20px;
+    line-height: 50px;
+    display: inline-block;
+    width: 100%;
 }
 .menu{
     margin-top: 60px;
+    padding: 0px;
 }
 .menu ul{
     list-style: none;
+    padding-left: 0px;
 }
 .menu ul a{
     text-decoration: none;
@@ -43,13 +79,25 @@ aside{
     padding: 15px ;
     cursor: pointer;
 }
+.menu ul li a{
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
 .menu ul a:hover{
     background: #333;
     color: #fff;
 }
 main{
+    margin-left: 250px;
+    padding-right: 0px;
+    display: grid;
+    grid-template-columns:  4fr;
     padding: 40px;
+    transition: .5s;
 }
+/* main a i.cor{
+    color: #555;
+} */
 .header{
     display: flex;
     align-items: center;
