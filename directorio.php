@@ -16,8 +16,6 @@
         <ul>
           <li><a href="index.php">Inicio</a></li>
           </ul>
-
-
         <div id="search">
          <form action= "directorio.php" method= "POST">
           <input type="text" placeholder="Buscar..." name="texto">  
@@ -28,7 +26,6 @@
       </nav>
     </div>
 </header>
-
   <section id="main">
 <h1>Directorio de animes</h1>
 <div class="episodes">
@@ -40,13 +37,13 @@
         } else {
             $result = $listas ->get_listas();
         }
-         while ($row = $result ->fetch_array()) {
+        while ($row = $result ->fetch_array()) {
     ?>
         <div class="episode">
         <p class="icon">►</p>
         <img src="<?php echo $row ['thumbnail']; ?>" alt="">
         <div class="episode_description">
-        <h3 class="episode_lis"><?php echo $row['l_status']  ?></h3>
+        <h3 class="episode_lis"><?php echo $row['l_status'];?></h3>
           <p class="episode_number">ANIME <?php echo $row ['id'];?></p>
           <h3 class="episode_title"><?php echo $row ['titulo'];?></h3>
         </div>

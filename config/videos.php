@@ -14,7 +14,7 @@ class videos extends mysqli
         return $query;
     }
     public function search($texto){
-        $consulta = "SELECT * FROM videos WHERE titulo like '%$texto%'";
+        $consulta = "SELECT * FROM videos WHERE capitulo like '%$texto%'";
         $query = $this->query($consulta);
         return $query;
     }
