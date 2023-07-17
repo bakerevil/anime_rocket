@@ -63,12 +63,15 @@ function get_data () {
                     `
             });
             tabla.innerHTML = template
+            showDeleteIcon();
+            refresh.style.display = "none"
         });
 }
 const showForm = () => {
     if (data.style.display != "none") {
         data.style.display = "none"
         insert_data.style.display = "block"
+        refresh.style.display = "inline-block"
     }
 }
 get_data()
@@ -181,6 +184,7 @@ btnBorrar.addEventListener("click", event => {
             .then(json => {
                 if (json.status == "success") {
                     get_data()
+                    showDeleteIcon()
                 }
             })
     }
