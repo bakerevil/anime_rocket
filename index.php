@@ -69,7 +69,7 @@
 <?php
         $listas= new listas ("localhost","root","","anime_rocket");
         if (isset($_POST['search'])){
-            $result = $listas ->search($_POST['texto']);
+          $result = $listas ->get_listas($_POST['texto']);
         } else {
             $result = $listas ->get_listas();
         }
