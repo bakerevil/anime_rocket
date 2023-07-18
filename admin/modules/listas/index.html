@@ -9,7 +9,18 @@
     <title>anime rocket</title>
 </head>
 <body>
-    <nav id="sideBar" class="sideBar">
+    <script>
+        fetch('../../inside.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('sideBarContainer').innerHTML = data;
+            })
+            .catch(error => {
+                console.log('Error:', error);
+            });
+    </script>
+    <div id="sideBarContainer"></div>
+    <!-- <nav id="sideBar" class="sideBar">
         <div class="logo">
             <img src="https://picsum.photos/50" alt="" class="img-info" id="img-info">
             <div id="texto-info">
@@ -44,7 +55,7 @@
                 </li>
             </ul>
         </div>
-    </nav>
+    </nav> -->
     <main id="main" class="main">
         <div>
             <a href="javascript:void(0)" onclick="showHideSideBar()">
