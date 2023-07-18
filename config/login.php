@@ -6,7 +6,7 @@
         }
         
         public function validation($correo, $passwords){
-            $consulta = "SELECT correo, passwords, rol FROM usuarios WHERE correo='$correo' AND passwords='$passwords' AND status='1' AND rol='1'";
+            $consulta = "SELECT correo, passwords, rol FROM usuarios WHERE correo='$correo' AND passwords='$passwords' AND status='1'";
             $query = $this->query($consulta);
             return $query;
         }

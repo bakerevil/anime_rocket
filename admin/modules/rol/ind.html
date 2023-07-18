@@ -6,14 +6,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="../../css/style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-    <title>Document</title>
+    <title>anime rocket</title>
 </head>
 <body>
     <nav id="sideBar" class="sideBar">
         <div class="logo">
             <img src="https://picsum.photos/50" alt="" class="img-info" id="img-info">
             <div id="texto-info">
-                <h1>Anime Rocket</h1>
+                <h1>anime rocket</h1>
             </div>
         </div>
         <div class="menu">
@@ -21,19 +21,19 @@
                 <li class="selected">
                     <a href="../listas/index.html">
                         <i class="fa-solid fa-list"></i>
-                        <span class="txtLink">Listas</span>
+                        <span class="txtLink">listas</span>
                     </a>
                 </li>
                 <li>
                     <a href="../videos/index.html">
                         <i class="fas fa-video"></i>
-                        <span class="txtLink">Videos</span>
+                        <span class="txtLink">videos</span>
                     </a>
                 </li>
                 <li>
                     <a href="../usuarios/index.html">
                         <i class="fa-solid fa-user"></i>
-                        <span class="txtLink">Usuario</span>
+                        <span class="txtLink">usuario</span>
                     </a>
                 </li>
                 <li>
@@ -50,11 +50,11 @@
             <i class="fa-sharp fa-solid fa-chevron-left"></i>
         </a>
         <div class="header">
-            <h2>Usuarios</h2>
+            <h2>listas</h2>
             <div class= actions>
                 <a href="#" class="btnaction" id="refresh"><i class="fa-solid fa-plus"></i>Regresar</a>
-                <a href="#" class="btnaction" id="btnNew"><i class="fa-solid fa-plus"></i>Nuevo</a>
-                <a href="#" class="btnaction" id="btnBorrar"><i class="fa-solid fa-plus"></i>Borrar</a>
+                <a href="#" class="btnaction" id="btnNew"><i class="fa-solid fa-plus"></i> nuevo</a>
+                <a href="#" class="btnaction" id="btnBorrar"><i class="fa-solid fa-plus"></i> borrar</a>
             </div>
         </div>
         <section id="data">
@@ -64,12 +64,8 @@
                         <th>
                             <input type="checkbox" id="SelectAll">
                         </th>
-                        <th> Correo</th>
-                        <th> Contraseña</th>
-                        <th> Nombre</th>
-                        <th> Rol</th>
-                        <th> Status</th>
-                        <th> Acciones</th>
+                        <th>ID</th>
+                        <th>ROL</th>
                     </tr>
                 </thead>
                 <tbody id="cuerpo"></tbody>
@@ -77,37 +73,22 @@
         </section>
         <section id="insert_data">
             <div class="container">
-                <form action="consulta.php" method="POST" id="form">
+                <form action="cons.php" method="POST" id="form">
                     <div class="row mt-5">
-                        <div class="col-6">
-                            <label for="correo" class="form-label">Correo</label>
-                            <input type="email" class="form-control" name="correo" id="correo">
+                        <div class="col-6 ">
+                            <label for="titulo" class="form-label">ID</label>
+                            <input type="text" class="form-control" name="ID" id="ID">
                         </div>
                         <div class="col-6">
-                            <label for="passwords" class="form-label">Contraseña</label>
-                            <input type="password" class="form-control" name="passwords" id="passwords">
-                        </div>
-                        <div class="col-6">
-                            <label for="rol" class="form-label">Rol</label>
-                            <input type="text" class="form-control" name="rol" id="rol">
-                        </div>
-                        <div class="col-6">
-                            <label for="status" class="form-label">Status</label>
-                            <input type="text" class="form-control" name="status" id="statuses">
-                        </div>
-                        <div class="col-12 mb-3">
-                            <label for="nombre" class="form-label">Usuario</label>
-                            <input type="text" class="form-control" name="nombre" id="nombre">
-                        </div>
-                        <div class="col-12">
-                            <button type="submit" class="btn btn-success" id="btnSave">Guardar</button>
+                            <label for="cap" class="form-label">ROL</label>
+                            <input type="text" class="form-control" name="ROL" id="ROL">
                         </div>
                     </div>
                 </form>
             </div>
         </section>
     </main>
-    <script src="../../js/tabla.js"></script>
+    <script src="../../js/lista.js"></script>
 </body>
 
 </html>
