@@ -59,36 +59,36 @@ class modules extends mysqli
         echo json_encode($array);
     }
     
-    public function update_data()
-    {
-        mysqli_report(MYSQLI_REPORT_OFF);
-        $titulo = $_POST['titulo'];
-        $capitulo = $_POST['cap'];
-        $sipnosis = $_POST['sipnosis'];
-        $thumbnail = $_POST['thumbnail'];
-        $fecha_insercion = $_POST['fecha'];
-        $votos = $_POST['votos'];
-        $anio = $_POST['año'];
-        $id = $_POST['id'];
+    // public function update_data()
+    // {
+    //     mysqli_report(MYSQLI_REPORT_OFF);
+    //     $titulo = $_POST['titulo'];
+    //     $capitulo = $_POST['cap'];
+    //     $sipnosis = $_POST['sipnosis'];
+    //     $thumbnail = $_POST['thumbnail'];
+    //     $fecha_insercion = $_POST['fecha'];
+    //     $votos = $_POST['votos'];
+    //     $anio = $_POST['año'];
+    //     $id = $_POST['id'];
 
-        $consulta = "UPDATE listas set titulo = '$titulo', capitulos = '$capitulo', sipnosis = '$sipnosis', thumbnail = '$thumbnail', fecha_insercion = '$fecha_insercion', votos = '$votos', anio = '$anio' WHERE id =  $id";
-        $array = [
-            "status" => "success",
-            "text" => "Se editó correctamente"
-        ];
+    //     $consulta = "UPDATE listas set titulo = '$titulo', capitulos = '$capitulo', sipnosis = '$sipnosis', thumbnail = '$thumbnail', fecha_insercion = '$fecha_insercion', votos = '$votos', anio = '$anio' WHERE id =  $id";
+    //     $array = [
+    //         "status" => "success",
+    //         "text" => "Se editó correctamente"
+    //     ];
 
-        if (!mysqli::query($consulta)) {
-            $array = [
-                "status" => "error",
-                "text" => "No se pudo insertar el registro"
-            ];
-        }
-        echo json_encode($array);
-    }
+    //     if (!mysqli::query($consulta)) {
+    //         $array = [
+    //             "status" => "error",
+    //             "text" => "No se pudo insertar el registro"
+    //         ];
+    //     }
+    //     echo json_encode($array);
+    // }
     public function delete_data()
     {
         $datos = $_POST["data"];
-        $consulta = "DELETE FROM listas WHERE id IN ($datos)";
+        $consulta = "DELETE FROM rel_rol WHERE id IN ($datos)";
         mysqli::query($consulta);
         $array = [
             "text" => "Se eliminó correctamente",
