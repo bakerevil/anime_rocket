@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="../../css/style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-    <title>Document</title>
+    <title>anime rocket</title>
 </head>
 <body>
     <nav id="sideBar" class="sideBar">
@@ -50,9 +50,9 @@
             <i class="fa-sharp fa-solid fa-chevron-left"></i>
         </a>
         <div class="header">
-            <h2>videos</h2>
+            <h2>listas</h2>
             <div class= actions>
-                <a href="#" class="btnaction" id="refresh"><i class="fa-solid fa-plus"></i> refresh</a>
+                <a href="#" class="btnaction" id="refresh"><i class="fa-solid fa-plus"></i>Regresar</a>
                 <a href="#" class="btnaction" id="btnNew"><i class="fa-solid fa-plus"></i> nuevo</a>
                 <a href="#" class="btnaction" id="btnBorrar"><i class="fa-solid fa-plus"></i> borrar</a>
             </div>
@@ -64,16 +64,8 @@
                         <th>
                             <input type="checkbox" id="SelectAll">
                         </th>
-                        <th> capitulo</th>
-                        <th> thumbnail</th>
-                        <th> archivo</th>
-                        <th> categoria</th>
-                        <th> anime</th>
-                        <th> fecha insertada</th>
-                        <th> fecha publicada</th>
-                        <th> orden</th>
-                        <th> status</th>
-                        <th> editar</th>
+                        <th>ID</th>
+                        <th>ROL</th>
                     </tr>
                 </thead>
                 <tbody id="cuerpo"></tbody>
@@ -81,49 +73,22 @@
         </section>
         <section id="insert_data">
             <div class="container">
-                <form action="consultav.php" method="POST" id="form">
+                <form action="cons.php" method="POST" id="form">
                     <div class="row mt-5">
-                        <div class="col-6">
-                            <label for="correo" class="form-label">capitulo</label>
-                            <input type="text" class="form-control" name="capitulo" id="capitulo">
+                        <div class="col-6 ">
+                            <label for="titulo" class="form-label">ID</label>
+                            <input type="text" class="form-control" name="ID" id="ID">
                         </div>
                         <div class="col-6">
-                            <label for="passwords" class="form-label">foto</label>
-                            <input type="text" class="form-control" name="foto" id="foto">
-                        </div>
-                        <div class="col-6">
-                            <label for="rol" class="form-label">video</label>
-                            <input type="text" class="form-control" name="video" id="video">
-                        </div>
-                        <div class="col-12 mb-3">
-                            <label for="nombre" class="form-label">categoria</label>
-                            <input type="text" class="form-control" name="categoria" id="categoria">
-                        </div>
-                        <div class="col-12 mb-3">
-                            <label for="nombre" class="form-label">anime</label>
-                            <input type="text" class="form-control" name="anime" id="anime">
-                        </div>
-                        <div class="col-12 mb-3">
-                            <label for="nombre" class="form-label">fecha insertado</label>
-                            <input type="text" class="form-control" name="fecha_insertada" id="fecha_insertada">
-                        </div>
-                        <div class="col-12 mb-3">
-                            <label for="nombre" class="form-label">fecha publicada</label>
-                            <input type="text" class="form-control" name="fecha_publicada" id="fecha_publicada">
-                        </div>
-                        <div class="col-6">
-                            <label for="status" class="form-label">Status</label>
-                            <input type="text" class="form-control" name="status" id="statuses">
-                        </div>
-                        <div class="col-12">
-                            <button type="submit" class="btn btn-success" id="btnSave">Guardar</button>
+                            <label for="cap" class="form-label">ROL</label>
+                            <input type="text" class="form-control" name="ROL" id="ROL">
                         </div>
                     </div>
                 </form>
             </div>
         </section>
     </main>
-    <script src="../../js/videos.js"></script>
+    <script src="../../js/lista.js"></script>
 </body>
 
 </html>
