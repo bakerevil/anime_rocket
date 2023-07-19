@@ -11,7 +11,10 @@
   <body class="text-center">
     <main class="form-signin w-100 m-auto">
         <form action="../config/login.php" method="POST">
-      <h1>Denxy</h1>
+          <div>
+            <img src="https://picsum.photos/300/200" alt="">
+            <h1>Anime Rocket</h1>
+          </div>
       <h2 class="h3 mb-3 font-weight-normal">Porfavor iniciar sesion</h1>
       <div class="form-floating">
         <input type="email" id="inputcorreo" class="form-control" placeholder="correo"  name="correo">

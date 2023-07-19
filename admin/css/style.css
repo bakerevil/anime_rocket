@@ -93,11 +93,9 @@ main{
     display: grid;
     grid-template-columns:  4fr;
     padding: 40px;
+    border: 50px;
     transition: .5s;
 }
-/* main a i.cor{
-    color: #555;
-} */
 .header{
     display: flex;
     align-items: center;
@@ -119,7 +117,17 @@ main{
     background: #f0f0f0;
     color: #555;
 }
+main a i.fa-sharp{
+    color: #555;
+
+}
+#img_container.rotate180 #image {
+    transition: .5s;
+    transform: rotate(180deg) translateY(-0%);
+    -webkit-transform: rotate(180deg) translateY(-0%);
+}
 table{
+    margin-right: 50px;
     min-width: 100%;
 }
 table thead{
