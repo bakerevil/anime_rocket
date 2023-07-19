@@ -1,4 +1,5 @@
 <?php
+
 class modules extends mysqli
 {
     public function __construct($host, $usuario, $pass, $bd)
@@ -13,8 +14,8 @@ class modules extends mysqli
         $array = [];
         while ($row = $result->fetch_array(MYSQLI_ASSOC)) {
             $array[] = [
-                "ID"=> $row["ID"],
-                "ROL"=> $row["ROL"],
+                "id"=> $row["id"],
+                "rol"=> $row["rol"],
             ];
         }
         echo json_encode($array);
@@ -26,8 +27,7 @@ class modules extends mysqli
         $row = $result->fetch_array(MYSQLI_ASSOC);
         $array = [
             "id"=> $row["id"],
-                "titulo"=> $row["ID"],
-                "sipnosis"=> $row["ROL"],
+                "rol"=> $row["rol"],
         ];
         echo json_encode($array);
     }
@@ -35,15 +35,9 @@ class modules extends mysqli
     public function insert_data()
     {
         mysqli_report(MYSQLI_REPORT_OFF);
-        $titulo = $_POST['titulo'];
-        $sipnosis = $_POST['sipnosis'];
-        $thumbnail = $_POST['thumbnail'];
-        $capitulo = $_POST['cap'];
-        $fecha_insercion = $_POST['fecha'];
-        $votos = $_POST['votos'];
-        $anio = $_POST['año'];
-
-        $consulta = "INSERT INTO listas (titulo, sipnosis, thumbnail, capitulos, fecha_insercion, votos, anio) VALUES ('$titulo', '$sipnosis', '$thumbnail', '$capitulo', '$fecha_insercion','$votos','$anio')";
+        $id = $_POST['id'];
+        $rol = $_POST['rol'];
+        $consulta = "INSERT INTO rel_rol (id, rol) VALUES ('$id', '$rol')";
         $result = mysqli::query($consulta);
         if ($result) {
             $array = [
@@ -62,16 +56,11 @@ class modules extends mysqli
     public function update_data()
     {
         mysqli_report(MYSQLI_REPORT_OFF);
-        $titulo = $_POST['titulo'];
-        $capitulo = $_POST['cap'];
-        $sipnosis = $_POST['sipnosis'];
-        $thumbnail = $_POST['thumbnail'];
-        $fecha_insercion = $_POST['fecha'];
-        $votos = $_POST['votos'];
-        $anio = $_POST['año'];
+        $id = $_POST['id'];
+        $rol = $_POST['rol'];
         $id = $_POST['id'];
 
-        $consulta = "UPDATE listas set titulo = '$titulo', capitulos = '$capitulo', sipnosis = '$sipnosis', thumbnail = '$thumbnail', fecha_insercion = '$fecha_insercion', votos = '$votos', anio = '$anio' WHERE id =  $id";
+        $consulta = "UPDATE rel_rol set id = '$id', rol = '$rol' WHERE id =  $id";
         $array = [
             "status" => "success",
             "text" => "Se editó correctamente"
@@ -88,7 +77,7 @@ class modules extends mysqli
     public function delete_data()
     {
         $datos = $_POST["data"];
-        $consulta = "DELETE FROM listas WHERE id IN ($datos)";
+        $consulta = "DELETE FROM rel_rol WHERE id IN ($datos)";
         mysqli::query($consulta);
         $array = [
             "text" => "Se eliminó correctamente",

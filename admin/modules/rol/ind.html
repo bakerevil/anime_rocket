@@ -39,7 +39,7 @@
                 <li>
                     <a href="../rol/ind.html">
                         <i class="fa-solid fa-star"></i>
-                        <span class="txtLink">rol</span>
+                        <span class="txtLink">Rol</span>
                     </a>
                 </li>
             </ul>
@@ -50,7 +50,7 @@
             <i class="fa-sharp fa-solid fa-chevron-left"></i>
         </a>
         <div class="header">
-            <h2>listas</h2>
+            <h2>Rol</h2>
             <div class= actions>
                 <a href="#" class="btnaction" id="refresh"><i class="fa-solid fa-plus"></i>Regresar</a>
                 <a href="#" class="btnaction" id="btnNew"><i class="fa-solid fa-plus"></i> nuevo</a>
@@ -66,6 +66,7 @@
                         </th>
                         <th>ID</th>
                         <th>ROL</th>
+                        <th>EDITAR</th>
                     </tr>
                 </thead>
                 <tbody id="cuerpo"></tbody>
@@ -76,19 +77,22 @@
                 <form action="cons.php" method="POST" id="form">
                     <div class="row mt-5">
                         <div class="col-6 ">
-                            <label for="titulo" class="form-label">ID</label>
-                            <input type="text" class="form-control" name="ID" id="ID">
+                            <label for="titulo" class="form-label">id</label>
+                            <input type="text" class="form-control" name="id" id="id">
                         </div>
                         <div class="col-6">
                             <label for="cap" class="form-label">ROL</label>
-                            <input type="text" class="form-control" name="ROL" id="ROL">
+                            <input type="text" class="form-control" name="rol" id="rol">
+                        </div>
+                        <div class="col-12">
+                            <button type="submit" class="btn btn-success" id="btnSave">Guardar</button>
                         </div>
                     </div>
                 </form>
             </div>
         </section>
     </main>
-    <script src="../../js/lista.js"></script>
+    <script src="../../js/rol.js"></script>
 </body>
 
 </html>
