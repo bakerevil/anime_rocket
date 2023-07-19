@@ -10,7 +10,7 @@
 </head>
 <body>
     <script>
-        fetch('../../inside.php')
+        fetch('../../inside.html')
             .then(response => response.text())
             .then(data => {
                 document.getElementById('sideBarContainer').innerHTML = data;
@@ -21,16 +21,17 @@
     </script>
     <div id="sideBarContainer"></div>
     <main id="main" class="main">
-        <a href="javascript:void(0)" onclick="showHideSideBar()">
-            <i class="fa-sharp fa-solid fa-chevron-left"></i>
-        </a>
+        <div value="Rotate" id="img_container">
+            <a href="javascript:void(0)" onclick="showHideSideBar()">
+                <i class="fa-sharp fa-solid fa-chevron-left" id="image"></i>
+            </a>
+        </div>
         <div class="header">
             <h2>Rol</h2>
             <div class= actions>
-                <a href="#" class="btnaction" id="refresh"><i class="fa-solid fa-plus"></i>Regresar</a>
-                <a href="#" class="btnaction" id="btnNew"><i class="fa-solid fa-plus"></i> nuevo</a>
-                <a href="#" class="btnaction" id="btnBorrar"><i class="fa-solid fa-plus"></i> borrar</a>
-            </div>
+                <a href="#" class="btnaction" id="refresh"><i class="fa-solid fa-rotate-right"></i> Regresar</a>
+                <a href="#" class="btnaction" id="btnNew"><i class="fa-solid fa-plus"></i> Nuevo</a>
+                <a href="#" class="btnaction" id="btnBorrar"><i class="fa-solid fa-trash"></i> Borrar</a>            </div>
         </div>
         <section id="data">
             <table>
@@ -55,7 +56,7 @@
                             <label for="titulo" class="form-label">id</label>
                             <input type="text" class="form-control" name="id" id="id">
                         </div>
-                        <div class="col-6">
+                        <div class="col-6 mb-3">
                             <label for="cap" class="form-label">ROL</label>
                             <input type="text" class="form-control" name="rol" id="rol">
                         </div>
