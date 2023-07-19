@@ -150,9 +150,8 @@ tabla.addEventListener("click", event => {
                 video.value = row.video
                 categoria.value = row.categoria
                 anime.value = row.anime
-                fecha_insertada.value = row.fecha_insercion
-                fecha_publicada.value = row.fecha_publicacion
-                //orden.value = row.orden
+                fecha_insertada.value = row.fechai
+                fecha_publicada.value = row.fechap
                 statuses.value = row.status
                 btnSave.setAttribute("data-id", row.id)
                 btnSave.innerText = "Editar"

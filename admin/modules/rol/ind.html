@@ -9,42 +9,17 @@
     <title>anime rocket</title>
 </head>
 <body>
-    <nav id="sideBar" class="sideBar">
-        <div class="logo">
-            <img src="https://picsum.photos/50" alt="" class="img-info" id="img-info">
-            <div id="texto-info">
-                <h1>anime rocket</h1>
-            </div>
-        </div>
-        <div class="menu">
-            <ul>
-                <li class="selected">
-                    <a href="../listas/index.html">
-                        <i class="fa-solid fa-list"></i>
-                        <span class="txtLink">listas</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="../videos/index.html">
-                        <i class="fas fa-video"></i>
-                        <span class="txtLink">videos</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="../usuarios/index.html">
-                        <i class="fa-solid fa-user"></i>
-                        <span class="txtLink">usuario</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="../rol/ind.html">
-                        <i class="fa-solid fa-star"></i>
-                        <span class="txtLink">Rol</span>
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </nav>
+    <script>
+        fetch('../../inside.php')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('sideBarContainer').innerHTML = data;
+            })
+            .catch(error => {
+                console.log('Error:', error);
+            });
+    </script>
+    <div id="sideBarContainer"></div>
     <main id="main" class="main">
         <a href="javascript:void(0)" onclick="showHideSideBar()">
             <i class="fa-sharp fa-solid fa-chevron-left"></i>

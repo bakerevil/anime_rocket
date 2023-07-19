@@ -8,7 +8,7 @@ class modules extends mysqli
 
     public function get_data()
     {
-        $consulta = "SELECT v.id, v.capitulo, v.thumbnail, v.thumbnail, v.fecha_insercion, v.fecha_publicacion, v.orden, rsc.rv_status, ur.categoria, rsl.titulo FROM videos v LEFT JOIN rv_status rsc ON v.v_status = rsc.rv_id LEFT JOIN rv_categoria ur ON v.categoria = ur.id LEFT JOIN listas rsl ON v.anime = rsl.id";
+        $consulta = "SELECT v.id, v.capitulo, v.thumbnail, v.archivo, v.fecha_insercion, v.fecha_publicacion, v.orden, rsc.rv_status, ur.categoria, rsl.titulo FROM videos v LEFT JOIN rv_status rsc ON v.v_status = rsc.rv_id LEFT JOIN rv_categoria ur ON v.categoria = ur.id LEFT JOIN listas rsl ON v.anime = rsl.id";
         $result = mysqli::query($consulta);
         $array = [];
         while ($row = $result->fetch_array(MYSQLI_ASSOC)) {
@@ -16,7 +16,7 @@ class modules extends mysqli
             "id" => $row["id"],
             "capitulo" => $row["capitulo"],
             "foto" => $row["thumbnail"],
-            "video" => $row["thumbnail"],
+            "video" => $row["archivo"],
             "categoria" => $row["categoria"],
             "anime" => $row["titulo"],
             "fechai" => $row["fecha_insercion"],
@@ -41,8 +41,7 @@ class modules extends mysqli
             "anime" => $row["anime"],
             "fechai" => $row["fecha_insercion"],
             "fechap" => $row["fecha_publicacion"],
-            "orden" => $row["orden"],
-            "status" => $row["v_status"],
+            "status" => $row["v_status"]
         ];
         echo json_encode($array);
     }
@@ -51,18 +50,17 @@ class modules extends mysqli
     {
         mysqli_report(MYSQLI_REPORT_OFF);
         $capitulo = $_POST['capitulo'];
-        $thumbnail = $_POST['thumbnail'];
-        $archivo = $_POST['archivo'];
+        $thumbnail = $_POST['foto'];
+        $archivo = $_POST['video'];
         $categoria = $_POST['categoria'];
         $anime = $_POST['anime'];
-        $fecha_insercion = $_POST['fecha_insertada'];
-        $fecha_publicacion = $_POST['fecha_publicacion'];
-        $orden = $_POST['orden'];
-        $status = $_POST['v_status'];
+        $fecha_insercion = $_POST['fechai'];
+        $fecha_publicacion = $_POST['fechap'];
+        $v_status = $_POST['status'];
 
-        $consulta = "INSERT IGNORE INTO usuarios (correo, passwords, rol, status, nombre) VALUES ('$correo', '$passwords', '$rol', '$status', '$nombre')";
+        $consulta = "INSERT INTO videos (capitulo, thumbnail, archivo, categoria, anime, v_status, fecha_insercion, fecha_publicacion) VALUES ('$capitulo', '$thumbnail', '$archivo', '$categoria', '$anime','$v_status', '$fecha_insercion', '$fecha_publicacion')";
         $result = mysqli::query($consulta);
-        if (!mysqli::query($consulta)) {
+        if ($result) {
             $array = [
             "status" => "success",
             "text" => "Se insertó correctamente"
@@ -80,17 +78,16 @@ class modules extends mysqli
     {
         mysqli_report(MYSQLI_REPORT_OFF);
         $capitulo = $_POST['capitulo'];
-        $thumbnail = $_POST['thumbnail'];
-        $archivo = $_POST['thumbnail'];
+        $thumbnail = $_POST['foto'];
+        $archivo = $_POST['video'];
         $categoria = $_POST['categoria'];
         $anime = $_POST['anime'];
-        $fecha_insercion = $_POST['fecha_insertada'];
-        $fecha_publicacion = $_POST['fecha_publicacion'];
-        $orden = $_POST['orden'];
-        $status = $_POST['v_status'];
+        $fecha_insercion = $_POST['fechai'];
+        $fecha_publicacion = $_POST['fechap'];
+        $v_status = $_POST['status'];
         $id = $_POST['id'];
 
-        $consulta = "UPDATE videos set capitulo = '$capitulo', thumbnail = '$thumbnail', archivo = '$archivo', categoria = '$categoria', anime = '$anime', fecha_insercion = '$fecha_insercion, fecha_publicacion = '$fecha_publicacion', orden = '$orden', status = $status WHERE id =  $id";
+        $consulta = "UPDATE videos set capitulo = '$capitulo', thumbnail = '$thumbnail', archivo = '$archivo', categoria = '$categoria', anime = '$anime', fecha_insercion = '$fecha_insercion', fecha_publicacion = '$fecha_publicacion', v_status = '$v_status' WHERE id =  $id";
         $array = [
             "status" => "success",
             "text" => "Se editó correctamente"
@@ -99,7 +96,7 @@ class modules extends mysqli
         if (!mysqli::query($consulta)) {
             $array = [
                 "status" => "error",
-                "text" => "No se pudo insertar el registro"
+                "text" => "No se pudo editar el registro"
             ];
         }
         echo json_encode($array);
@@ -132,7 +129,7 @@ if (isset($_POST)) {
             $modules->insert_data();
             break;
         case 'update_data':
-            $modules->update_data();
+            $modules->update_data($_POST['id']);
             break;
         case 'delete_data':
             $modules->delete_data();
