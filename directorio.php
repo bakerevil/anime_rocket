@@ -22,7 +22,7 @@
           <input type="submit" name="search" value="🔍">
        </form>
       </div>
-        <a href="usuarios/index.php" class="login">Login</a>
+        <a href="admin/inicio.php" class="login">Login</a>
       </nav>
     </div>
 </header>
@@ -30,24 +30,26 @@
 <h1>Directorio de animes</h1>
 <div class="episodes">
 <?php
-        require_once 'config/listas.php';
+      require_once 'config/listas.php';
+
         $listas= new listas ("localhost","root","","anime_rocket");
         if (isset($_POST['search'])){
-          $result = $listas ->search($_POST['texto']);
+          $result = $listas ->get_listas($_POST['texto']);
         } else {
             $result = $listas ->get_listas();
         }
         while ($row = $result ->fetch_array()) {
     ?>
-        <div class="episode">
+      <div class="episode">
         <p class="icon">►</p>
         <img src="<?php echo $row ['thumbnail']; ?>" alt="">
         <div class="episode_description">
         <h3 class="episode_lis"><?php echo $row['rv_status'];?></h3>
-          <p class="episode_number">ANIME <?php echo $row ['id'];?></p>
+          <p class="episode_number">Anime <?php echo $row ['id'];?></p>
           <h3 class="episode_title"><?php echo $row ['titulo'];?></h3>
         </div>
       </div>
+
     <?php
     }
     ?>

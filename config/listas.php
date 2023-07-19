@@ -17,7 +17,7 @@ class listas extends mysqli
         return $query;
     }
     public function search($texto){
-        $where = " WHERE titulo like '%$texto%'";
+        $where = "WHERE titulo like '%$texto%'";
         return $where;
     }
 }
