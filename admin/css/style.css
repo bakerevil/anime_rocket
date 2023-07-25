@@ -19,7 +19,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 7px;
+    /* gap: 7px; */
 }
 .sideBar .logo .img-info{
     padding-top: 5px;
@@ -106,6 +106,7 @@ main{
 .header h2{
     font-size: 1.8rem;
 }
+
 .btnaction{
     background: #555;
     padding: 10px 20px;
@@ -125,19 +126,6 @@ main a i.fa-sharp{
     transition: .5s;
     transform: rotate(180deg) translateY(-0%);
     -webkit-transform: rotate(180deg) translateY(-0%);
-}
-#img_container.rotate0 #image {
-    transition: .5s;
-    transform: rotate(0deg) translateY(-0%);
-    -webkit-transform: rotate(0deg) translateY(-0%);
-}
-.left{
-    display: flex;
-}
-.left #img_container{
-    margin-top: 6px;
-    width: 20px;
-    height: 0px;
 }
 table{
     margin-right: 50px;
