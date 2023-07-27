@@ -38,6 +38,15 @@ class modules extends mysqli
         ];
         echo json_encode($array);
     }
+    public function login()
+    {
+        $correo = $_POST['correo'];
+        $passwords = $_POST['passwords'];
+        $consulta = "SELECT * FROM usuarios WHERE correo = '$correo' AND passwords = '$passwords' AND status = 1";
+        $result = mysqli::query($consulta);
+        $row = $result->fetch_array(MYSQLI_ASSOC);
+        echo json_encode($row);
+    }
 
     public function insert_data()
     {
@@ -52,10 +61,10 @@ class modules extends mysqli
         $result = mysqli::query($consulta);
         if ($result) {
             $array = [
-            "status" => "success",
-            "text" => "Se insertó correctamente"
-        ];
-        }else{
+                "status" => "success",
+                "text" => "Se insertó correctamente"
+            ];
+        } else {
             $array = [
                 "status" => "error",
                 "text" => "No se pudo insertar el registro"
@@ -63,7 +72,7 @@ class modules extends mysqli
         }
         echo json_encode($array);
     }
-    
+
     public function update_data()
     {
         mysqli_report(MYSQLI_REPORT_OFF);
@@ -107,6 +116,9 @@ if (isset($_POST)) {
     switch ($_POST["funcion"]) {
         case 'get_data':
             $modules->get_data();
+            break;
+        case 'login':
+            $modules->login();
             break;
         case 'get_one':
             $modules->get_one($_POST['id']);
