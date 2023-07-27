@@ -5,43 +5,43 @@ let opciones = {
 }
 
 let estado = "open";
-function showHideSideBar(){
-    
+function showHideSideBar () {
+
     var links = document.getElementsByClassName("txtLink");
-    if (estado=="open") {
+    if (estado == "open") {
         let angle = 0,
-    img = document.getElementById('img_container');
-    document.getElementById('img_container').onclick = function() {
-    angle = (angle + 180) % 360;
-    img.className = "rotate" + angle;
-    }
-        document.getElementById("sideBar").style.width="80px";
-        document.getElementById("main").style.marginLeft="80px";
-        document.getElementById("img-info").style.width="50px";
-        document.getElementById("texto-info").style.display="none";
-        for (var i = links.length - 1; i >= 0; i--){
+            img = document.getElementById('img_container');
+        document.getElementById('img_container').onclick = function () {
+            angle = (angle + 180) % 360;
+            img.className = "rotate" + angle;
+        }
+        document.getElementById("sideBar").style.width = "80px";
+        document.getElementById("main").style.marginLeft = "80px";
+        document.getElementById("img-info").style.width = "50px";
+        document.getElementById("texto-info").style.display = "none";
+        for (var i = links.length - 1; i >= 0; i--) {
             links[i].style.display = "none"
         }
-        estado ="close";
+        estado = "close";
     }
-    else if (estado=="close") {
+    else if (estado == "close") {
         let angle = 180,
-    img = document.getElementById('img_container');
-    document.getElementById('img_container').onclick = function() {
-    angle = (angle - 180) % 360;
-    img.className = "rotate" + angle;
-    }
-        document.getElementById("sideBar").style.width="250px";
-        document.getElementById("main").style.marginLeft="250px";
-        document.getElementById("img-info").style.width="112px";
-        document.getElementById("texto-info").style.display="block";
+            img = document.getElementById('img_container');
+        document.getElementById('img_container').onclick = function () {
+            angle = (angle - 180) % 360;
+            img.className = "rotate" + angle;
+        }
+        document.getElementById("sideBar").style.width = "250px";
+        document.getElementById("main").style.marginLeft = "250px";
+        document.getElementById("img-info").style.width = "112px";
+        document.getElementById("texto-info").style.display = "block";
 
-        for (var i = links.length - 1; i >= 0; i--){
+        for (var i = links.length - 1; i >= 0; i--) {
             links[i].style.display = "inline"
         }
-        estado ="open";
+        estado = "open";
     }
-    
+
 }
 let formdata = new FormData()
 
@@ -77,6 +77,20 @@ function get_data () {
             refresh.style.display = "none";
         });
 }
+function get_roles () {
+    formdata.append("funcion", "get_data")
+    opciones.body = formdata
+    fetch('../rol/consu.php', opciones)
+        .then(respuesta => respuesta.json())
+        .then(resultado => {
+            let template = ``
+            resultado.forEach(elemento => {
+
+                template += `<option value="${elemento.id}">${elemento.rol}</option>`
+            });
+            rol.innerHTML = template
+        });
+}
 const showForm = () => {
     if (data.style.display != "none") {
         data.style.display = "none"
@@ -85,6 +99,7 @@ const showForm = () => {
     }
 }
 get_data()
+get_roles()
 btnNew.addEventListener("click", (event) => {
     event.preventDefault()
     showForm()
@@ -116,8 +131,8 @@ btnSave.addEventListener("click", (event) => {
 })
 let refresh = document.getElementById('refresh');
 refresh.addEventListener('click', _ => {
-            location.reload();
-            console.log('refresh')
+    location.reload();
+    console.log('refresh')
 })
 SelectAll.addEventListener("change", checkbox => {
     const checkboxes = document.querySelectorAll(".checkboxes")

@@ -1,8 +1,8 @@
 <nav id="sideBar" class="sideBar">
     <div class="logo">
-        <img src="https://picsum.photos/50" alt="" class="img-info" id="img-info">
+        <img src="https://picsum.photos/50" class="img-info" id="imgInfo">
         <div id="texto-info">
-            <h1>Anime Rocket</h1>
+            <h1 id="nameInfo">Anime Rocket</h1>
         </div>
     </div>
     <div class="menu">
@@ -34,3 +34,11 @@
         </ul>
     </div>
 </nav>
+
+<script>
+    if(sessionStorage.getItem("user")){
+        const usuario =  JSON.parse(sessionStorage.getItem("user"))
+        imgInfo.setAttribute("src", usuario.avatar)
+        nameInfo.innerText = usuario.nombre
+    }
+</script>

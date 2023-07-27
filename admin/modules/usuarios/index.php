@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,18 +9,11 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <title>Document</title>
 </head>
+
 <body>
-    <script>
-        fetch('../../inside.html')
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('sideBarContainer').innerHTML = data;
-            })
-            .catch(error => {
-                console.log('Error:', error);
-            });
-    </script>
-    <div id="sideBarContainer"></div>
+    <div id="sideBarContainer">
+        <?php require_once '../../inside.html'; ?>
+    </div>
     <main id="main" class="main">
         <div value="Rotate" id="img_container">
             <a href="javascript:void(0)" onclick="showHideSideBar()">
@@ -28,10 +22,11 @@
         </div>
         <div class="header">
             <h2>Usuarios</h2>
-            <div class= actions>
+            <div class=actions>
                 <a href="#" class="btnaction" id="refresh"><i class="fa-solid fa-rotate-right"></i> Regresar</a>
                 <a href="#" class="btnaction" id="btnNew"><i class="fa-solid fa-plus"></i> Nuevo</a>
-                <a href="#" class="btnaction" id="btnBorrar"><i class="fa-solid fa-trash"></i> Borrar</a>            </div>
+                <a href="#" class="btnaction" id="btnBorrar"><i class="fa-solid fa-trash"></i> Borrar</a>
+            </div>
         </div>
         <section id="data">
             <table>
@@ -65,11 +60,14 @@
                         </div>
                         <div class="col-6">
                             <label for="rol" class="form-label">Rol</label>
-                            <input type="text" class="form-control" name="rol" id="rol">
+                            <select name="rol" class="form-control" id="rol"></select>
                         </div>
                         <div class="col-6">
                             <label for="status" class="form-label">Status</label>
-                            <input type="text" class="form-control" name="status" id="statuses">
+                            <select name="statuses" id="statuses" class="form-control">
+                                <option value="0">Inactivo</option>
+                                <option value="1">Activo</option>
+                            </select>
                         </div>
                         <div class="col-12 mb-3">
                             <label for="nombre" class="form-label">Usuario</label>
