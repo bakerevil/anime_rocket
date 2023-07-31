@@ -72,7 +72,18 @@
                         </div>
                         <div class="col-6">
                             <label for="votos" class="form-label">Votos</label>
-                            <input type="text" class="form-control" name="votos" id="votos">
+                            <select name="votos" id="votos" class="form-control">
+                                <option value="0">Seleciona tu opción</option>
+                                <option value="1">1</option>
+                                <option value="1.5">1.5</option>
+                                <option value="2">2</option>
+                                <option value="2.5">2.5</option>
+                                <option value="3">3</option>
+                                <option value="3.5">3.5</option>
+                                <option value="4">4</option>
+                                <option value="4.5">4.5</option>
+                                <option value="5">5</option>
+                            </select>
                         </div>
                         <div class="col-6 mb-3">
                             <label for="año" class="form-label">Año</label>
