@@ -161,7 +161,6 @@ tabla.addEventListener("click", event => {
             .then(row => {
                 capitulo.value = row.capitulo
                 foto.value = row.foto
-                video.value = row.video
                 categoria.value = row.categoria
                 anime.value = row.anime
                 fecha_insertada.value = row.fechai
