@@ -34,6 +34,7 @@ class modules extends mysqli
             "rol" => $row["rol"],
             "status" => $row["status"],
             "correo" => $row["correo"],
+            "avatar" => $row["avatar"],
             "passwords" => $row["passwords"],
         ];
         echo json_encode($array);
