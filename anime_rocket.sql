@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 18-07-2023 a las 01:18:31
--- Versión del servidor: 10.4.25-MariaDB
--- Versión de PHP: 8.1.10
+-- Tiempo de generación: 01-08-2023 a las 01:38:31
+-- Versión del servidor: 10.4.28-MariaDB
+-- Versión de PHP: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -34,20 +34,20 @@ CREATE TABLE `listas` (
   `thumbnail` varchar(255) NOT NULL,
   `capitulos` varchar(255) NOT NULL,
   `fecha_insercion` date NOT NULL,
-  `votos` decimal(2,1) NOT NULL,
+  `votos` float(1,1) NOT NULL,
   `anio` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `l_tipo` float NOT NULL,
   `l_categoria` float NOT NULL,
   `l_status` float NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `listas`
 --
 
 INSERT INTO `listas` (`id`, `titulo`, `sipnosis`, `thumbnail`, `capitulos`, `fecha_insercion`, `votos`, `anio`, `l_tipo`, `l_categoria`, `l_status`) VALUES
-(1, 'Demons Slayer', 'asdasdasd', 'https://picsum.photos/300/200', '1', '2023-02-02', '4.9', '2023-07-17 23:03:05', 0, 0, 0),
-(2, 'clashhure', 'adsadsa', 'https://picsum.photos/300/200', '1', '2023-02-02', '4.9', '2023-07-17 23:02:36', 0, 0, 0);
+(1, 'Demons Slayer', 'asdasdasd', 'https://picsum.photos/300/200', '1', '2023-02-02', 0.9, '2022-12-30 18:34:17', 0, 0, 0),
+(2, 'clashhure', 'adsadsa', 'https://picsum.photos/300/200', '1', '2023-02-02', 0.9, '2023-06-12 00:28:04', 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -58,7 +58,7 @@ INSERT INTO `listas` (`id`, `titulo`, `sipnosis`, `thumbnail`, `capitulos`, `fec
 CREATE TABLE `rel_rol` (
   `id` int(11) NOT NULL,
   `rol` varchar(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `rel_rol`
@@ -78,7 +78,7 @@ INSERT INTO `rel_rol` (`id`, `rol`) VALUES
 CREATE TABLE `rel_status` (
   `id` int(11) NOT NULL,
   `status` varchar(40) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `rel_status`
@@ -97,7 +97,7 @@ INSERT INTO `rel_status` (`id`, `status`) VALUES
 CREATE TABLE `rvt_tipo` (
   `rvt_id` int(11) NOT NULL,
   `rvt_nombre` varchar(70) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `rvt_tipo`
@@ -118,7 +118,7 @@ INSERT INTO `rvt_tipo` (`rvt_id`, `rvt_nombre`) VALUES
 CREATE TABLE `rv_categoria` (
   `id` int(11) NOT NULL,
   `categoria` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `rv_categoria`
@@ -141,7 +141,7 @@ INSERT INTO `rv_categoria` (`id`, `categoria`) VALUES
 CREATE TABLE `rv_status` (
   `rv_id` int(11) NOT NULL,
   `rv_status` varchar(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `rv_status`
@@ -165,7 +165,7 @@ CREATE TABLE `usuarios` (
   `rol` float NOT NULL,
   `nombre` varchar(100) NOT NULL DEFAULT '',
   `status` int(1) NOT NULL DEFAULT 0
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `usuarios`
@@ -186,29 +186,26 @@ CREATE TABLE `videos` (
   `id` int(11) NOT NULL,
   `capitulo` varchar(55) NOT NULL,
   `thumbnail` varchar(255) NOT NULL,
-  `archivo` varchar(255) NOT NULL,
+  `archivo` varchar(255) DEFAULT NULL,
   `categoria` varchar(11) NOT NULL,
   `anime` int(4) NOT NULL,
   `fecha_insercion` date NOT NULL,
   `fecha_publicacion` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `orden` int(4) NOT NULL,
   `v_status` decimal(5,0) NOT NULL,
-  `tipo` float NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `tipo` float DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `videos`
 --
 
 INSERT INTO `videos` (`id`, `capitulo`, `thumbnail`, `archivo`, `categoria`, `anime`, `fecha_insercion`, `fecha_publicacion`, `orden`, `v_status`, `tipo`) VALUES
-(1, 'Mushaku tensei', 'https://picsum.photos/300/200', 'https://picsum.photos/300/200', '1', 1, '2023-05-10', '2023-06-11 23:56:48', 377, '0', 0),
-(2, 'Akame ga kill', 'https://picsum.photos/300/200', 'https://picsum.photos/300/200', '2', 1, '2022-11-24', '2023-06-11 23:57:16', 24, '0', 0),
-(3, 'shingeki no kyojin', 'https://picsum.photos/300/200', 'https://picsum.photos/300/200', '4', 1, '2023-04-13', '2023-06-11 23:58:20', 1, '0', 0),
-(4, 'muramasa', 'https://picsum.photos/300/200', 'https://picsum.photos/300/200', '2', 1, '2023-04-04', '2023-06-11 23:58:32', 3, '0', 0),
-(5, 'One-punch man', 'https://picsum.photos/300/200', 'https://picsum.photos/300/200', '4', 1, '2023-06-01', '2023-06-11 23:59:52', 10, '0', 0),
-(6, 'boku no hero academia', 'https://picsum.photos/300/200', 'https://picsum.photos/300/200', '3', 1, '2023-05-23', '2023-06-11 23:58:49', 13, '0', 0),
-(7, 'solo leveling', 'https://picsum.photos/300/200', 'https://picsum.photos/300/200', '3', 1, '2023-01-24', '2023-06-11 23:59:05', 2, '0', 0),
-(8, 'Jujutsu kaisen', 'https://picsum.photos/300/200', 'https://picsum.photos/300/200', '3', 1, '2023-04-20', '2023-06-11 23:59:24', 7, '0', 0);
+(1, 'Mushaku tensei', 'https://picsum.photos/300/200', 'https://picsum.photos/300/200', '1', 1, '2023-05-10', '2023-06-11 23:56:48', 377, 0, 0),
+(2, 'Akame ga kill', 'https://picsum.photos/300/200', 'https://picsum.photos/300/200', '2', 1, '2022-11-24', '2023-06-11 23:57:16', 24, 0, 0),
+(3, 'shingeki no kyojin', 'https://picsum.photos/300/200', 'https://picsum.photos/300/200', '4', 1, '2023-04-13', '2023-06-11 23:58:20', 1, 0, 0),
+(4, 'muramasa', 'https://picsum.photos/300/200', 'https://picsum.photos/300/200', '2', 1, '2023-04-04', '2023-06-11 23:58:32', 3, 0, 0),
+(8, 'Jujutsu kaisen', 'https://picsum.photos/300/200', 'https://picsum.photos/300/200', '3', 1, '2023-04-20', '2023-06-11 23:59:24', 7, 0, 0);
 
 --
 -- Índices para tablas volcadas
@@ -312,4 +309,4 @@ COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

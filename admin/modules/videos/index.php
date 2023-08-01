@@ -36,7 +36,6 @@
                         </th>
                         <th> Capitulo</th>
                         <th> Thumbnail</th>
-                        <th> Archivo</th>
                         <th> Categoria</th>
                         <th> Anime</th>
                         <th> Fecha Insertada</th>
