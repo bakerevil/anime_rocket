@@ -14,7 +14,6 @@ class modules extends mysqli
         $array = [];
         while ($row = $result->fetch_array(MYSQLI_ASSOC)) {
             $array[] = [
-                "id"=> $row["id"],
                 "rol"=> $row["rol"],
             ];
         }
@@ -26,7 +25,7 @@ class modules extends mysqli
         $result = mysqli::query($consulta);
         $row = $result->fetch_array(MYSQLI_ASSOC);
         $array = [
-            "id"=> $row["id"],
+        
                 "rol"=> $row["rol"],
         ];
         echo json_encode($array);
@@ -35,9 +34,8 @@ class modules extends mysqli
     public function insert_data()
     {
         mysqli_report(MYSQLI_REPORT_OFF);
-        $id = $_POST['id'];
         $rol = $_POST['rol'];
-        $consulta = "INSERT INTO rel_rol (id, rol) VALUES ('$id', '$rol')";
+        $consulta = "INSERT INTO rel_rol ( rol) VALUES ( '$rol')";
         $result = mysqli::query($consulta);
         if ($result) {
             $array = [
@@ -56,11 +54,11 @@ class modules extends mysqli
     public function update_data()
     {
         mysqli_report(MYSQLI_REPORT_OFF);
-        $id = $_POST['id'];
+   
         $rol = $_POST['rol'];
         $id = $_POST['id'];
 
-        $consulta = "UPDATE rel_rol set id = '$id', rol = '$rol' WHERE id =  $id";
+        $consulta = "UPDATE rel_rol set rol = '$rol' WHERE id =  $id";
         $array = [
             "status" => "success",
             "text" => "Se editó correctamente"
