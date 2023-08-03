@@ -89,7 +89,7 @@
                         </div>
                         <div class="col-6 mb-3">
                             <label for="año" class="form-label">Año</label>
-                            <input type="datetime-local" class="form-control" name="año" id="año">
+                            <input type="integer-local" class="form-control" name="año" id="año">
                         </div>
                         <div class="col-12">
                             <button type="submit" class="btn btn-success" id="btnSave">Guardar</button>
