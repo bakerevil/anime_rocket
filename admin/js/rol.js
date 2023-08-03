@@ -19,7 +19,7 @@ function get_data () {
                                 <th>
                                     <input type="checkbox" value="${elemento.id}"  class="checkboxes">
                                 </th>
-                                <td>${elemento.id}</td>
+                            
                                 <td>${elemento.rol}</td>
                                 <td>
                                 <a href="#" class="btn_editar" data-id="${elemento.id}">Editar</a>
@@ -112,7 +112,7 @@ tabla.addEventListener("click", event => {
         })
             .then(response => response.json())
             .then(row => {
-                id.value = row.id
+                
                 rol.value = row.rol
                 btnSave.setAttribute("data-id", row.id)
                 btnSave.innerText = "Editar"

@@ -34,7 +34,6 @@
                         <th>
                             <input type="checkbox" id="SelectAll">
                         </th>
-                        <th>ID</th>
                         <th>ROL</th>
                         <th>EDITAR</th>
                     </tr>
@@ -46,10 +45,7 @@
             <div class="container">
                 <form action="cons.php" method="POST" id="form">
                     <div class="row mt-5">
-                        <div class="col-6 ">
-                            <label for="titulo" class="form-label">id</label>
-                            <input type="text" class="form-control" name="id" id="id">
-                        </div>
+                     
                         <div class="col-6 mb-3">
                             <label for="cap" class="form-label">ROL</label>
                             <input type="text" class="form-control" name="rol" id="rol">
