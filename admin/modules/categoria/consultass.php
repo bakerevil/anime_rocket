@@ -88,7 +88,7 @@ class modules extends mysqli
 
 $modules = new modules("localhost", "root", "", "anime_rocket");
 
-if (isset($_POST)) {
+if (isset($_POST) && isset($_POST["funcion"])) {
     switch ($_POST["funcion"]) {
         case 'get_data':
             $modules->get_data();

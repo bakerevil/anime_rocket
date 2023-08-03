@@ -9,9 +9,31 @@
                   <title>🚀 Anime Rocket</title>
 </head>
 <body>
+  <div id="sidebar">
+    <a href="#" id="closesidebar"> cerrar</a>
+    <h2>categorias</h2>
+    
+    <ul>
+    <?php
+    
+    require_once 'config/categorias.php';
+
+    $categorias= new categorias("localhost","root","","anime_rocket");
+    $categories = $categorias->get_data();
+    foreach ($categories as $key => $value) {
+      ?>
+        <li><a href="categorias.php?id=<?php echo $value['id'];?>"><?php echo $value["categoria"];?></a></li>
+      <?php
+    }
+    ?>
+ 
+    
+    </ul>
+
+  </div>
   <header>
     <div class="header">
-    <div class="logo">🚀 Anime Rocket</div>
+    <div class="logo"><a href="#" id="togglesidebar">🚀</a>Anime Rocket</div>
       <nav>
         <ul>
           <li><a href="index.php">Inicio</a></li>
@@ -91,5 +113,7 @@
 
     </div>
   </section>
+  <script src="js/index.js"></script>
 </body>
+
 </html>
