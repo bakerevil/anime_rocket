@@ -139,16 +139,16 @@ INSERT INTO `rv_categoria` (`id`, `categoria`) VALUES
 -- Estructura de tabla para la tabla `rv_status`
 --
 
-CREATE TABLE `rv_status` (
-  `rv_id` int(11) NOT NULL,
-  `rv_status` varchar(20) NOT NULL
+CREATE TABLE `status` (
+  `id` int(11) NOT NULL,
+  `status` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Volcado de datos para la tabla `rv_status`
+-- Volcado de datos para la tabla `status`
 --
 
-INSERT INTO `rv_status` (`rv_id`, `rv_status`) VALUES
+INSERT INTO `status` (`id`, `status`) VALUES
 (0, 'capitulo nuevo'),
 (5, 'anime temporada'),
 (6, 'anime estreno');
