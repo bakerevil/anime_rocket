@@ -140,6 +140,10 @@ main a i.fa-sharp{
     width: 20px;
     height: 0px;
 }
+.sideBar #texto-info{
+    text-align: center;
+    padding: 8px;
+}
 table{
     margin-right: 50px;
     min-width: 100%;
