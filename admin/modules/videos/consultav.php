@@ -8,7 +8,7 @@ class modules extends mysqli
 
     public function get_data()
     {
-        $consulta = "SELECT v.id, v.capitulo, v.thumbnail, v.archivo, v.fecha_insercion, v.fecha_publicacion, v.orden, rsc.rv_status, ur.categoria, rsl.titulo FROM videos v LEFT JOIN rv_status rsc ON v.v_status = rsc.rv_id LEFT JOIN rv_categoria ur ON v.categoria = ur.id LEFT JOIN listas rsl ON v.anime = rsl.id";
+        $consulta = "SELECT v.id, v.capitulo, v.thumbnail, v.archivo, v.fecha_insercion, v.fecha_publicacion, v.orden, rsc.status, ur.categoria, rsl.titulo FROM videos v LEFT JOIN status rsc ON v.v_status = rsc.id LEFT JOIN rv_categoria ur ON v.categoria = ur.id LEFT JOIN listas rsl ON v.anime = rsl.id";
         $result = mysqli::query($consulta);
         $array = [];
         while ($row = $result->fetch_array(MYSQLI_ASSOC)) {
@@ -22,7 +22,7 @@ class modules extends mysqli
             "fechai" => $row["fecha_insercion"],
             "fechap" => $row["fecha_publicacion"],
             "orden" => $row["orden"],
-            "status" => $row["rv_status"],
+            "status" => $row["status"],
             ];
         }
         echo json_encode($array);
