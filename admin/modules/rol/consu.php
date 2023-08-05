@@ -4,16 +4,17 @@ class modules extends mysqli
 {
     public function __construct($host, $usuario, $pass, $bd)
     {
-        $this->conexion= new mysqli("localhost", "root", "", "anime_rocket");
+        parent::__construct($host, $usuario, $pass, $bd);
     }
 
     public function get_data()
     {
         $consulta = "SELECT * FROM rel_rol";
-        $result = $this->conexion->query($consulta);
+        $result = mysqli::query($consulta);
         $array = [];
         while ($row = $result->fetch_array(MYSQLI_ASSOC)) {
             $array[] = [
+                "id"=> $row["id"],
                 "rol"=> $row["rol"],
             ];
         }
@@ -22,10 +23,10 @@ class modules extends mysqli
     public function get_one($id)
     {
         $consulta = "SELECT * FROM rel_rol  WHERE id = $id";
-        $result = $this->conexion->query($consulta);
+        $result = mysqli::query($consulta);
         $row = $result->fetch_array(MYSQLI_ASSOC);
         $array = [
-        
+                "id"=> $row["id"],
                 "rol"=> $row["rol"],
         ];
         echo json_encode($array);
@@ -36,7 +37,7 @@ class modules extends mysqli
         mysqli_report(MYSQLI_REPORT_OFF);
         $rol = $_POST['rol'];
         $consulta = "INSERT INTO rel_rol ( rol) VALUES ( '$rol')";
-        $result = $this->conexion->query($consulta);
+        $result = mysqli::query($consulta);
         if ($result) {
             $array = [
             "status" => "success",
@@ -59,13 +60,12 @@ class modules extends mysqli
         $id = $_POST['id'];
 
         $consulta = "UPDATE rel_rol set rol = '$rol' WHERE id =  $id";
-        $this->conexion->query($consulta);
         $array = [
             "status" => "success",
             "text" => "Se editó correctamente"
         ];
 
-        if (!$this->conexion->affected_rows>0) {
+        if (!mysqli::query($consulta)) {
             $array = [
                 "status" => "error",
                 "text" => "No se pudo insertar el registro"
@@ -77,7 +77,7 @@ class modules extends mysqli
     {
         $datos = $_POST["data"];
         $consulta = "DELETE FROM rel_rol WHERE id IN ($datos)";
-        $this->conexion->query($consulta);
+        mysqli::query($consulta);
         $array = [
             "text" => "Se eliminó correctamente",
             "status" => "success",
