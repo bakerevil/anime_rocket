@@ -66,7 +66,7 @@ class modules extends mysqli
 
         
         
-        $consulta = "UPDATE status set status = '$status', id = '$id'";
+        $consulta = "UPDATE status set status = '$status' WHERE id = '$id'";
         $this->conexion->query($consulta);
         if($this->conexion->affected_rows>0){
         $array = [
