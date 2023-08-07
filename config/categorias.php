@@ -14,5 +14,12 @@ class categorias extends mysqli
         return $query;
     }
     
-}
-?>
+    public function get_categoria(){
+        $consulta = "SELECT v.id, v.capitulo, v.thumbnail, v.archivo, c.categoria, v.anime, v.orden, v.v_status FROM videos v INNER JOIN rv_categoria c ON v.categoria = c.id";
+        $query=$this->query($consulta);
+        return $query;
+    }
+
+    
+}                   
+?>  

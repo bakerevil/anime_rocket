@@ -9,3 +9,4 @@ closesidebar.addEventListener("click", (event) => {
     sidebar.classList.remove("active")
     
 })
+
