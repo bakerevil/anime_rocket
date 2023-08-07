@@ -184,3 +184,11 @@ nav ul a:hover {
  
  
  }
+
+
+
+
+.table-responsive {
+  overflow-x: auto;
+}
+

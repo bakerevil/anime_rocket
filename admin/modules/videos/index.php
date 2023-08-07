@@ -27,7 +27,7 @@
                 <a href="#" class="btnaction" id="btnNew"><i class="fa-solid fa-plus"></i> Nuevo</a>
                 <a href="#" class="btnaction" id="btnBorrar"><i class="fa-solid fa-trash"></i> Borrar</a>            </div>
         </div>
-        <section id="data">
+        <section id="data" class="table-responsive">
             <table>
                 <thead>
                     <tr>
