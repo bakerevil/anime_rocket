@@ -27,7 +27,7 @@
                 <a href="#" class="btnaction" id="btnNew"><i class="fa-solid fa-plus"></i> Nuevo</a>
                 <a href="#" class="btnaction" id="btnBorrar"><i class="fa-solid fa-trash"></i> Borrar</a>            </div>
         </div>
-        <section id="data">
+        <section id="data" class="table-responsive">
             <table>
                 <thead>
                     <tr>
@@ -82,7 +82,7 @@
                         </div>
                         <div class="col-6 mb-3">
                             <label for="fechap" class="form-label">Fecha Publicada</label>
-                            <input type="integer-local" class="form-control" name="fechap" id="fecha_publicada">
+                            <input type="varchar" class="form-control" name="fechap" id="fecha_publicada">
                         </div>
                         <div class="col-12">
                             <button type="submit" class="btn btn-success" id="btnSave">Guardar</button>

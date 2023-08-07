@@ -259,8 +259,8 @@ color: transparent;
   transition: left ease 0.5s;
   &.active{
   left: 0;
- }
- 
- 
- 
- }
+  }
+}
+.table-responsive {
+  overflow-x: auto;
+}
