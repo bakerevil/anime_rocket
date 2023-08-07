@@ -1,15 +1,15 @@
 <?php
 class modules extends mysqli
 {
-    public function __construct($host, $usuario, $pass, $bd)
+    public function __construct()
     {
-        parent::__construct($host, $usuario, $pass, $bd);
+        $this->conexion= new mysqli("localhost", "root", "", "anime_rocket");
     }
 
     public function get_data()
     {
-        $consulta = "SELECT v.id, v.capitulo, v.thumbnail, v.archivo, v.fecha_insercion, v.fecha_publicacion, v.orden, rsc.rv_status, ur.categoria, rsl.titulo FROM videos v LEFT JOIN rv_status rsc ON v.v_status = rsc.rv_id LEFT JOIN rv_categoria ur ON v.categoria = ur.id LEFT JOIN listas rsl ON v.anime = rsl.id";
-        $result = mysqli::query($consulta);
+        $consulta = "SELECT * FROM videos";
+        $result = $this->conexion->query($consulta);
         $array = [];
         while ($row = $result->fetch_array(MYSQLI_ASSOC)) {
             $array[] = [
@@ -30,7 +30,7 @@ class modules extends mysqli
     public function get_one($id)
     {
         $consulta = "SELECT * FROM videos  WHERE id = $id";
-        $result = mysqli::query($consulta);
+        $result = $this->conexion->query($consulta);
         $row = $result->fetch_array(MYSQLI_ASSOC);
         $array = [
             "id" => $row["id"],
