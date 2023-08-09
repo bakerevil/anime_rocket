@@ -30,7 +30,7 @@ class modules extends mysqli
     public function get_one($id)
     {
         $consulta = "SELECT * FROM videos  WHERE id = $id";
-        $result = mysqli::query($consulta);
+        $result = $this->conexion->query($consulta);
         $row = $result->fetch_array(MYSQLI_ASSOC);
         $array = [
             "id" => $row["id"],
