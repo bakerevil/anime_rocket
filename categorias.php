@@ -52,7 +52,7 @@
 
 <section id="main">
 
-  <h1 href="categorias.php?id=<?php echo $value['id'];?>"><?php echo $value["categoria"];?></h1>
+<h1 href="categorias.php?id=<?php echo $value['id'];?>"><?php echo $value["categoria"];?></h1>
   <div class="episodes">
 
 
@@ -61,26 +61,24 @@ require_once 'config/categorias.php';
 
 $categorias = new categorias("localhost", "root", "", "anime_rocket");
 
-if (isset($_GET['category_id'])) {
-    $category_id = $_GET['category_id'];
-    $categories = $categorias->get_data($category_id);
-} else {
-    $categories = $categorias->get_categoria();
-}
+$id = $_GET['id'] ?? 0;
+$categories = $categorias->get_categoria();
 
 foreach ($categories as $key => $value) {
-?>
+    if ($value['categoria'] == $id) {
+        ?>
 
-<div class="episode">
-    <p class="icon">►</p>
-    <img src="<?php echo $value['thumbnail']; ?>" alt="">
-    <div class="episode_description">
-        <p class="episode_number"><?php echo 'Episodio ' . $value['id']; ?></p>
-        <h3 class="episode_title"><?php echo $value['capitulo']; ?></h3>
-    </div>
-</div>
+        <div class="episode">
+            <p class="icon">►</p>
+            <img src="<?php echo $value['thumbnail']; ?>" alt="">
+            <div class="episode_description">
+                <p class="episode_number"><?php echo 'Episodio ' . $value['id']; ?></p>
+                <h3 class="episode_title"><?php echo $value['capitulo']; ?></h3>
+            </div>
+        </div>
 
-<?php
+        <?php
+    }
 }
 ?>
 </section>

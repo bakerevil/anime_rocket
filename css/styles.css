@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
 
+
+
 * {
   margin: 0;
   padding: 0;
@@ -7,25 +9,67 @@
 
 body {
   font-family: 'Poppins', sans-serif;
+    height: 150vh;
+    background-image: url(../img/cometaa.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: #fff;
+
+}
+#togglesidebar{
+  background-image: linear-gradient(to right, #000000, #9d0404);
+background-clip: text;
+-webkit-background-clip: text; 
+color: transparent;
 }
 
+.img-info{
+  
+  width: 200px;
+  height: 200px;
+  border-radius: 45%;
+  overflow: hidden;
+}
 header {
-  background: #3b4248;
+  background: #25415a;
   padding: 15px 0;
   width: 100%;
+ 
 }
 
+.inici{
+font-size: 20px;
+font-weight: 600;
+  background-image: linear-gradient(to right,  #e5ff00, #9d0404);
+  background-clip: text;
+  -webkit-background-clip: text; 
+  color: transparent;
+}
+.directo{
+  font-size: 20px;
+  font-weight: 600;
+  background-image: linear-gradient(to right,  #e5ff00, #9d0404);
+  background-clip: text;
+  -webkit-background-clip: text; 
+  color: transparent;
+}
 .header {
   display: flex;
   max-width: 1024px;
   margin: auto;
   align-items: center;
   justify-content: space-between;
+  
 }
 
 .logo {
   font-size: 2rem;
-  color: #fff;
+  background-image: linear-gradient(to right, #e5ff00, #9d0404);
+background-clip: text;
+-webkit-background-clip: text; 
+color: transparent;
+  
 }
 
 nav {
@@ -42,8 +86,9 @@ nav ul {
 
 nav ul a {
   text-decoration: none;
-  color: #ccc;
-  font-size: 1rem;
+  color: #aaffb4;
+  font-size: 17px;
+  font-weight: 500;
   display: block;
   transition: all 0.5s ease;
 }
@@ -52,6 +97,39 @@ nav ul a:hover {
   color: #fff;
 }
 
+.categ{
+font-size: 30px;
+font-weight: 900;
+margin-top: 30px;
+margin-bottom: 50px;
+background-image: linear-gradient(to right, #e5ff00, #9d0404);
+background-clip: text;
+-webkit-background-clip: text; 
+color: transparent;
+
+}
+
+#closesidebar{
+  font-size: 20px;
+  font-weight: 300;
+  margin-top: 20px;
+  margin-bottom: 40px;
+  background-image: linear-gradient(to right, #1e0b0b, #eeff00);
+  background-clip: text;
+  -webkit-background-clip: text; 
+  color: transparent;
+}
+.catego{
+  font-size: 30px;
+font-weight: 600;
+
+margin-top: 20px;
+margin-bottom: 40px;
+background-image: linear-gradient(to right, #1e0b0b, #eeff00);
+background-clip: text;
+-webkit-background-clip: text; 
+color: transparent;
+}
 #search form {
   display: flex;
   align-items: center;
@@ -69,7 +147,7 @@ nav ul a:hover {
 #search form input[type='submit'] {
   width: 20%;
   height: 45px;
-  background-color: crimson;
+  background-color: #aaffb4;
   border: none;
   border-radius: 0 4px 4px 0;
 }
@@ -79,10 +157,11 @@ nav ul a:hover {
   justify-content: center;
   align-items: center;
   width: 150px;
-  background: #535353;
+  background: black;
   border-radius: 5px;
   text-decoration: none;
-  color: #fff;
+  color: #aaffb4;;
+  font-size: 22px;
   text-align: center;
   transition: all 0.5s ease;
 }
@@ -98,7 +177,7 @@ nav ul a:hover {
 
 .episodes {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 15px;
   margin-top: 20px;
 }
@@ -174,13 +253,14 @@ nav ul a:hover {
   left: -320px;
   width: 300px;
   height: 100vh;
-  background: #3b4248;
+  background: #25415a;
   z-index: 2;
   padding: 20px 10px;
   transition: left ease 0.5s;
   &.active{
   left: 0;
- }
- 
- 
- }
+  }
+}
+.table-responsive {
+  overflow-x: auto;
+}
