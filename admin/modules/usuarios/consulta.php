@@ -1,15 +1,15 @@
 <?php
 class modules extends mysqli
 {
-    public function __construct()
+    public function __construct($host, $usuario, $pass, $bd)
     {
-        $this->conexion = new mysqli("localhost", "root", "", "anime_rocket");
+        parent::__construct($host, $usuario, $pass, $bd);
     }
 
     public function get_data()
     {
-        $consulta = "SELECT * FROM usuarios";
-        $result = $this->conexion->query($consulta);
+        $consulta = "SELECT u.id, u.nombre, u.correo, u.passwords, ur.rol, rsc.status FROM usuarios u LEFT JOIN rel_rol ur ON u.rol = ur.id LEFT JOIN rel_status rsc ON u.status = rsc.id";
+        $result = mysqli::query($consulta);
         $array = [];
         while ($row = $result->fetch_array(MYSQLI_ASSOC)) {
             $array[] = [
@@ -26,7 +26,7 @@ class modules extends mysqli
     public function get_one($id)
     {
         $consulta = "SELECT * FROM usuarios  WHERE id = $id";
-        $result = $this->conexion->query($consulta);
+        $result = mysqli::query($consulta);
         $row = $result->fetch_array(MYSQLI_ASSOC);
         $array = [
             "id" => $row["id"],
@@ -44,7 +44,7 @@ class modules extends mysqli
         $correo = $_POST['correo'];
         $passwords = $_POST['passwords'];
         $consulta = "SELECT * FROM usuarios WHERE correo = '$correo' AND passwords = '$passwords' AND status = 1";
-        $result = $this->conexion->query($consulta);
+        $result = mysqli::query($consulta);
         $row = $result->fetch_array(MYSQLI_ASSOC);
         echo json_encode($row);
     }
@@ -58,8 +58,8 @@ class modules extends mysqli
         $rol = $_POST['rol'];
         $status = $_POST['status'];
 
-        $consulta = "INSERT IGNORE INTO usuarios";
-        $result = $this->conexion->query($consulta);
+        $consulta = "INSERT IGNORE INTO usuarios (correo, passwords, rol, status, nombre) VALUES ('$correo', '$passwords', '$rol', '$status', '$nombre')";
+        $result = mysqli::query($consulta);
         if ($result) {
             $array = [
                 "status" => "success",
@@ -84,7 +84,7 @@ class modules extends mysqli
         $status = $_POST['status'];
         $id = $_POST['id'];
 
-        $consulta = "UPDATE * FROM usuarios";
+        $consulta = "UPDATE usuarios set correo = '$correo', passwords = '$passwords', rol = $rol, status = $status, nombre = '$nombre' WHERE id =  $id";
         $array = [
             "status" => "success",
             "text" => "Se editó correctamente"
