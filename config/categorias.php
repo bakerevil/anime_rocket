@@ -14,5 +14,11 @@ class categorias extends mysqli
         return $query;
     }
     
+    public function get_categoria(){
+    
+        $consulta = "SELECT * FROM videos WHERE categoria ";
+        $query = $this->query($consulta);
+        return $query;
+    }
 }
 ?>
