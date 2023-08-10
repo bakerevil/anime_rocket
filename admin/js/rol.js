@@ -22,7 +22,7 @@ function get_data () {
                             
                                 <td>${elemento.rol}</td>
                                 <td>
-                                <a href="#" class="btn_editar" data-id="${elemento.id}">Editar</a>
+                                <a href="#" class="btn_editar btnaction" data-id="${elemento.id}">Editar</a>
                                 </td>
                                 
                             </tr>
