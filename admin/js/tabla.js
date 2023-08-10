@@ -20,7 +20,6 @@ function get_data () {
                                     <input type="checkbox" value="${elemento.id}"  class="checkboxes">
                                 </th>
                                 <td>${elemento.correo}</td>
-                                <td>${elemento.passwords}</td>
                                 <td>${elemento.nombre}</td>
                                 <td>${elemento.rol}</td>
                                 <td>${elemento.status}</td>

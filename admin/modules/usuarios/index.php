@@ -38,11 +38,10 @@
                             <input type="checkbox" id="SelectAll">
                         </th>
                         <th> Correo</th>
-                        <th> Contraseña</th>
                         <th> Nombre</th>
                         <th> Rol</th>
                         <th> Status</th>
-                        <th> Acciones</th>
+                        <th> Editar</th>
                     </tr>
                 </thead>
                 <tbody id="cuerpo"></tbody>
@@ -83,6 +82,7 @@
             </div>
         </section>
     </main>
+    <script src="../../js/profile.js"></script>
     <script src="../../js/tabla.js"></script>
     <script src="../../js/sidebar.js"></script>
 </body>

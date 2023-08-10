@@ -92,6 +92,7 @@
             </div>
         </section>
     </main>
+    <script src="../../js/profile.js"></script>
     <script src="../../js/videos.js"></script>
     <script src="../../js/sidebar.js"></script>
 </body>

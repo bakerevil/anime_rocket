@@ -9,9 +9,15 @@
                   <title>🚀 Anime Rocket</title>
 </head>
 <body>
-  <div id="sidebar">
-    <a href="#" id="closesidebar"> cerrar</a>
-    <h2>categorias</h2>
+<div id="sidebar">
+    <a href="#" id="closesidebar"> Cerrar</a>
+    <br>
+    <br>
+    <br>
+    <div class="logo">
+        <!-- <img src="img/anim.jpeg" alt="" class="img-info" > -->
+    </div>
+    <h2 class="categ">Categorias</h2>
     
     <ul>
     <?php
@@ -22,7 +28,7 @@
     $categories = $categorias->get_data();
     foreach ($categories as $key => $value) {
       ?>
-        <li><a href="categorias.php?id=<?php echo $value['id'];?>"><?php echo $value["categoria"];?></a></li>
+        <li><a class="catego" href="categorias.php?id=<?php echo $value['id'];?>"><?php echo $value["categoria"];?></a></li>
       <?php
     }
     ?>
@@ -35,8 +41,8 @@
     <div class="logo"><a href="#" id="togglesidebar">🚀</a>Anime Rocket</div>
       <nav>
         <ul>
-          <li><a href="index.php">Inicio</a></li>
-          <li><a href="directorio.php">Directorio Anime</a></li>
+          <li><a href="index.php" class="inici">Inicio</a></li>
+          <li><a href="directorio.php" class="directo">Directorio Anime</a></li>
         </ul>
         <div id="search">
          <form action= "index.php" method= "POST">
