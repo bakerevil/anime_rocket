@@ -11,7 +11,7 @@
 <body>
   <header>
     <div class="header">
-    <div class="logo">🚀Directorio de anime</div>
+    <div class="logo">🚀Directorio De Anime</div>
       <nav>
         <ul>
           <li><a href="index.php">Inicio</a></li>
@@ -27,7 +27,7 @@
     </div>
 </header>
   <section id="main">
-<h1>Directorio de animes</h1>
+<h1>Directorio De Animes</h1>
 <div class="episodes">
 <?php
       require_once 'config/listas.php';
