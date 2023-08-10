@@ -22,7 +22,6 @@ function get_data () {
                                 </th>
                                 <td>${elemento.capitulo}</td>
                                 <td><img src="https://picsum.photos/50"></td>
-                                <td>${elemento.video}</td>
                                 <td>${elemento.categoria}</td>
                                 <td>${elemento.anime}</td>
                                 <td>${elemento.fechai}</td>

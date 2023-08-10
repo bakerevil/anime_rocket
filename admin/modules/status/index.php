@@ -35,10 +35,8 @@
                         <th>
                             <input type="checkbox" id="SelectAll">
                         </th>
-                        <th>id</th>
-                        <th>status</th>
-                        <th>editar</th>
-                      
+                        <th>Status</th>
+                        <th>Editar</th>
                     </tr>
                 </thead>
                 <tbody id="cuerpo"></tbody>
@@ -60,6 +58,7 @@
             </div>
         </section>
     </main>
+    <script src="../../js/profile.js"></script>
     <script src="../../js/status.js"></script>
     <script src="../../js/sidebar.js"></script>
 </body>

@@ -42,7 +42,7 @@
                         <th>Fecha</th>
                         <th>Votos</th>
                         <th>Año</th>
-                        <th>Editores</th>
+                        <th>Editar</th>
                     </tr>
                 </thead>
                 <tbody id="cuerpo"></tbody>
@@ -99,6 +99,7 @@
             </div>
         </section>
     </main>
+    <script src="../../js/profile.js"></script>
     <script src="../../js/lista.js"></script>
     <script src="../../js/sidebar.js"></script>
 </body>

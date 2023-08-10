@@ -13,13 +13,15 @@
         <?php require_once '../../inside.html'; ?>
     </div>
     <main id="main" class="main">
-        <div value="Rotate" id="img_container">
-            <a href="javascript:void(0)" onclick="showHideSideBar()">
-                <i class="fa-sharp fa-solid fa-chevron-left" id="image"></i>
-            </a>
-        </div>
         <div class="header">
-            <h2>Categorias</h2>
+        <div class="left">
+                <div value="Rotate" id="img_container">
+                    <a href="javascript:void(0)" onclick="showHideSideBar()">
+                        <i class="fa-sharp fa-solid fa-chevron-left" id="image"></i>
+                    </a>
+                </div>
+                <h2>Categorias</h2>
+            </div>
             <div class= actions>
                 <a href="#" class="btnaction" id="refresh"><i class="fa-solid fa-rotate-right"></i> Regresar</a>
                 <a href="#" class="btnaction" id="btnNew"><i class="fa-solid fa-plus"></i> Nuevo</a>
@@ -32,7 +34,7 @@
                         <th>
                             <input type="checkbox" id="SelectAll">
                         </th>
-                        <th> categoria</th>  
+                        <th> Categoria</th>  
                         <th> Editar</th>     
                     </tr>
                 </thead>
@@ -55,6 +57,7 @@
             </div>
         </section>
     </main>
+    <script src="../../js/profile.js"></script>
     <script src="../../js/categoria.js"></script>
     <script src="../../js/sidebar.js"></script>
 </body>
