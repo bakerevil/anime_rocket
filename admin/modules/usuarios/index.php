@@ -73,7 +73,12 @@
                         <div class="col-12 mb-3">
                             <label for="nombre" class="form-label">Usuario</label>
                             <input type="text" class="form-control" name="nombre" id="nombre">
+                        <input type="file" name="photo" id= "photo">
+                        <input type="hidden"name="avatar" id="avatar">
                         </div>
+                        <div>
+                            <img src="https://picsum.photos/300/200" id="avatarPreview">
+                            </div>
                         <div class="col-12">
                             <button type="submit" class="btn btn-success" id="btnSave">Guardar</button>
                         </div>
@@ -85,6 +90,7 @@
     <script src="../../js/profile.js"></script>
     <script src="../../js/tabla.js"></script>
     <script src="../../js/sidebar.js"></script>
+    <script src="../../js/upload.js"></script>
 </body>
 
 </html>
