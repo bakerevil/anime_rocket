@@ -25,7 +25,8 @@
             <div class= actions>
                 <a href="#" class="btnaction" id="refresh"><i class="fa-solid fa-rotate-right"></i> Regresar</a>
                 <a href="#" class="btnaction" id="btnNew"><i class="fa-solid fa-plus"></i> Nuevo</a>
-                <a href="#" class="btnaction" id="btnBorrar"><i class="fa-solid fa-trash"></i> Borrar</a>            </div>
+                <a href="#" class="btnaction" id="btnBorrar"><i class="fa-solid fa-trash"></i> Borrar</a>       
+                 </div>
         </div>
         <section id="data" class="table-responsive">
             <table>
@@ -91,13 +92,6 @@
                             <label for="fechai" class="form-label">Fecha de publicacion</label>
                             <input type="date" class="form-control" name="fechai" id="fecha_insertada">
                         </div>
-                        <div class="col-12 mb-3">
-                            <input type="file" name="photo" id= "photo">
-                            <input type="hidden"name="avatar" id="avatar">
-                        </div>
-                        <div>
-                            <img src="https://picsum.photos/300/200" id="avatarPreview">
-                        </div>
                         <div class="col-12">
                             <button type="submit" class="btn btn-success" id="btnSave">Guardar</button>
                         </div>
@@ -106,10 +100,9 @@
             </div>
         </section>
     </main>
-    <script src="../../js/profile.js"></script>
     <script src="../../js/videos.js"></script>
     <script src="../../js/sidebar.js"></script>
-    <script src="../../js/upload.js"></script>
 </body>
+
 
 </html>

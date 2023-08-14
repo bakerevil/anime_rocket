@@ -14,15 +14,15 @@ class modules extends mysqli
         while ($row = $result->fetch_array(MYSQLI_ASSOC)) {
             $array[] = [
             "id" => $row["id"],
-            "capitulo" => $row["capitulo"],
+            "anime" => $row["anime"],
             "foto" => $row["thumbnail"],
             "video" => $row["archivo"],
             "categoria" => $row["categoria"],
-            "anime" => $row["titulo"],
+            "capitulo" => $row["capitulo"],
             "fechai" => $row["fecha_insercion"],
             "fechap" => $row["fecha_publicacion"],
             "orden" => $row["orden"],
-            "status" => $row["status"],
+            "status" => $row["v_status"],
             ];
         }
         echo json_encode($array);
@@ -113,26 +113,6 @@ class modules extends mysqli
         ];
         echo json_encode($array);
     }
-
-    public function set_avatar()
-    {
-        $upload_dir = "../../../public/";
-        $tmp_name = $_FILES["file"]["tmp_name"];
-        $name = $upload_dir . $_FILES["file"]["name"];
-        $response = [
-            "status" => "error",
-            "text" => "no se pudo cargar"
-        ];
-        if(move_uploaded_file($tmp_name, $name)){
-            $response = [
-            "status" => "succes",
-            "text" => " se pudo cargar",
-            "file"=> $_FILES["file"]["name"]
-            ];
-        }
-        echo json_encode ($response);
-
-    }
 }
 
 $modules = new modules("localhost", "root", "", "anime_rocket");
@@ -153,9 +133,6 @@ if (isset($_POST)) {
             break;
         case 'delete_data':
             $modules->delete_data();
-            break;
-        case 'set_avatar':
-            $modules->set_avatar();
             break;
         default:
             echo "Función incompleta";
