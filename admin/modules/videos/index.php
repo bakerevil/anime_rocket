@@ -36,7 +36,7 @@
                             <input type="checkbox" id="SelectAll">
                         </th>
                         <th> Capitulo</th>
-                        <th> Thumbnail</th>
+                        <th> Foto</th>
                         <th> Categoria</th>
                         <th> Anime</th>
                         <th> Fecha Insertada</th>
@@ -56,14 +56,6 @@
                         <div class="col-6">
                             <label for="capitulo" class="form-label">Capitulo</label>
                             <input type="text" class="form-control" name="capitulo" id="capitulo">
-                        </div>
-                        <div class="col-6">
-                            <label for="formFileSm" class="form-label">Foto</label>
-                            <input type="text" class="form-control form-control sm" id="formFileSm">
-                        </div>
-                        <div class="col-6">
-                            <label for="formFileSm" class="form-label">Videos</label>
-                            <input class="form-control form-control-sm" id="formFileSm" type="file">
                         </div>
                         <div class="col-6">
                             <label for="categoria" class="form-label">Categoria</label>
@@ -91,7 +83,8 @@
                             <input type="date" class="form-control" name="fechai" id="fecha_insertada">
                         </div>
                         <div class="col-12 mb-3">
-                            <input type="file" name="photo" id= "photo">
+                            <label for="foto" class="form-label">Foto</label>
+                            <input class="form-control form-control-sm" type="file" name="photo" id= "photo">
                             <input type="hidden"name="avatar" id="avatar">
                         </div>
                         <div>
