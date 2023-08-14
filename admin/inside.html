@@ -43,11 +43,21 @@
                     <span class="txtLink">Categoria</span>
                 </a>
             </li>
+            <li>
+                <a>
+                    <i class="fas fa-sign-out-alt" style="color: #898080;"></i>
+                    <span id="logoutButton" class="txtLink">Cerrar</span>
+                </a>
+            </li>
         </ul>
     </div>
 </nav>
 
 <script>
+    document.getElementById("logoutButton").addEventListener("click", function() {
+            window.location.href = "../../logout.php";
+        });
+
     if(sessionStorage.getItem("user")){
         const usuario =  JSON.parse(sessionStorage.getItem("user"))
         imgInfo.setAttribute("src", usuario.avatar)
