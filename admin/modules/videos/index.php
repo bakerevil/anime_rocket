@@ -36,6 +36,7 @@
                         </th>
                         <th> Capitulo</th>
                         <th> Thumbnail</th>
+                        <th> Archivo</th>
                         <th> Categoria</th>
                         <th> Anime</th>
                         <th> Fecha Insertada</th>
@@ -57,32 +58,38 @@
                             <input type="text" class="form-control" name="capitulo" id="capitulo">
                         </div>
                         <div class="col-6">
-                            <label for="foto" class="form-label">Foto</label>
-                            <input type="text" class="form-control" name="foto" id="foto">
-                        </div>
-                        <div class="col-6">
-                            <label for="video" class="form-label">Video</label>
-                            <input type="text" class="form-control" name="video" id="video">
-                        </div>
+                         <label for="formFileSm" class="form-label">Fotos</label>
+                         <input class="form-control form-control-sm" id="formFileSm" type="file">
+                         </div>
+                         <div class="col-6">
+                         <label for="formFileSm" class="form-label">Videos</label>
+                         <input class="form-control form-control-sm" id="formFileSm" type="file">
+                         </div>
                         <div class="col-6">
                             <label for="categoria" class="form-label">Categoria</label>
-                            <input type="text" class="form-control" name="categoria" id="categoria">
+                            <select type="text" class="form-control" name="categoria" id="categoria">
+                            <option categoria="0">Seleciona tu opción</option>
+                                <option categoria="accion">accion</option>
+                                <option categoria="romance">romance</option>
+                                <option categoria="suspenso">suspenso</option>
+                                <option categoria="seinin">seinin</option>
+                                <option categoria="gore">gore</option>
+                                <option categoria="echi">echi</option>
+                            </select>
                         </div>
-                        <div class="col-6">
-                            <label for="anime" class="form-label">Anime</label>
-                            <input type="text" class="form-control" name="anime" id="anime">
-                        </div>
+                        
                         <div class="col-6">
                             <label for="status" class="form-label">Status</label>
-                            <input type="text" class="form-control" name="status" id="statuses">
+                            <select type="text" class="form-control" name="status" id="statuses">
+                            <option status="0">Seleciona tu opción</option>
+                                <option status="0">Capitulo nuevo</option>
+                                <option status="5">anime temporada</option>
+                                <option status="6">anime estreno</option>
+                                </select> 
                         </div>
                         <div class="col-6">
-                            <label for="fechai" class="form-label">Fecha Insertado</label>
+                            <label for="fechai" class="form-label">Fecha de publicacion</label>
                             <input type="date" class="form-control" name="fechai" id="fecha_insertada">
-                        </div>
-                        <div class="col-6 mb-3">
-                            <label for="fechap" class="form-label">Fecha Publicada</label>
-                            <input type="varchar" class="form-control" name="fechap" id="fecha_publicada">
                         </div>
                         <div class="col-12 mb-3">
                             <input type="file" name="photo" id= "photo">
