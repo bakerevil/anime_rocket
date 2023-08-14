@@ -22,7 +22,7 @@ function get_data () {
                                 </th>
                                 <td>${elemento.titulo}</td>
                                 <td>${elemento.sipnosis}</td>
-                                <td><img src="https://picsum.photos/50"></td>
+                                <td>${elemento.foto}</td>
                                 <td>${elemento.cap}</td>
                                 <td>${elemento.fecha}</td>
                                 <td>${elemento.voto}</td>
@@ -54,7 +54,7 @@ btnNew.addEventListener("click", (event) => {
 })
 btnSave.addEventListener("click", (event) => {
     event.preventDefault()
-    if( titulo.value != "" &&  sipnosis.value != "" && thumbnail.value != "" && cap.value != "" && fecha.value != "" && votos.value != "" && año.value != "" ){
+    if( titulo.value != "" && cap.value != "" &&  sipnosis.value != "" && avatar.value != ""&& fecha.value != "" && votos.value != "" && año.value != ""){
         let formdata = new FormData(form)
         formdata.append("funcion", "insert_data")
         if (btnSave.hasAttribute("data-id")) {
@@ -120,10 +120,10 @@ tabla.addEventListener("click", event => {
             .then(row => {
                 titulo.value = row.titulo
                 sipnosis.value = row.sipnosis
-                thumbnail.value = row.foto
+                avatar.value = row.avatar
                 cap.value = row.cap
                 fecha.value = row.fecha
-                votos.value = row.voto
+                votos.value = row.votos
                 año.value = row.año
                 btnSave.setAttribute("data-id", row.id)
                 btnSave.innerText = "Editar"
