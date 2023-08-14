@@ -80,10 +80,10 @@
                         <div class="col-6">
                             <label for="status" class="form-label">Status</label>
                             <select type="text" class="form-control" name="status" id="statuses">
-                              <option status="0">Seleciona tu opción</option>
-                              <option status="0">Capitulo nuevo</option>
-                              <option status="5">anime temporada</option>
-                              <option status="6">anime estreno</option>
+                                <option status="0">Seleciona tu opción</option>
+                                <option status="0">Capitulo nuevo</option>
+                                <option status="5">anime temporada</option>
+                                <option status="6">anime estreno</option>
                             </select> 
                         </div>
                         <div class="col-6">
