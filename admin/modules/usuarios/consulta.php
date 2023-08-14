@@ -154,10 +154,10 @@ if (isset($_POST)) {
         case 'delete_data':
             $modules->delete_data();
             break;
-            case 'set_avatar':
-                $modules->set_avatar();
-                break;
-        default:
+        case 'set_avatar':
+            $modules->set_avatar();
+            break;
+            default:
             echo "Función incompleta";
             break;
     }

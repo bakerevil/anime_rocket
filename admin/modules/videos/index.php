@@ -84,6 +84,13 @@
                             <label for="fechap" class="form-label">Fecha Publicada</label>
                             <input type="varchar" class="form-control" name="fechap" id="fecha_publicada">
                         </div>
+                        <div class="col-12 mb-3">
+                            <input type="file" name="photo" id= "photo">
+                            <input type="hidden"name="avatar" id="avatar">
+                        </div>
+                        <div>
+                            <img src="https://picsum.photos/300/200" id="avatarPreview">
+                        </div>
                         <div class="col-12">
                             <button type="submit" class="btn btn-success" id="btnSave">Guardar</button>
                         </div>
@@ -95,6 +102,7 @@
     <script src="../../js/profile.js"></script>
     <script src="../../js/videos.js"></script>
     <script src="../../js/sidebar.js"></script>
+    <script src="../../js/upload.js"></script>
 </body>
 
 </html>
