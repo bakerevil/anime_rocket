@@ -1,15 +1,15 @@
 <?php
 class modules extends mysqli
 {
-    public function __construct($host, $usuario, $pass, $bd)
+    public function __construct()
     {
-        parent::__construct($host, $usuario, $pass, $bd);
+        $this->conexion = new mysqli("localhost", "root", "", "anime_rocket");
     }
 
     public function get_data()
     {
-        $consulta = "SELECT u.id, u.nombre, u.correo, u.passwords, ur.rol, rsc.status FROM usuarios u LEFT JOIN rel_rol ur ON u.rol = ur.id LEFT JOIN rel_status rsc ON u.status = rsc.id";
-        $result = mysqli::query($consulta);
+        $consulta = "SELECT * FROM usuarios";
+        $result = $this->conexion->query($consulta);
         $array = [];
         while ($row = $result->fetch_array(MYSQLI_ASSOC)) {
             $array[] = [
@@ -26,7 +26,7 @@ class modules extends mysqli
     public function get_one($id)
     {
         $consulta = "SELECT * FROM usuarios  WHERE id = $id";
-        $result = mysqli::query($consulta);
+        $result = $this->conexion->query($consulta);
         $row = $result->fetch_array(MYSQLI_ASSOC);
         $array = [
             "id" => $row["id"],
@@ -44,7 +44,7 @@ class modules extends mysqli
         $correo = $_POST['correo'];
         $passwords = $_POST['passwords'];
         $consulta = "SELECT * FROM usuarios WHERE correo = '$correo' AND passwords = '$passwords' AND status = 1";
-        $result = mysqli::query($consulta);
+        $result = $this->conexion->query($consulta);
         $row = $result->fetch_array(MYSQLI_ASSOC);
         echo json_encode($row);
     }
@@ -58,8 +58,8 @@ class modules extends mysqli
         $rol = $_POST['rol'];
         $status = $_POST['status'];
 
-        $consulta = "INSERT IGNORE INTO usuarios (correo, passwords, rol, status, nombre) VALUES ('$correo', '$passwords', '$rol', '$status', '$nombre')";
-        $result = mysqli::query($consulta);
+        $consulta = "INSERT IGNORE INTO usuarios";
+        $result = $this->conexion->query($consulta);
         if ($result) {
             $array = [
                 "status" => "success",
@@ -84,7 +84,7 @@ class modules extends mysqli
         $status = $_POST['status'];
         $id = $_POST['id'];
 
-        $consulta = "UPDATE usuarios set correo = '$correo', passwords = '$passwords', rol = $rol, status = $status, nombre = '$nombre' WHERE id =  $id";
+        $consulta = "UPDATE * FROM usuarios";
         $array = [
             "status" => "success",
             "text" => "Se editó correctamente"
@@ -109,7 +109,28 @@ class modules extends mysqli
         ];
         echo json_encode($array);
     }
-}
+    public function set_avatar()
+    {
+        $upload_dir = "../../../public/";
+        $tmp_name = $_FILES["file"]["tmp_name"];
+        $name = $upload_dir . $_FILES["file"]["name"];
+        $response = [
+            "status" => "error",
+            "text" => "no se pudo cargar"
+        ];
+        if(move_uploaded_file($tmp_name, $name)){
+            $response = [
+            "status" => "succes",
+            "text" => " se pudo cargar",
+            "file"=> $_FILES["file"]["name"]
+            ];
+        }
+        echo json_encode ($response);
+
+    }
+  
+    }
+
 
 $modules = new modules("localhost", "root", "", "anime_rocket");
 
@@ -133,7 +154,10 @@ if (isset($_POST)) {
         case 'delete_data':
             $modules->delete_data();
             break;
-        default:
+        case 'set_avatar':
+            $modules->set_avatar();
+            break;
+            default:
             echo "Función incompleta";
             break;
     }

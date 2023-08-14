@@ -264,3 +264,20 @@ color: transparent;
 .table-responsive {
   overflow-x: auto;
 }
+h2 {
+  color: aqua;
+}
+h1{
+  color:aqua;
+}
+
+
+.sipnosis {
+  display: none;
+  background-color: rgb(247, 247, 247);
+}
+
+.episode:hover .sipnosis {
+  display: block;
+  color: #000000;
+}

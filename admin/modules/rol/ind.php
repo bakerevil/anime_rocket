@@ -34,8 +34,8 @@
                         <th>
                             <input type="checkbox" id="SelectAll">
                         </th>
-                        <th>ROL</th>
-                        <th>EDITAR</th>
+                        <th>Rol</th>
+                        <th>Editar</th>
                     </tr>
                 </thead>
                 <tbody id="cuerpo"></tbody>
@@ -45,7 +45,6 @@
             <div class="container">
                 <form action="cons.php" method="POST" id="form">
                     <div class="row mt-5">
-                     
                         <div class="col-6 mb-3">
                             <label for="cap" class="form-label">ROL</label>
                             <input type="text" class="form-control" name="rol" id="rol">
@@ -58,6 +57,7 @@
             </div>
         </section>
     </main>
+    <script src="../../js/profile.js"></script>
     <script src="../../js/rol.js"></script>
     <script src="../../js/sidebar.js"></script>
 </body>

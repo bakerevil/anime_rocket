@@ -38,11 +38,10 @@
                             <input type="checkbox" id="SelectAll">
                         </th>
                         <th> Correo</th>
-                        <th> Contraseña</th>
                         <th> Nombre</th>
                         <th> Rol</th>
                         <th> Status</th>
-                        <th> Acciones</th>
+                        <th> Editar</th>
                     </tr>
                 </thead>
                 <tbody id="cuerpo"></tbody>
@@ -75,6 +74,13 @@
                             <label for="nombre" class="form-label">Usuario</label>
                             <input type="text" class="form-control" name="nombre" id="nombre">
                         </div>
+                        <div class="col-12 mb-3">
+                            <input type="file" name="photo" id= "photo">
+                            <input type="hidden"name="avatar" id="avatar">
+                        </div>
+                        <div>
+                            <img src="https://picsum.photos/300/200" id="avatarPreview">
+                            </div>
                         <div class="col-12">
                             <button type="submit" class="btn btn-success" id="btnSave">Guardar</button>
                         </div>
@@ -83,8 +89,10 @@
             </div>
         </section>
     </main>
+    <script src="../../js/profile.js"></script>
     <script src="../../js/tabla.js"></script>
     <script src="../../js/sidebar.js"></script>
+    <script src="../../js/upload.js"></script>
 </body>
 
 </html>

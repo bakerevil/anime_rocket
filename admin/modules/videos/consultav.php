@@ -1,15 +1,15 @@
 <?php
 class modules extends mysqli
 {
-    public function __construct($host, $usuario, $pass, $bd)
+    public function __construct()
     {
-        parent::__construct($host, $usuario, $pass, $bd);
+        $this->conexion= new mysqli("localhost", "root", "", "anime_rocket");
     }
 
     public function get_data()
     {
-        $consulta = "SELECT v.id, v.capitulo, v.thumbnail, v.archivo, v.fecha_insercion, v.fecha_publicacion, v.orden, rsc.status, ur.categoria, rsl.titulo FROM videos v LEFT JOIN status rsc ON v.v_status = rsc.id LEFT JOIN rv_categoria ur ON v.categoria = ur.id LEFT JOIN listas rsl ON v.anime = rsl.id";
-        $result = mysqli::query($consulta);
+        $consulta = "SELECT * FROM videos";
+        $result = $this->conexion->query($consulta);
         $array = [];
         while ($row = $result->fetch_array(MYSQLI_ASSOC)) {
             $array[] = [
@@ -30,7 +30,7 @@ class modules extends mysqli
     public function get_one($id)
     {
         $consulta = "SELECT * FROM videos  WHERE id = $id";
-        $result = mysqli::query($consulta);
+        $result = $this->conexion->query($consulta);
         $row = $result->fetch_array(MYSQLI_ASSOC);
         $array = [
             "id" => $row["id"],
@@ -113,6 +113,26 @@ class modules extends mysqli
         ];
         echo json_encode($array);
     }
+
+    public function set_avatar()
+    {
+        $upload_dir = "../../../public/";
+        $tmp_name = $_FILES["file"]["tmp_name"];
+        $name = $upload_dir . $_FILES["file"]["name"];
+        $response = [
+            "status" => "error",
+            "text" => "no se pudo cargar"
+        ];
+        if(move_uploaded_file($tmp_name, $name)){
+            $response = [
+            "status" => "succes",
+            "text" => " se pudo cargar",
+            "file"=> $_FILES["file"]["name"]
+            ];
+        }
+        echo json_encode ($response);
+
+    }
 }
 
 $modules = new modules("localhost", "root", "", "anime_rocket");
@@ -133,6 +153,9 @@ if (isset($_POST)) {
             break;
         case 'delete_data':
             $modules->delete_data();
+            break;
+        case 'set_avatar':
+            $modules->set_avatar();
             break;
         default:
             echo "Función incompleta";

@@ -20,12 +20,11 @@ function get_data () {
                                     <input type="checkbox" value="${elemento.id}"  class="checkboxes">
                                 </th>
                                 <td>${elemento.correo}</td>
-                                <td>${elemento.passwords}</td>
                                 <td>${elemento.nombre}</td>
                                 <td>${elemento.rol}</td>
                                 <td>${elemento.status}</td>
                                 <td>
-                                <a href="#" class="btn_editar" data-id="${elemento.id}">Editar</a>
+                                <a href="#" class="btn_editar btnaction" data-id="${elemento.id}">Editar</a>
                                 </td>
                                 
                             </tr>

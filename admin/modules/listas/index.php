@@ -42,7 +42,7 @@
                         <th>Fecha</th>
                         <th>Votos</th>
                         <th>Año</th>
-                        <th>Editores</th>
+                        <th>Editar</th>
                     </tr>
                 </thead>
                 <tbody id="cuerpo"></tbody>
@@ -64,9 +64,15 @@
                             <label for="sipnosis" class="form-label">Sipnosis</label>
                             <input type="text" class="form-control" name="sipnosis" id="sipnosis">
                         </div>
-                        <div class="col-6">
-                            <label for="thumbnail" class="form-label">Thumbnail</label>
-                            <input type="text" class="form-control" name="thumbnail" id="thumbnail">
+                        <label for="">Thumbnail</label>
+                        <div class="col-6 mb-3">
+                            <label for="thumbnail" class="form-label"></label>
+                            <input type="file" name="photo" id= "photo">
+                            <input type="hidden"name="avatar" id="avatar">
+                        </div>
+                        <div>
+                            <img src="https://picsum.photos/300/200" id="avatarPreview">
+                        </div>
                         </div>
                         <div class="col-6">
                             <label for="fecha" class="form-label">Fecha de Insercion</label>
@@ -99,8 +105,10 @@
             </div>
         </section>
     </main>
+    <script src="../../js/profile.js"></script>
     <script src="../../js/lista.js"></script>
     <script src="../../js/sidebar.js"></script>
+    <script src="../../js/upload.js"></script>
 </body>
 
 </html>
