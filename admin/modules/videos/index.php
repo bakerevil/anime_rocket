@@ -26,7 +26,7 @@
                 <a href="#" class="btnaction" id="refresh"><i class="fa-solid fa-rotate-right"></i> Regresar</a>
                 <a href="#" class="btnaction" id="btnNew"><i class="fa-solid fa-plus"></i> Nuevo</a>
                 <a href="#" class="btnaction" id="btnBorrar"><i class="fa-solid fa-trash"></i> Borrar</a>       
-                 </div>
+            </div>
         </div>
         <section id="data" class="table-responsive">
             <table>
@@ -37,7 +37,6 @@
                         </th>
                         <th> Capitulo</th>
                         <th> Thumbnail</th>
-                        <th> Archivo</th>
                         <th> Categoria</th>
                         <th> Anime</th>
                         <th> Fecha Insertada</th>
@@ -59,17 +58,17 @@
                             <input type="text" class="form-control" name="capitulo" id="capitulo">
                         </div>
                         <div class="col-6">
-                         <label for="formFileSm" class="form-label">Fotos</label>
-                         <input class="form-control form-control-sm" id="formFileSm" type="file">
-                         </div>
-                         <div class="col-6">
-                         <label for="formFileSm" class="form-label">Videos</label>
-                         <input class="form-control form-control-sm" id="formFileSm" type="file">
-                         </div>
+                            <label for="formFileSm" class="form-label">Foto</label>
+                            <input type="text" class="form-control form-control sm" id="formFileSm">
+                        </div>
+                        <div class="col-6">
+                            <label for="formFileSm" class="form-label">Videos</label>
+                            <input class="form-control form-control-sm" id="formFileSm" type="file">
+                        </div>
                         <div class="col-6">
                             <label for="categoria" class="form-label">Categoria</label>
                             <select type="text" class="form-control" name="categoria" id="categoria">
-                            <option categoria="0">Seleciona tu opción</option>
+                                <option categoria="0">Seleciona tu opción</option>
                                 <option categoria="accion">accion</option>
                                 <option categoria="romance">romance</option>
                                 <option categoria="suspenso">suspenso</option>
@@ -78,19 +77,25 @@
                                 <option categoria="echi">echi</option>
                             </select>
                         </div>
-                        
                         <div class="col-6">
                             <label for="status" class="form-label">Status</label>
                             <select type="text" class="form-control" name="status" id="statuses">
-                            <option status="0">Seleciona tu opción</option>
-                                <option status="0">Capitulo nuevo</option>
-                                <option status="5">anime temporada</option>
-                                <option status="6">anime estreno</option>
-                                </select> 
+                              <option status="0">Seleciona tu opción</option>
+                              <option status="0">Capitulo nuevo</option>
+                              <option status="5">anime temporada</option>
+                              <option status="6">anime estreno</option>
+                            </select> 
                         </div>
                         <div class="col-6">
                             <label for="fechai" class="form-label">Fecha de publicacion</label>
                             <input type="date" class="form-control" name="fechai" id="fecha_insertada">
+                        </div>
+                        <div class="col-12 mb-3">
+                            <input type="file" name="photo" id= "photo">
+                            <input type="hidden"name="avatar" id="avatar">
+                        </div>
+                        <div>
+                            <img src="https://picsum.photos/300/200" id="avatarPreview">
                         </div>
                         <div class="col-12">
                             <button type="submit" class="btn btn-success" id="btnSave">Guardar</button>
@@ -100,9 +105,9 @@
             </div>
         </section>
     </main>
+    <script src="../../js/profile.js"></script>
     <script src="../../js/videos.js"></script>
     <script src="../../js/sidebar.js"></script>
+    <script src="../../js/upload.js"></script>
 </body>
-
-
 </html>
