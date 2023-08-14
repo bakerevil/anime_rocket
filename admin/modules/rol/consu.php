@@ -55,6 +55,7 @@ class modules extends mysqli
     public function update_data()
     {
         mysqli_report(MYSQLI_REPORT_OFF);
+   
         $rol = $_POST['rol'];
         $id = $_POST['id'];
 
