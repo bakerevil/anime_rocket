@@ -3,7 +3,7 @@ const fileUpload = files.target.files[0]
 const form = new FormData()
 form.append ("file" , fileUpload)
 form.append("funcion", "set_avatar")
-fetch("consulta.php",{
+fetch("cons.php",{
     method: "POST",
     body: form
 

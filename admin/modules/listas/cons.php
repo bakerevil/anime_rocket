@@ -45,7 +45,7 @@ class modules extends mysqli{
         mysqli_report(MYSQLI_REPORT_OFF);
         $titulo = $_POST['titulo'];
         $sipnosis = $_POST['sipnosis'];
-        $thumbnail = $_POST['thumbnail'];
+        $thumbnail = $_POST['avatar'];
         $capitulos = $_POST['cap'];
         $fecha_insercion = $_POST['fecha'];
         $votos = $_POST['votos'];
