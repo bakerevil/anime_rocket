@@ -11,50 +11,51 @@
 <body>
   <header>
     <div class="header">
-    <div class="logo">🚀Directorio De Anime</div>
+      <div class="logo">🚀Directorio De Anime</div>
       <nav>
         <ul>
           <li><a href="index.php">Inicio</a></li>
-          </ul>
+        </ul>
         <div id="search">
-         <form action= "directorio.php" method= "POST">
-          <input type="text" placeholder="Buscar..." name="texto">  
-          <input type="submit" name="search" value="🔍">
-       </form>
-      </div>
+          <form action="directorio.php" method="POST">
+            <input type="text" placeholder="Buscar..." name="texto">
+            <input type="submit" name="search" value="🔍">
+          </form>
+        </div>
         <a href="admin/index.html" class="login">Login</a>
       </nav>
     </div>
-</header>
+  </header>
   <section id="main">
-<h1>Directorio De Animes</h1>
-<div class="episodes">
-<?php
+    <h1>Directorio De Animes</h1>
+    <div class="episodes">
+      <?php
       require_once 'config/listas.php';
 
-        $listas= new listas ("localhost","root","","anime_rocket");
-        if (isset($_POST['search'])){
-          $result = $listas ->get_listas($_POST['texto']);
-        } else {
-            $result = $listas ->get_listas();
-        }
-        while ($row = $result ->fetch_array()) {
-    ?>
-      <div class="episode">
-        <p class="icon">►</p>
-        <img src="<?php echo $row ['thumbnail']; ?>" alt="">
-        <div class="episode_description">
-        <h3 class="episode_lis"><?php echo $row['status'];?></h3>
-          <p class="episode_number">Anime <?php echo $row ['id'];?></p>
-          <h3 class="episode_title"><?php echo $row ['titulo'];?></h3>
+      $listas = new listas("localhost", "root", "", "anime_rocket");
+      if (isset($_POST['search'])) {
+        $result = $listas->get_listas($_POST['texto']);
+      } else {
+        $result = $listas->get_listas();
+      }
+      while ($row = $result->fetch_array()) {
+        ?>
+        <div class="episode">
+          <p class="icon">►</p>
+          <img src="<?php echo $row['thumbnail']; ?>" alt="">
+          <div class="episode_description">
+            <h3 class="episode_lis"><?php echo $row['status']; ?></h3>
+            <p class="episode_number">Anime <?php echo $row['id']; ?></p>
+            <h3 class="episode_title"><?php echo $row['titulo']; ?></h3>
+            <div class="sipnosis">
+              <p><?php echo $row['sipnosis']; ?></p>
+            </div>
+          </div>
         </div>
-      </div>
-
-    <?php
-    }
-    ?>
+        <?php
+      }
+      ?>
     </div>
   </section>
-
 </body>
 </html>
