@@ -122,6 +122,9 @@ if (isset($resultfilter)) {
         <h3 class="episode_lis"><?php echo $row['status'];?></h3>
           <p class="episode_number">Anime <?php echo $row ['id'];?></p>
           <h3 class="episode_title"><?php echo $row ['titulo'];?></h3>
+          <div class="sipnosis">
+              <p><?php echo $row['sipnosis']; ?></p>
+          </div>
         </div>
       </div>
             <?php
@@ -147,6 +150,9 @@ while ($row = $resultlistas->fetch_array()) {
               <h3 class="episode_lis"><?php echo $row['status']; ?></h3>
               <p class="episode_number">Anime <?php echo $row['id']; ?></p>
               <h3 class="episode_title"><?php echo $row['titulo']; ?></h3>
+              <div class="sipnosis">
+              <p><?php echo $row['sipnosis']; ?></p>
+          </div>
           </div>
       </div>
       <?php

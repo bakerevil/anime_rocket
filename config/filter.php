@@ -26,7 +26,7 @@ class filter extends mysqli
 
     public function get_listas($select = "", $tipo = "", $status = "", $categoria = "")
     {
-        $consulta = "SELECT s.id, s.titulo, s.thumbnail, s.capitulos, s.fecha_insercion, s.votos, s.anio, s.l_tipo as rvt_nombre, s.l_categoria as categoria, c.status FROM listas s LEFT JOIN status c ON s.l_status = c.id ";
+        $consulta = "SELECT s.id, s.titulo, s.thumbnail, s.sipnosis, s.capitulos, s.fecha_insercion, s.votos, s.anio, s.l_tipo as rvt_nombre, s.l_categoria as categoria, c.status FROM listas s LEFT JOIN status c ON s.l_status = c.id ";
 
         $whereConditions = [];
 
