@@ -23,6 +23,7 @@ function get_data () {
                                 <td>${elemento.nombre}</td>
                                 <td>${elemento.rol}</td>
                                 <td>${elemento.status}</td>
+                                <td>${elemento.avatar}</td>
                                 <td>
                                 <a href="#" class="btn_editar btnaction" data-id="${elemento.id}">Editar</a>
                                 </td>
@@ -65,7 +66,7 @@ btnNew.addEventListener("click", (event) => {
 })
 btnSave.addEventListener("click", (event) => {
     event.preventDefault()
-    if (nombre.value != "" && passwords.value != "" && rol.value != "" && statuses.value != "" && correo.value != "") {
+    if (nombre.value != "" && passwords.value != "" && rol.value != "" && statuses.value != "" && correo.value != "" && avatar.value != "") {
         let formdata = new FormData(form)
         formdata.append("funcion", "insert_data")
         if (btnSave.hasAttribute("data-id")) {
@@ -134,6 +135,7 @@ tabla.addEventListener("click", event => {
                 rol.value = row.rol
                 statuses.value = row.status
                 correo.value = row.correo
+                avatar.value = row.avatar
                 btnSave.setAttribute("data-id", row.id)
                 btnSave.innerText = "Editar"
             })
