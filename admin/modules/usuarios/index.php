@@ -41,7 +41,6 @@
                         <th> Nombre</th>
                         <th> Rol</th>
                         <th> Status</th>
-                        <th> avatar</th>
                         <th> Editar</th>
                     </tr>
                 </thead>
