@@ -22,7 +22,7 @@ class modules extends mysqli
 
     public function get_data()
     {
-        $consulta = "SELECT * FROM usuarios";
+        $consulta = "SELECT u.id, u.correo, u.passwords, rr.rol, u.nombre, rs.status, u.avatar FROM usuarios u LEFT JOIN rel_rol rr ON u.rol = rr.id LEFT JOIN rel_status rs ON u.status = rs.id";
         $result = $this->conexion->query($consulta);
         $array = [];
         while ($row = $result->fetch_array(MYSQLI_ASSOC)) {
@@ -34,7 +34,6 @@ class modules extends mysqli
                 "nombre"=> $row["nombre"],
                 "status"=> $row["status"],
                 "avatar"=> $row["avatar"],
-             
             ];
         }
         echo json_encode($array);

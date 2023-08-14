@@ -1,6 +1,8 @@
 <?php
 class modules extends mysqli
 {
+    public $conexion;
+    
     public function __construct()
     {
         $this->conexion= new mysqli("localhost", "root", "", "anime_rocket");
