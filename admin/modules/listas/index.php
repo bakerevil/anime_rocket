@@ -95,7 +95,14 @@
                         </div>
                         <div class="col-6 mb-3">
                             <label for="año" class="form-label">Año</label>
-                            <input type="text" class="form-control" name="año" id="año">
+                            <select name="año" id="año" class="form-control">
+                            <option value="" disabled selected>Selecciona tu opción</option>
+                            <?php
+                            for ($año = 1980; $año <= 2023; $año++) { 
+                                echo "<option value='$año'>$año</option>";
+                            }
+                            ?>
+                            </select>
                         </div>
                         <div class="col-12">
                             <button type="submit" class="btn btn-success" id="btnSave">Guardar</button>
