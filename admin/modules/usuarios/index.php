@@ -67,6 +67,7 @@
                         <div class="col-6">
                             <label for="status" class="form-label">Status</label>
                             <select name="statuses" id="statuses" class="form-control">
+                                <option value="#">selecione su opcion</option>
                                 <option value="0">Inactivo</option>
                                 <option value="1">Activo</option>
                             </select>

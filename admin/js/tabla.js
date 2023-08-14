@@ -25,7 +25,7 @@ function get_data () {
                                 <td>${elemento.status}</td>
                                 <td>${elemento.avatar}</td>
                                 <td>
-                                <a href="#" class="btn_editar btnaction" data-id="${elemento.id}">Editar</a>
+                                <a href="#" class="btn_editar btnact" data-id="${elemento.id}">Editar</a>
                                 </td>
                                 
                             </tr>
