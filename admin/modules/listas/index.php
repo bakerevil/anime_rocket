@@ -53,48 +53,41 @@
                 <form action="cons.php" method="POST" id="form">
                     <div class="row mt-5">
                         <div class="col-6 ">
-                            <label for="titulo" class="form-label">Titulo</label>
+                            <label for="#" class="form-label">Titulo</label>
                             <input type="text" class="form-control" name="titulo" id="titulo">
                         </div>
                         <div class="col-6">
-                            <label for="cap" class="form-label">Capitulos</label>
+                            <label for="#" class="form-label">Capitulos</label>
                             <input type="text" class="form-control" name="cap" id="cap">
                         </div>
-                        <div class="col-12 mb-2">
-                            <label for="sipnosis" class="form-label">Sipnosis</label>
+                    </div>
+                        <div class="col-12">
+                            <label for="#" class="form-label">Sipnosis</label>
                             <input type="text" class="form-control" name="sipnosis" id="sipnosis">
                         </div>
-                        <label for="">Thumbnail</label>
-                        <div class="col-6 mb-3">
-                            <label for="thumbnail" class="form-label"></label>
-                            <input type="file" name="photo" id= "photo">
-                            <input type="hidden"name="avatar" id="avatar">
-                        </div>
-                        <div>
-                            <img src="https://picsum.photos/300/200" id="avatarPreview">
-                        </div>
-                        </div>
+                    <div class="row mt-2">
                         <div class="col-6">
-                            <label for="fecha" class="form-label">Fecha de Insercion</label>
+                            <label for="#" class="form-label">Fecha de Insercion</label>
                             <input type="date" class="form-control" name="fecha" id="fecha">
                         </div>
                         <div class="col-6">
-                            <label for="votos" class="form-label">Votos</label>
+                            <label for="#" class="form-label">Votos</label>
                             <select name="votos" id="votos" class="form-control">
-                                <option value="0">Seleciona tu opción</option>
+                                <option value="#">Seleciona tu opción</option>
                                 <option value="1">1</option>
                                 <option value="1.5">1.5</option>
-                                <option value="2">2</option>
+                                <option value="2.0">2</option>
                                 <option value="2.5">2.5</option>
-                                <option value="3">3</option>
+                                <option value="3.0">3</option>
                                 <option value="3.5">3.5</option>
-                                <option value="4">4</option>
+                                <option value="4.0">4</option>
                                 <option value="4.5">4.5</option>
-                                <option value="5">5</option>
+                                <option value="5.0">5</option>
                             </select>
                         </div>
+                    </div>
                         <div class="col-6 mb-3">
-                            <label for="año" class="form-label">Año</label>
+                            <label for="#" class="form-label">Año</label>
                             <select name="año" id="año" class="form-control">
                             <option value="" disabled selected>Selecciona tu opción</option>
                             <?php
@@ -103,6 +96,13 @@
                             }
                             ?>
                             </select>
+                        </div>
+                        <div class="col-12 mb-3">
+                            <input type="file" name="photo" id= "photo">
+                            <input type="text"name="avatar" id="avatar">
+                        </div>
+                        <div class="mb-3">
+                            <img src="https://picsum.photos/300/200" id="avatarPreview">
                         </div>
                         <div class="col-12">
                             <button type="submit" class="btn btn-success" id="btnSave">Guardar</button>

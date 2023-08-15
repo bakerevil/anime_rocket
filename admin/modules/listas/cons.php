@@ -15,7 +15,7 @@ class modules extends mysqli{
                 "id"=> $row["id"],
                 "titulo"=> $row["titulo"],
                 "sipnosis"=> $row["sipnosis"],
-                "foto"=> $row["thumbnail"],
+                "avatar"=> $row["thumbnail"],
                 "cap"=> $row["capitulos"],
                 "fecha"=> $row["fecha_insercion"],
                 "voto"=> $row["votos"],
@@ -33,8 +33,8 @@ class modules extends mysqli{
             "titulo"=> $row["titulo"],
             "cap"=> $row["capitulos"],
             "sipnosis"=> $row["sipnosis"],
-            "foto"=> $row["thumbnail"],
-            "voto"=> $row["votos"],
+            "avatar"=> $row["thumbnail"],
+            "votos"=> $row["votos"],
             "fecha"=> $row["fecha_insercion"],
             "año"=> $row["anio"],
         ];
@@ -45,15 +45,15 @@ class modules extends mysqli{
         mysqli_report(MYSQLI_REPORT_OFF);
         $titulo = $_POST['titulo'];
         $sipnosis = $_POST['sipnosis'];
-        $thumbnail = $_POST['avatar'];
+        $avatar = $_POST['avatar'];
         $capitulos = $_POST['cap'];
         $fecha_insercion = $_POST['fecha'];
         $votos = $_POST['votos'];
         $anio = $_POST['año'];
 
-        $consulta = "INSERT INTO listas (titulo, sipnosis, thumbnail, capitulos, fecha_insercion, votos, anio) VALUES ('$titulo', '$sipnosis', '$thumbnail', '$capitulos', '$fecha_insercion','$votos','$anio')";
+        $consulta = "INSERT INTO listas (titulo, sipnosis, thumbnail, capitulos, fecha_insercion, votos, anio) VALUES ('$titulo', '$sipnosis', '$avatar', '$capitulos', '$fecha_insercion','$votos','$anio')";
         $this->conexion->query($consulta);
-        if ($this->conexion->affected_rows>0) {
+        if ($this -> conexion -> affected_rows > 0) {
             $array = [
                 "status" => "success",
                 "text" => "Se insertó correctamente"
@@ -72,13 +72,13 @@ class modules extends mysqli{
         $titulo = $_POST['titulo'];
         $capitulo = $_POST['cap'];
         $sipnosis = $_POST['sipnosis'];
-        $thumbnail = $_POST['avatar'];
+        $avatar = $_POST['avatar'];
         $fecha_insercion = $_POST['fecha'];
         $votos = $_POST['votos'];
         $anio = $_POST['año'];
         $id = $_POST['id'];
         
-        $consulta = "UPDATE listas set titulo = '$titulo', sipnosis = '$sipnosis', capitulos = '$capitulo', thumbnail = '$thumbnail', fecha_insercion = '$fecha_insercion', votos = '$votos', anio = '$anio' WHERE id =  $id";
+        $consulta = "UPDATE listas set titulo = '$titulo', sipnosis = '$sipnosis', capitulos = '$capitulo', thumbnail = '$avatar', fecha_insercion = '$fecha_insercion', votos = '$votos', anio = '$anio' WHERE id =  $id";
         $this->conexion->query($consulta);
         if($this->conexion->affected_rows>0){
         $array = [
