@@ -78,7 +78,7 @@
                         </div>
                         <div class="col-12 mb-3">
                             <input type="file" name="photo" id= "photo">
-                            <input type="hidden"name="avatar" id="avatar">
+                            <input type="text"name="avatar" id="avatar">
                         </div>
                         <div>
                             <img src="https://picsum.photos/300/200" id="avatarPreview">

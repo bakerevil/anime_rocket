@@ -136,6 +136,7 @@ tabla.addEventListener("click", event => {
                 statuses.value = row.status
                 correo.value = row.correo
                 avatar.value = row.avatar
+                avatarPreview.setAttribute("src", "../../../public/"+ row.avatar)
                 btnSave.setAttribute("data-id", row.id)
                 btnSave.innerText = "Editar"
             })
