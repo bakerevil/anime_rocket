@@ -63,14 +63,14 @@ class modules extends mysqli
         $passwords= $_POST['passwords'];
         $rol= $_POST['rol'];
         $nombre= $_POST['nombre'];
-        $status= $_POST['status'];
+        $status= $_POST['statuses'];
         $avatar= $_POST['avatar'];
         
         
 
         $consulta = "INSERT INTO usuarios (correo,passwords,rol,nombre ,status, avatar) VALUES ('$correo','$passwords','$rol','$nombre','$status','$avatar')";
         $this->conexion->query($consulta);
-        if ($this->conexion->affected_rows>0) {
+        if ($this->conexion->affected_rows > 0 ) {
             $array = [
                 "status" => "success",
                 "text" => "Se insertó correctamente"
@@ -92,7 +92,7 @@ class modules extends mysqli
         $passwords= $_POST['passwords'];
         $rol= $_POST['rol'];
         $nombre= $_POST['nombre'];
-        $status= $_POST['status'];
+        $status= $_POST['statuses'];
         $avatar= $_POST['avatar'];
 
         
@@ -111,6 +111,24 @@ class modules extends mysqli
             ];
         }
         echo json_encode($array);
+    }
+
+    public function set_avatar(){
+        $upload_dir = "../../../public/";
+        $tmp_name = $_FILES["file"]["tmp_name"];
+        $name = $upload_dir . $_FILES["file"]["name"];
+        $response = [
+            "status" => "error",
+            "text" => "no se pudo cargar"
+        ];
+        if(move_uploaded_file($tmp_name, $name)){
+            $response = [
+            "status" => "succes",
+            "text" => " se pudo cargar",
+            "file"=> $_FILES["file"]["name"]
+            ];
+        }
+        echo json_encode ($response);
     }
     public function delete_data()
     {

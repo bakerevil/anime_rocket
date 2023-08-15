@@ -60,7 +60,7 @@
 
     if(sessionStorage.getItem("user")){
         const usuario =  JSON.parse(sessionStorage.getItem("user"))
-        imgInfo.setAttribute("src", usuario.avatar)
+        imgInfo.setAttribute("src", "../../../public/" + usuario.avatar)
         nameInfo.innerText = usuario.nombre
     }
 </script>
