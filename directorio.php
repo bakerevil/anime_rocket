@@ -14,15 +14,15 @@
     <div class="logo">🚀Directorio De Anime</div>
       <nav>
         <ul>
-          <li><a href="index.php">Inicio</a></li>
+          <li><a href="index">Inicio</a></li>
           </ul>
         <div id="search">
-         <form action= "directorio.php" method= "POST">
+         <form action= "directorio" method= "POST">
           <input type="text" placeholder="Buscar..." name="texto">  
           <input type="submit" name="search" value="🔍">
        </form>
       </div>
-        <a href="admin/index.html" class="login">Login</a>
+        <a href="admin/" class="login">Login</a>
       </nav>
     </div>
 </header>

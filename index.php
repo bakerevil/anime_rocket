@@ -46,8 +46,8 @@
     <div class="logo"><a href="#" id="togglesidebar">🚀</a>Anime Rocket</div>
       <nav>
         <ul>
-          <li><a href="index.php" class="inici">Inicio</a></li>
-          <li><a href="directorio.php" class="directo">Directorio Anime</a></li>
+          <li><a href="index" class="inici">Inicio</a></li>
+          <li><a href="directorio" class="directo">Directorio Anime</a></li>
         </ul>
         <div id="search">
          <form action= "index.php" method= "POST">
@@ -55,7 +55,7 @@
           <input type="submit" name="search" class="lup" value="🔍">
        </form>
       </div>
-        <a href="admin/index.html" class="login">Login</a>
+        <a href="admin/" class="login">Login</a>
       </nav>
     </div>
   </header>
