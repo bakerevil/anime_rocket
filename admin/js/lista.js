@@ -22,7 +22,7 @@ function get_data () {
                                 </th>
                                 <td>${elemento.titulo}</td>
                                 <td>${elemento.sipnosis}</td>
-                                <td>${elemento.foto}</td>
+                                <td>${elemento.avatar}</td>
                                 <td>${elemento.cap}</td>
                                 <td>${elemento.fecha}</td>
                                 <td>${elemento.voto}</td>

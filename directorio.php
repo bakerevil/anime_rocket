@@ -144,16 +144,15 @@ while ($row = $resultlistas->fetch_array()) {
       // Muestra información de la lista
       ?>
       <div class="episode">
+        <div title="<?php echo $row['sipnosis']; ?>">
           <p class="icon">►</p>
           <img src="<?php echo $row['thumbnail']; ?>" alt="">
           <div class="episode_description">
-              <h3 class="episode_lis"><?php echo $row['status']; ?></h3>
-              <p class="episode_number">Anime <?php echo $row['id']; ?></p>
-              <h3 class="episode_title"><?php echo $row['titulo']; ?></h3>
-              <div class="sipnosis">
-              <p><?php echo $row['sipnosis']; ?></p>
+            <h3 class="episode_lis"><?php echo $row['status']; ?></h3>
+            <p class="episode_number">Anime <?php echo $row['id']; ?></p>
+            <h3 class="episode_title"><?php echo $row['titulo']; ?></h3>
           </div>
-          </div>
+        </div>
       </div>
       <?php
   } else {
