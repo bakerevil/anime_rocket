@@ -14,9 +14,9 @@
     <br>
     <br>
     <br>
-    <div class="logo">
-        <img src="img/anim.jpeg" alt="" class="img-info" >
-    </div>
+    <div class="logg">🚀
+       
+       </div>
     <h2 class="categ">Categorias</h2>
     
           

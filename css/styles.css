@@ -71,6 +71,14 @@ background-clip: text;
 color: transparent;
   
 }
+.logg {
+  font-size: 10rem;
+  background-image: linear-gradient(to left, #c9b81d, #5e1010);
+background-clip: text;
+-webkit-background-clip: text; 
+color: transparent;
+  
+}
 
 nav {
   display: flex;
