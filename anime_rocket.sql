@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.5
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Servidor: localhost:3308
--- Tiempo de generación: 14-08-2023 a las 00:46:47
--- Versión del servidor: 10.1.38-MariaDB
--- Versión de PHP: 7.3.2
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 16-08-2023 a las 05:17:41
+-- Versión del servidor: 10.4.25-MariaDB
+-- Versión de PHP: 8.1.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -36,7 +35,7 @@ CREATE TABLE `listas` (
   `capitulos` varchar(255) NOT NULL,
   `fecha_insercion` date NOT NULL,
   `votos` decimal(2,1) NOT NULL,
-  `anio` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `anio` varchar(4) NOT NULL,
   `l_tipo` float NOT NULL,
   `l_categoria` float NOT NULL,
   `l_status` float NOT NULL
@@ -47,8 +46,8 @@ CREATE TABLE `listas` (
 --
 
 INSERT INTO `listas` (`id`, `titulo`, `sipnosis`, `thumbnail`, `capitulos`, `fecha_insercion`, `votos`, `anio`, `l_tipo`, `l_categoria`, `l_status`) VALUES
-(1, 'Demons Slayer', 'asdasdasd', 'https://picsum.photos/300/200', '1', '2023-02-02', '4.9', '2023-08-13 18:38:15', 1, 2, 5),
-(2, 'clashhure', 'adsadsa', 'https://picsum.photos/300/200', '1', '2023-02-02', '4.9', '2023-08-13 06:00:09', 2, 1, 0);
+(1, 'Demons Slayer', ' Tanjirou Kamado es un chico inteligente y de buen corazón que vive con su familia y gana dinero vendiendo carbón. Todo cambia cuando su familia es atacada y asesinada por un demonio (oni). Tanjirou y su hermana Nezuko son los únicos sobrevivientes del in', 'https://picsum.photos/300/200', '1', '2023-02-02', '3.0', '1995', 1, 2, 5),
+(2, 'clashhure', 'adsadsa', 'https://picsum.photos/300/200', '1', '2023-02-02', '3.5', '1995', 2, 1, 0);
 
 -- --------------------------------------------------------
 
@@ -165,17 +164,18 @@ CREATE TABLE `usuarios` (
   `passwords` varchar(50) NOT NULL,
   `rol` float NOT NULL,
   `nombre` varchar(100) NOT NULL DEFAULT '',
-  `status` int(1) NOT NULL DEFAULT '0'
+  `status` int(1) NOT NULL DEFAULT 0,
+  `avatar` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `usuarios`
 --
 
-INSERT INTO `usuarios` (`id`, `correo`, `passwords`, `rol`, `nombre`, `status`) VALUES
-(40, 'andrikadrian@outlook.com', '123123', 1, 'lolito', 1),
-(48, 'andrikadrian@outlook.hh', '123123', 0, 'lollo', 1),
-(49, 'hola@hola.mx', 'hola2', 1, 'zzzz', 1);
+INSERT INTO `usuarios` (`id`, `correo`, `passwords`, `rol`, `nombre`, `status`, `avatar`) VALUES
+(40, 'andrikadrian@outlook.com', '123123', 1, 'andrik', 1, 'asria_simp.png'),
+(48, 'andrikadrian@outlook.hh', '123123', 0, 'lollo', 1, 'chanta.jpg'),
+(49, 'hola@hola.mx', 'hola2', 1, 'bakerevil', 1, 'asria.png');
 
 -- --------------------------------------------------------
 
@@ -191,7 +191,7 @@ CREATE TABLE `videos` (
   `categoria` varchar(11) NOT NULL,
   `anime` int(4) NOT NULL,
   `fecha_insercion` date NOT NULL,
-  `fecha_publicacion` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `fecha_publicacion` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `orden` int(4) NOT NULL,
   `v_status` decimal(5,0) NOT NULL,
   `tipo` float NOT NULL
