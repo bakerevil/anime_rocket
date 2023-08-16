@@ -20,7 +20,7 @@
                         <i class="fa-sharp fa-solid fa-chevron-left" id="image"></i>
                     </a>
                 </div>
-                <h2>status</h2>
+                <h2>Status</h2>
             </div>
             <div class= actions>
                 <a href="#" class="btnaction" id="refresh"><i class="fa-solid fa-rotate-right"></i> Regresar</a>
@@ -35,9 +35,9 @@
                         <th>
                             <input type="checkbox" id="SelectAll">
                         </th>
-                        <th>id</th>
-                        <th>status</th>
-                        <th>editar</th>
+                        <th>Id</th>
+                        <th>Status</th>
+                        <th>Editar</th>
                       
                     </tr>
                 </thead>
@@ -49,7 +49,7 @@
                 <form action="cons.php" method="POST" id="form">
                     <div class="row mt-5">
                         <div class="col-6">
-                            <label for="cap" class="form-label">status</label>
+                            <label for="cap" class="form-label">Status</label>
                             <input type="text" class="form-control" name="status" id="statuses">
                             
                         <div class="col-12">
