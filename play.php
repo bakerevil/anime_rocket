@@ -7,8 +7,8 @@ $sipnosis = $modules->get_sipnosis();
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Anime Rocket</title>
     <link rel="stylesheet" href="playcarp/css/styles_play.css">
+    <title>Anime Rocket</title>
 </head>
 <body>
 <?php require_once 'header.html'; ?>
@@ -23,7 +23,7 @@ $sipnosis = $modules->get_sipnosis();
             </div>
             <div class="anime-detalles">
                 <h1>Nombre del Anime</h1>
-
+                <br>
                 <div id="sinopsisCont">
                     <p><?php echo $sipnosis[0]; ?></p>
                 </div>

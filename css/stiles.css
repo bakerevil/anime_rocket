@@ -1,201 +1,21 @@
-.container{
-width: 50%;
-padding: 180;
-background-color: aqua;
+.titulo{
+width: 100%;
+color: rgb(0, 255, 213);
+background: #25415a;
+text-align: center;
+color: white;
 }
-
-.nombrett{
-    width: 100%;
-    color: rgb(0, 255, 213);
-    
-}
-
-
-.nombre{
-    width: 100%;
-    background: #25415a;
-    text-align: center;
-}
-
 .tipoanime{
     width: 100%;
-    background: #25415a;
-        text-align: center;
-   background-color: orange;
-  border-radius: 10px;
-  
-}
-.titulos  {
-width: 100%;
-
-
-}
-.sinopsis{
-color: rgb(2, 2, 2);
-    margin-bottom: 100px;
-    font-size: 25px;
-    font-weight: 100;
-    
-}
-.categorias{
-    color: rgb(79, 50, 11);
-        line-height: 25px;
-}
-.descripcion{
-text-align: justify;
-line-height: 1.5;
-        border-radius: 8px;
-        background-color: hsl(0, 0%, 100%);
-        box-shadow: -2px 8px 6px -2px rgba(51, 129, 254, 0.61);
-        padding: 5px;
-        margin-bottom: 10px;
-        width: 300px;
-}
-
-header {
-    background: #25415a;
-    padding: 15px 0;
-    width: 100%;
-
-}
-
-.inici {
-    font-size: 20px;
-    font-weight: 600;
-    background-image: linear-gradient(to right, #e5ff00, #9d0404);
-    background-clip: text;
-    -webkit-background-clip: text;
-    color: transparent;
-}
-
-.directo {
-    font-size: 20px;
-    font-weight: 600;
-    background-image: linear-gradient(to right, #e5ff00, #9d0404);
-    background-clip: text;
-    -webkit-background-clip: text;
-    color: transparent;
-}
-
-.header {
-    display: flex;
-    max-width: 1024px;
-    margin: auto;
-    align-items: center;
-    justify-content: space-between;
-
-}
-.logo {
-    font-size: 2rem;
-    background-image: linear-gradient(to right, #e5ff00, #9d0404);
-    background-clip: text;
-    -webkit-background-clip: text;
-    color: transparent;
-
-}
-
-nav {
-    display: flex;
-    gap: 25px;
-}
-
-nav ul {
-    list-style: none;
-    display: flex;
-    align-items: center;
-    gap: 15px;
-}
-
-nav ul a {
-    text-decoration: none;
-    color: #aaffb4;
-    font-size: 17px;
-    font-weight: 500;
-    display: block;
-    transition: all 0.5s ease;
-}
-
-nav ul a:hover {
-    color: #fff;
-}
-#search form {
-    display: flex;
-    align-items: center;
-    width: 300px;
-}
-
-#search form input {
-    width: 80%;
-    height: 35px;
-    padding: 5px;
-    border: none;
-    border-radius: 4px 0 0 4px;
-}
-
-#search form input[type='submit'] {
-    width: 20%;
-    height: 45px;
-    background-color: #aaffb4;
-    border: none;
-    border-radius: 0 4px 4px 0;
-}
-.login {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 150px;
-    background: black;
-    border-radius: 5px;
-    text-decoration: none;
-    color: #aaffb4;
-    ;
-    font-size: 22px;
     text-align: center;
-    transition: all 0.5s ease;
+    color: white;
+    background-color: orange;
+    border-radius: 5px;
 }
-
-.login:hover {
-    background: #000;
+.sinopsis {
+    color: rgb(2, 2, 2);
+    padding: 0 0 0 80px;
 }
-#sidebar {
-    position: fixed;
-    top: 0;
-    left: -320px;
-    width: 300px;
-    height: 100vh;
-    background: #25415a;
-    z-index: 2;
-    padding: 20px 10px;
-    transition: left ease 0.5s;
-
-    &.active {
-        left: 0;
-    }
-}
-.categ {
-    font-size: 30px;
-    font-weight: 900;
-    margin-top: 30px;
-    margin-bottom: 50px;
-    background-image: linear-gradient(to right, #e5ff00, #9d0404);
-    background-clip: text;
-    -webkit-background-clip: text;
-    color: transparent;
-
-}
-#closesidebar {
-    font-size: 20px;
-    font-weight: 300;
-    margin-top: 20px;
-    margin-bottom: 40px;
-    background-image: linear-gradient(to right, #1e0b0b, #eeff00);
-    background-clip: text;
-    -webkit-background-clip: text;
-    color: transparent;
-}
-#togglesidebar {
-    background-image: linear-gradient(to right, #000000, #9d0404);
-    background-clip: text;
-    -webkit-background-clip: text;
-    color: transparent;
+.img{
+    display: flex;
 }
