@@ -22,7 +22,6 @@ function get_data () {
                                 </th>
                                 <td>${elemento.capitulo}</td>
                                 <td><img src="https://picsum.photos/50"></td>
-                                <td>${elemento.video}</td>
                                 <td>${elemento.categoria}</td>
                                 <td>${elemento.anime}</td>
                                 <td>${elemento.fechai}</td>
@@ -30,7 +29,7 @@ function get_data () {
                                 <td>${elemento.orden}</td>
                                 <td>${elemento.status}</td>
                                 <td>
-                                <a href="#" class="btn_editar" data-id="${elemento.id}">Editar</a>
+                                <a href="#" class="btn_editar btnact" data-id="${elemento.id}">Editar</a>
                                 </td>
                                 
                             </tr>

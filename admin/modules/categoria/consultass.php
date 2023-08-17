@@ -1,5 +1,4 @@
 <?php
-
 class modules extends mysqli
 {
     public function __construct($host, $usuario, $pass, $bd)
@@ -9,25 +8,25 @@ class modules extends mysqli
 
     public function get_data()
     {
-        $consulta = "SELECT * FROM rel_rol";
+        $consulta = "SELECT * FROM rv_categoria";
         $result = mysqli::query($consulta);
         $array = [];
         while ($row = $result->fetch_array(MYSQLI_ASSOC)) {
             $array[] = [
                 "id"=> $row["id"],
-                "rol"=> $row["rol"],
+                "categorias"=> $row["categoria"],
             ];
         }
         echo json_encode($array);
     }
     public function get_one($id)
     {
-        $consulta = "SELECT * FROM rel_rol  WHERE id = $id";
+        $consulta = "SELECT * FROM rv_categoria  WHERE id = $id";
         $result = mysqli::query($consulta);
         $row = $result->fetch_array(MYSQLI_ASSOC);
         $array = [
-                "id"=> $row["id"],
-                "rol"=> $row["rol"],
+            "id"=> $row["id"],
+                "categorias"=> $row["categoria"],
         ];
         echo json_encode($array);
     }
@@ -35,8 +34,10 @@ class modules extends mysqli
     public function insert_data()
     {
         mysqli_report(MYSQLI_REPORT_OFF);
-        $rol = $_POST['rol'];
-        $consulta = "INSERT INTO rel_rol ( rol) VALUES ( '$rol')";
+        
+        $categoria = $_POST['categorias'];
+
+        $consulta = "INSERT INTO rv_categoria (categoria) VALUES ('$categoria')";
         $result = mysqli::query($consulta);
         if ($result) {
             $array = [
@@ -55,10 +56,10 @@ class modules extends mysqli
     public function update_data()
     {
         mysqli_report(MYSQLI_REPORT_OFF);
-        $rol = $_POST['rol'];
         $id = $_POST['id'];
-
-        $consulta = "UPDATE rel_rol set rol = '$rol' WHERE id =  $id";
+        $categoria = $_POST['categorias'];
+         
+        $consulta = "UPDATE rv_categoria set categoria = '$categoria' WHERE id =  $id";
         $array = [
             "status" => "success",
             "text" => "Se editó correctamente"
@@ -75,7 +76,7 @@ class modules extends mysqli
     public function delete_data()
     {
         $datos = $_POST["data"];
-        $consulta = "DELETE FROM rel_rol WHERE id IN ($datos)";
+        $consulta = "DELETE FROM rv_categoria WHERE id IN ($datos)";
         mysqli::query($consulta);
         $array = [
             "text" => "Se eliminó correctamente",
@@ -87,7 +88,7 @@ class modules extends mysqli
 
 $modules = new modules("localhost", "root", "", "anime_rocket");
 
-if (isset($_POST)) {
+if (isset($_POST) && isset($_POST["funcion"])) {
     switch ($_POST["funcion"]) {
         case 'get_data':
             $modules->get_data();

@@ -8,7 +8,7 @@ let formdata = new FormData()
 function get_data () {
     formdata.append("funcion", "get_data")
     opciones.body = formdata
-    fetch('consulta.php', opciones)
+    fetch('consultass.php', opciones)
         .then(respuesta => respuesta.json())
         .then(resultado => {
             let template = ``
@@ -19,11 +19,8 @@ function get_data () {
                                 <th>
                                     <input type="checkbox" value="${elemento.id}"  class="checkboxes">
                                 </th>
-                                <td>${elemento.correo}</td>
-                                <td>${elemento.nombre}</td>
-                                <td>${elemento.rol}</td>
-                                <td>${elemento.status}</td>
-                                <td>${elemento.avatar}</td>
+                                
+                                <td>${elemento.categorias}</td>
                                 <td>
                                 <a href="#" class="btn_editar btnact" data-id="${elemento.id}">Editar</a>
                                 </td>
@@ -32,23 +29,9 @@ function get_data () {
                             
                     `
             });
-            tabla.innerHTML = template
+            tabla.innerHTML = template;
             showDeleteIcon();
             refresh.style.display = "none";
-        });
-}
-function get_roles () {
-    formdata.append("funcion", "get_data")
-    opciones.body = formdata
-    fetch('../rol/consu.php', opciones)
-        .then(respuesta => respuesta.json())
-        .then(resultado => {
-            let template = ``
-            resultado.forEach(elemento => {
-
-                template += `<option value="${elemento.id}">${elemento.rol}</option>`
-            });
-            rol.innerHTML = template
         });
 }
 const showForm = () => {
@@ -59,14 +42,13 @@ const showForm = () => {
     }
 }
 get_data()
-get_roles()
 btnNew.addEventListener("click", (event) => {
     event.preventDefault()
     showForm()
 })
 btnSave.addEventListener("click", (event) => {
     event.preventDefault()
-    if (nombre.value != "" && passwords.value != "" && rol.value != "" && statuses.value != "" && correo.value != "" && avatar.value != "") {
+    if(categorias.value != ""  ){
         let formdata = new FormData(form)
         formdata.append("funcion", "insert_data")
         if (btnSave.hasAttribute("data-id")) {
@@ -74,7 +56,7 @@ btnSave.addEventListener("click", (event) => {
             formdata.append("id", btnSave.getAttribute("data-id"))
         }
         opciones.body = formdata
-        fetch('consulta.php', opciones)
+        fetch('consultass.php', opciones)
             .then(respuesta => respuesta.json())
             .then(resultado => {
                 alert(resultado.text)
@@ -87,12 +69,12 @@ btnSave.addEventListener("click", (event) => {
                     btnSave.removeAttribute("data-id")
                 }
             })
-    }
+        }
 })
 let refresh = document.getElementById('refresh');
 refresh.addEventListener('click', _ => {
-    location.reload();
-    console.log('refresh')
+            location.reload();
+            console.log('refresh')
 })
 SelectAll.addEventListener("change", checkbox => {
     const checkboxes = document.querySelectorAll(".checkboxes")
@@ -124,19 +106,14 @@ tabla.addEventListener("click", event => {
         const id = event.target.getAttribute('data-id')
         formData.append("funcion", "get_one")
         formData.append("id", id)
-        fetch("consulta.php", {
+        fetch("consultass.php", {
             method: "POST",
             body: formData
         })
             .then(response => response.json())
             .then(row => {
-                nombre.value = row.nombre
-                passwords.value = row.passwords
-                rol.value = row.rol
-                statuses.value = row.status
-                correo.value = row.correo
-                avatar.value = row.avatar
-                avatarPreview.setAttribute("src", "../../../public/"+ row.avatar)
+                id.value = row.id
+                categorias.value = row.categorias
                 btnSave.setAttribute("data-id", row.id)
                 btnSave.innerText = "Editar"
             })
@@ -159,7 +136,7 @@ btnBorrar.addEventListener("click", event => {
         const formData = new FormData()
         formData.append("funcion", "delete_data")
         formData.append("data", itemsCheckbox)
-        fetch("consulta.php", {
+        fetch("consultass.php", {
             method: "POST",
             body: formData
         })
@@ -172,5 +149,3 @@ btnBorrar.addEventListener("click", event => {
             })
     }
 })
-
-

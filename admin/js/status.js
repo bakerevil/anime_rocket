@@ -3,11 +3,13 @@ const tabla = document.querySelector('#cuerpo');
 let opciones = {
     method: 'POST'
 }
+
 let formdata = new FormData()
+
 function get_data () {
     formdata.append("funcion", "get_data")
     opciones.body = formdata
-    fetch('consult.php', opciones)
+    fetch('cons.php', opciones)
         .then(respuesta => respuesta.json())
         .then(resultado => {
             let template = ``
@@ -18,10 +20,9 @@ function get_data () {
                                 <th>
                                     <input type="checkbox" value="${elemento.id}"  class="checkboxes">
                                 </th>
-                                <td>${elemento.id}</td>
-                                <td>${elemento.statusdelvideo}</td>
+                                <td>${elemento.status}</td>
                                 <td>
-                                <a href="#" class="btn_editar" data-id="${elemento.id}">Editar</a>
+                                <a href="#" class="btn_editar btnact" data-id="${elemento.id}">Editar</a>
                                 </td>
                                 
                             </tr>
@@ -47,7 +48,7 @@ btnNew.addEventListener("click", (event) => {
 })
 btnSave.addEventListener("click", (event) => {
     event.preventDefault()
-    if( id.value != "" &&  statusdelvideo.value != ""  ){
+    if(  status.value != ""  ){
         let formdata = new FormData(form)
         formdata.append("funcion", "insert_data")
         if (btnSave.hasAttribute("data-id")) {
@@ -55,7 +56,7 @@ btnSave.addEventListener("click", (event) => {
             formdata.append("id", btnSave.getAttribute("data-id"))
         }
         opciones.body = formdata
-        fetch('consult.php', opciones)
+        fetch('cons.php', opciones)
             .then(respuesta => respuesta.json())
             .then(resultado => {
                 alert(resultado.text)
@@ -73,7 +74,7 @@ btnSave.addEventListener("click", (event) => {
 let refresh = document.getElementById('refresh');
 refresh.addEventListener('click', _ => {
             location.reload();
-            console.log('refresh')
+            // console.log('refresh')
 })
 SelectAll.addEventListener("change", checkbox => {
     const checkboxes = document.querySelectorAll(".checkboxes")
@@ -105,14 +106,13 @@ tabla.addEventListener("click", event => {
         const id = event.target.getAttribute('data-id')
         formData.append("funcion", "get_one")
         formData.append("id", id)
-        fetch("consult.php", {
+        fetch("cons.php", {
             method: "POST",
             body: formData
         })
             .then(response => response.json())
             .then(row => {
-                id.value = row.id
-                statusdelvideo.value = row.statusdelvideo
+                statuses.value = row.status
                 btnSave.setAttribute("data-id", row.id)
                 btnSave.innerText = "Editar"
             })
@@ -135,7 +135,7 @@ btnBorrar.addEventListener("click", event => {
         const formData = new FormData()
         formData.append("funcion", "delete_data")
         formData.append("data", itemsCheckbox)
-        fetch("consult.php", {
+        fetch("cons.php", {
             method: "POST",
             body: formData
         })

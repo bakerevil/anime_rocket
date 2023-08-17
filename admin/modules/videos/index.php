@@ -25,9 +25,10 @@
             <div class= actions>
                 <a href="#" class="btnaction" id="refresh"><i class="fa-solid fa-rotate-right"></i> Regresar</a>
                 <a href="#" class="btnaction" id="btnNew"><i class="fa-solid fa-plus"></i> Nuevo</a>
-                <a href="#" class="btnaction" id="btnBorrar"><i class="fa-solid fa-trash"></i> Borrar</a>            </div>
+                <a href="#" class="btnaction" id="btnBorrar"><i class="fa-solid fa-trash"></i> Borrar</a>       
+            </div>
         </div>
-        <section id="data">
+        <section id="data" class="table-responsive">
             <table>
                 <thead>
                     <tr>
@@ -35,7 +36,7 @@
                             <input type="checkbox" id="SelectAll">
                         </th>
                         <th> Capitulo</th>
-                        <th> Thumbnail</th>
+                        <th> Foto</th>
                         <th> Categoria</th>
                         <th> Anime</th>
                         <th> Fecha Insertada</th>
@@ -57,32 +58,53 @@
                             <input type="text" class="form-control" name="capitulo" id="capitulo">
                         </div>
                         <div class="col-6">
-                            <label for="foto" class="form-label">Foto</label>
-                            <input type="text" class="form-control" name="foto" id="foto">
-                        </div>
-                        <div class="col-6">
-                            <label for="video" class="form-label">Video</label>
-                            <input type="text" class="form-control" name="video" id="video">
-                        </div>
-                        <div class="col-6">
                             <label for="categoria" class="form-label">Categoria</label>
-                            <input type="text" class="form-control" name="categoria" id="categoria">
-                        </div>
-                        <div class="col-6">
-                            <label for="anime" class="form-label">Anime</label>
-                            <input type="text" class="form-control" name="anime" id="anime">
+                            <select type="text" class="form-control" name="categoria" id="categoria">
+                                <option categoria="#">Seleciona tu opción</option>
+                                <option categoria="1">accion</option>
+                                <option categoria="2">romance</option>
+                                <option categoria="3">suspenso</option>
+                                <option categoria="4">seinin</option>
+                                <option categoria="5">gore</option>
+                                <option categoria="6">echi</option>
+                            </select>
                         </div>
                         <div class="col-6">
                             <label for="status" class="form-label">Status</label>
-                            <input type="text" class="form-control" name="status" id="statuses">
+                            <select type="text" class="form-control" name="status" id="statuses">
+                                <option status="#">Seleciona tu opción</option>
+                                <option status="0">Capitulo nuevo</option>
+                                <option status="5">anime temporada</option>
+                                <option status="6">anime estreno</option>
+                            </select> 
                         </div>
                         <div class="col-6">
-                            <label for="fechai" class="form-label">Fecha Insertado</label>
+                            <label for="anime" class="form-label">anime</label>
+                            <select type="text" class="form-control" name="anime" id="anime">
+                                <option listas="#">Seleciona tu opción</option>
+                                <option listas="1">Demons Slaye	</option>
+                                <option listas="2">clashhure</option>
+                            </select> 
+                        </div>
+                        <div class="col-6">
+                            <label for="fechai" class="form-label">Fecha de publicacion</label>
                             <input type="date" class="form-control" name="fechai" id="fecha_insertada">
                         </div>
+                        <div class="col-6">
+                            <label for="foto" class="form-label">Foto</label>
+                            <input class="form-control form-control-sm" type="file" name="photo" id= "photo">
+                            <input type="hidden"name="avatar" id="avatar">
+                        </div>
                         <div class="col-6 mb-3">
-                            <label for="fechap" class="form-label">Fecha Publicada</label>
-                            <input type="datetime-local" class="form-control" name="fechap" id="fecha_publicada">
+                            <label for="video" class="form-label">Videos</label>
+                            <input class="form-control form-control-sm" type="file" name="video" id= "video">
+                            <input type="hidden"name="videoprev" id="videoprev">
+                            <div class="col-6 mb-3">
+                                <img src="https://picsum.photos/300/200" id="videoprev">
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <img src="https://picsum.photos/300/200" id="avatarPreview">
                         </div>
                         <div class="col-12">
                             <button type="submit" class="btn btn-success" id="btnSave">Guardar</button>
@@ -92,8 +114,9 @@
             </div>
         </section>
     </main>
+    <script src="../../js/profile.js"></script>
     <script src="../../js/videos.js"></script>
     <script src="../../js/sidebar.js"></script>
+    <script src="../../js/upload.js"></script>
 </body>
-
 </html>

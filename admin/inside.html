@@ -1,40 +1,52 @@
 <nav id="sideBar" class="sideBar">
     <div class="logo">
         <img src="https://picsum.photos/300/200" class="img-info" id="imgInfo">
-        <div id="texto-info">
-            <h1 id="nameInfo">asdd</h1>
-        </div>
+    </div>
+    <div id="texto-info">
+        <h1 id="nameInfo">sin usuario</h1>
     </div>
     <div class="menu">
         <ul>
             <li class="selected">
-                <a href="../listas/index.php">
+                <a href="../listas/">
                     <i class="fa-solid fa-list"></i>
                     <span class="txtLink">Listas</span>
                 </a>
             </li>
             <li>
-                <a href="../videos/index.php">
+                <a href="../videos/">
                     <i class="fas fa-video"></i>
                     <span class="txtLink">Videos</span>
                 </a>
             </li>
             <li>
-                <a href="../usuarios/index.php">
+                <a href="../usuarios/">
                     <i class="fa-solid fa-user"></i>
                     <span class="txtLink">Usuario</span>
                 </a>
             </li>
             <li>
-                <a href="../rol/ind.php">
+                <a href="../rol/">
                     <i class="fa-solid fa-star"></i>
-                    <span class="txtLink">rol</span>
+                    <span class="txtLink">Rol</span>
                 </a>
             </li>
             <li>
-                <a href="../status/index.php">
+                <a href="../status/">
                     <i class="fa-solid fa-square-check"></i>
-                    <span class="txtLink">status</span>
+                    <span class="txtLink">Status</span>
+                </a>
+            </li>
+            <li>
+                <a href="../categoria/">
+                    <i class="fa fa-certificate"></i>
+                    <span class="txtLink">Categoria</span>
+                </a>
+            </li>
+            <li>
+                <a>
+                    <i class="fas fa-sign-out-alt" style="color: #898080;"></i>
+                    <span id="logoutButton" class="txtLink">Cerrar</span>
                 </a>
             </li>
         </ul>
@@ -42,9 +54,12 @@
 </nav>
 
 <script>
+    
+
     if(sessionStorage.getItem("user")){
         const usuario =  JSON.parse(sessionStorage.getItem("user"))
-        imgInfo.setAttribute("src", usuario.avatar)
+        imgInfo.setAttribute("src", "../../../public/" + usuario.avatar)
         nameInfo.innerText = usuario.nombre
     }
 </script>
+<script src="../../js/logout.js"></script>

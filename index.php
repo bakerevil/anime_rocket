@@ -6,35 +6,33 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/styles.css">
-                  <title>🚀 Anime Rocket</title>
+  <title>🚀 Anime Rocket</title>
 </head>
 <body>
-  <header>
-    <div class="header">
-    <div class="logo">🚀 Anime Rocket</div>
-      <nav>
-        <ul>
-          <li><a href="index.php">Inicio</a></li>
-          <li><a href="directorio.php">Directorio Anime</a></li>
-        </ul>
-        <div id="search">
-         <form action= "index.php" method= "POST">
-          <input type="text" placeholder="Buscar..." name="texto">  
-          <input type="submit" name="search" value="🔍">
-       </form>
-      </div>
-        <a href="admin/index.html" class="login">Login</a>
-      </nav>
+  <div id="sidebar">
+    <a href="#" id="closesidebar"> Cerrar</a>
+    <div class="logo">
+        🚀 
     </div>
-  </header>
+    <h2 class="categ">Categorias</h2>
+    <?php
+    require_once 'config/categorias.php';
 
-  <section id="main">
-    <h2>Últimos Episodios</h2>
-    <div class="episodes">
-
+    $categorias= new categorias("localhost","root","","anime_rocket");
+    $categories = $categorias->get_data();
+    foreach ($categories as $key => $value) {
+      ?>
+        <li><a class="catego" href="categorias.php?id=<?php echo $value['id'];?>"><?php echo $value["categoria"];?></a></li>
+      <?php
+    }
+    ?>
+  </div>
+  <?php require_once 'header.html'; ?>
+<section id="main">
+  <h2>Últimos Episodios</h2>
+  <div class="episodes">
     <?php
         require_once 'config/videos.php';
-
         require_once 'config/listas.php';
 
         $videos= new videos("localhost","root","","anime_rocket");
@@ -43,30 +41,28 @@
         } else {
             $result = $videos ->get_videos();
         }
-
         while ($row = $result ->fetch_array()) {
     ?>
-
       <div class="episode">
-        <p class="icon">►</p>
-        <img src="<?php echo $row ['thumbnail']; ?>" alt="">
-        <div class="episode_description">
-        <h3 class="episode_cat"><?php echo $row['categoria']  ?></h3>
-          <p class="episode_number">Episodio <?php echo $row ['id'];?></p>
-          <h3 class="episode_title"><?php echo $row ['capitulo'];?></h3>
-        </div>
+        <a href="play.php?id=<?php echo $row['id']; ?>">
+          <p class="icon">►</p>
+          <img src="<?php echo $row ['thumbnail']; ?>" alt="">
+          <div class="episode_description">
+            <h3 class="episode_cat"><?php echo $row['categoria']  ?></h3>
+            <p class="episode_number">Episodio <?php echo $row ['id'];?></p>
+            <h3 class="episode_title"><?php echo $row ['capitulo'];?></h3>
+          </div>
+        </a>
       </div>
-
     <?php
     }
     ?>
-
-    </div>
+  </div>
 </section>
 <section id="main">
-<h1>Ultimos animes agregados</h1>
-<div class="episodes">
-<?php
+  <h1>Ultimos animes agregados</h1>
+  <div class="episodes">
+    <?php
         $listas= new listas ("localhost","root","","anime_rocket");
         if (isset($_POST['search'])){
           $result = $listas ->get_listas($_POST['texto']);
@@ -76,20 +72,22 @@
         while ($row = $result ->fetch_array()) {
     ?>
       <div class="episode">
-        <p class="icon">►</p>
-        <img src="<?php echo $row ['thumbnail']; ?>" alt="">
-        <div class="episode_description">
-        <h3 class="episode_lis"><?php echo $row['rv_status'];?></h3>
-          <p class="episode_number">Anime <?php echo $row ['id'];?></p>
-          <h3 class="episode_title"><?php echo $row ['titulo'];?></h3>
-        </div>
+        <a href="sinopsis.php?id=<?php echo $row['id']; ?>">
+          <p class="icon">►</p>
+          <img src="public/<?php echo $row ['thumbnail']; ?>" alt="">
+          <div class="episode_description">
+            <h3 class="episode_lis"><?php echo $row['status'];?></h3>
+            <p class="episode_number">Anime <?php echo $row ['id'];?></p>
+            <h3 class="episode_title"><?php echo $row ['titulo'];?></h3>
+          </div>
+        </a>
       </div>
-
     <?php
     }
     ?>
-
-    </div>
-  </section>
+  </div>
+</section>
+<script src="js/index.js"></script>
 </body>
+
 </html>

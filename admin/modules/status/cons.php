@@ -1,32 +1,36 @@
 <?php
 class modules extends mysqli
 {
-    public function __construct($host, $usuario, $pass, $bd)
+    public $conexion;
+
+    public function __construct()
     {
-        parent::__construct($host, $usuario, $pass, $bd);
+        $this->conexion= new mysqli("localhost", "root", "", "anime_rocket");
     }
 
     public function get_data()
     {
-        $consulta = "SELECT * FROM rv_status";
-        $result = mysqli::query($consulta);
+        $consulta = "SELECT * FROM status";
+        $result = $this->conexion->query($consulta);
         $array = [];
         while ($row = $result->fetch_array(MYSQLI_ASSOC)) {
             $array[] = [
-                "id"=> $row["rv_id"],
-                "statusdelvideo"=> $row["rv_status"],
+                "id"=> $row["id"],
+                "status"=> $row["status"],
+             
             ];
         }
         echo json_encode($array);
     }
     public function get_one($id)
     {
-        $consulta = "SELECT * FROM rv_status  WHERE id = $id";
-        $result = mysqli::query($consulta);
+        $consulta = "SELECT * FROM status  WHERE id = $id";
+        $result = $this->conexion->query($consulta);
         $row = $result->fetch_array(MYSQLI_ASSOC);
         $array = [
-            "id"=> $row["rv_id"],
-                "statusdelvideo"=> $row["rv_status"],
+            "id"=> $row["id"],
+                "status"=> $row["status"],
+                
         ];
         echo json_encode($array);
     }
@@ -34,16 +38,17 @@ class modules extends mysqli
     public function insert_data()
     {
         mysqli_report(MYSQLI_REPORT_OFF);
-        $rv_id = $_POST['id'];
-        $rv_status = $_POST['statusdelvideo'];
+        $status= $_POST['status'];
+        
+        
 
-        $consulta = "INSERT INTO rv_status (rv_id, rv_status) VALUES ('$rv_id', '$rv_status')";
-        $result = mysqli::query($consulta);
-        if ($result) {
+        $consulta = "INSERT INTO status (status) VALUES ('$status')";
+        $this->conexion->query($consulta);
+        if ($this->conexion->affected_rows>0) {
             $array = [
-            "status" => "success",
-            "text" => "Se insertó correctamente"
-        ];
+                "status" => "success",
+                "text" => "Se insertó correctamente"
+            ];
         }else{
             $array = [
                 "status" => "error",
@@ -56,17 +61,19 @@ class modules extends mysqli
     public function update_data()
     {
         mysqli_report(MYSQLI_REPORT_OFF);
-        $rv_id = $_POST['id'];
-        $rv_status = $_POST['statusdelvideo'];
-       
+        $status = $_POST['status'];
+        $id = $_POST['id']; 
 
-        $consulta = "UPDATE rv_status set  rv_status = '$rv_status' WHERE id =  $rv_id";
+        
+        
+        $consulta = "UPDATE status set status = '$status' WHERE id = '$id'";
+        $this->conexion->query($consulta);
+        if($this->conexion->affected_rows>0){
         $array = [
             "status" => "success",
             "text" => "Se editó correctamente"
         ];
-
-        if (!mysqli::query($consulta)) {
+        }else{
             $array = [
                 "status" => "error",
                 "text" => "No se pudo insertar el registro"
@@ -77,8 +84,8 @@ class modules extends mysqli
     public function delete_data()
     {
         $datos = $_POST["data"];
-        $consulta = "DELETE FROM rv_status WHERE rv_id IN ($datos)";
-        mysqli::query($consulta);
+        $consulta = "DELETE FROM status WHERE id IN ($datos)";
+        $this->conexion->query($consulta);
         $array = [
             "text" => "Se eliminó correctamente",
             "status" => "success",
@@ -87,7 +94,7 @@ class modules extends mysqli
     }
 }
 
-$modules = new modules("localhost", "root", "", "anime_rocket");
+$modules = new modules();
 
 if (isset($_POST)) {
     switch ($_POST["funcion"]) {

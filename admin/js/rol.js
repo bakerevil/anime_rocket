@@ -19,10 +19,10 @@ function get_data () {
                                 <th>
                                     <input type="checkbox" value="${elemento.id}"  class="checkboxes">
                                 </th>
-                                <td>${elemento.id}</td>
+                            
                                 <td>${elemento.rol}</td>
                                 <td>
-                                <a href="#" class="btn_editar" data-id="${elemento.id}">Editar</a>
+                                <a href="#" class="btn_editar btnact" data-id="${elemento.id}">Editar</a>
                                 </td>
                                 
                             </tr>
@@ -48,7 +48,7 @@ btnNew.addEventListener("click", (event) => {
 })
 btnSave.addEventListener("click", (event) => {
     event.preventDefault()
-    if( id.value != "" &&  rol.value != ""  ){
+    if(rol.value != ""  ){
         let formdata = new FormData(form)
         formdata.append("funcion", "insert_data")
         if (btnSave.hasAttribute("data-id")) {
@@ -112,7 +112,7 @@ tabla.addEventListener("click", event => {
         })
             .then(response => response.json())
             .then(row => {
-                id.value = row.id
+                
                 rol.value = row.rol
                 btnSave.setAttribute("data-id", row.id)
                 btnSave.innerText = "Editar"

@@ -24,8 +24,9 @@
 .sideBar .logo .img-info{
     padding-top: 5px;
     width: 112px;
+    height: 112px;
     transition: .5s;
-    border-radius: 100px;
+    border-radius: 50%;
 }
 .sideBar ul li{
     border-left: 3px solid transparent;
@@ -140,6 +141,10 @@ main a i.fa-sharp{
     width: 20px;
     height: 0px;
 }
+.sideBar #texto-info{
+    text-align: center;
+    padding: 8px;
+}
 table{
     margin-right: 50px;
     min-width: 100%;
@@ -162,3 +167,16 @@ table tbody tr:nth-child(even){
 #btnBorrar {
     display: none;
 }
+.btnact{
+    color: #fff;
+    background: #555;
+    padding: 5px;
+    border-radius: 10%;
+    text-decoration: none;
+
+}
+.btnact:hover{
+    background: #fff;
+    color: #555;
+}
+
