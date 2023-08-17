@@ -41,24 +41,7 @@
     </ul>
 
   </div>
-  <header>
-    <div class="header">
-    <div class="logo"><a href="#" id="togglesidebar">🚀</a>Anime Rocket</div>
-      <nav>
-        <ul>
-          <li><a href="index" class="inici">Inicio</a></li>
-          <li><a href="directorio" class="directo">Directorio Anime</a></li>
-        </ul>
-        <div id="search">
-         <form action= "index.php" method= "POST">
-          <input type="text" placeholder="Buscar..." name="texto">  
-          <input type="submit" name="search" class="lup" value="🔍">
-       </form>
-      </div>
-        <a href="admin/" class="login">Login</a>
-      </nav>
-    </div>
-  </header>
+  <?php require_once 'header.html'; ?>
 
   <section id="main">
     <h2>Últimos Episodios</h2>

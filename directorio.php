@@ -9,23 +9,7 @@
 </head>
 
 <body>
-  <header>
-    <div class="header">
-    <div class="logo">🚀Directorio De Anime</div>
-      <nav>
-        <ul>
-          <li><a href="index">Inicio</a></li>
-          </ul>
-        <div id="search">
-         <form action= "directorio" method= "POST">
-          <input type="text" placeholder="Buscar..." name="texto">  
-          <input type="submit" name="search" value="🔍">
-       </form>
-      </div>
-        <a href="admin/" class="login">Login</a>
-      </nav>
-    </div>
-</header>
+<?php require_once 'header.html'; ?>
   <section id="main">
 <h1>Directorio De Animes</h1>
 <form id="filter" action="directorio.php" method="POST">
