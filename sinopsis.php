@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/stiles.css">
   <title>🚀 Anime Rocket</title>
 </head>
 
@@ -16,7 +16,7 @@
     <br>
     <br>
     <div class="logo">
-      <!-- <img src="img/anim.jpeg" alt="" class="img-info" > -->
+      🚀
     </div>
     <h2 class="categ">Categorias</h2>
 
@@ -58,19 +58,28 @@
   </header>
 
 
-  <div class="container">
-    <div class="nombre">
-      <div class="titulo">
-        <div class="nombrett"><h1>Baki Hanma</h1>
-
+  <div class="container" >
+      <div class="nombre">
+        <div class="titulo">
+          <div class="nombrett">
+            <h1>Baki Hanmaa <a class="tipoanime"> Ova </a></h1>
+  
+          </div>
+         
+          <div class="titulos">
+            <div class="titulo1">
+              <h3>The boy fascining</h3>
+            </div>
+            <div class="titulo2">
+              <h3>golpes</h3>
+            </div>
+            <div class="titulo3">
+              <h3>Hanma</h3>
+            </div>
+          </div>
         </div>
-        <div class="tipoanime"> <a> Ova </a>
+    </div>
 
-        </div>
-        <div class="titulo1"><h3>The boy fascining</h3></div>
-        <div class="titulo2"><h3>golpes</h3></div>
-        <div class="titulo3"><h3>Hanma</h3></div>
-      </div>
 
 
 
@@ -78,19 +87,25 @@
     <div class="img"><img src="#" alt="">
 
     </div>
-    <div class="sinopsis"><h2>sinopsis</h2>
+    <div class="sinopsis">
+      <h2>Sinopsis</h2>
       <div>
 
       </div>
-      <div class="categorias"><h3>artes marciales</h3></div>
-      <div class="descripcion"><h3>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illo reprehenderit odio repellendus placeat laboriosam neque, nam nesciunt inventore voluptatibus dolor similique laudantium, amet ad fuga atque unde pariatur magni id.</h3></div>
+      <div class="categorias">
+        <h3>Artes marciales</h3>
+      </div>
+      <div class="descripcion">
+        <h3>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illo reprehenderit odio repellendus placeat laboriosam neque, nam nesciunt inventore voluptatibus dolor similique laudantium, amet ad fuga atque unde pariatur magni id.</h3>
+      </div>
     </div>
     <div class="votacion">
       <div class="puntuacion"><img src="#" alt="">
 
       </div>
       <div class="redes">
-         <!-- aqui van las imagenes del facebook y twiiter  -->
+
+        <!-- aqui van las imagenes del facebook y twiiter  -->
         <div class="red1"><img src="#" alt=""></div>
         <div class="red2"><img src="#" alt=""></div>
       </div>
