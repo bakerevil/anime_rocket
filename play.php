@@ -1,3 +1,7 @@
+<?php
+require_once('playcarp/consulta_play.php');
+$sipnosis = $modules->get_sipnosis();
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -29,7 +33,10 @@
             </div>
             <div class="anime-detalles">
                 <h1>Nombre del Anime</h1>
-                <div id="sinopsisCont"></div>
+
+                <div id="sinopsisCont">
+                    <p><?php echo $sipnosis[0]; ?></p>
+                </div>
             </div>
         </section>
 
@@ -46,6 +53,6 @@
         <p>&copy; Anime Rocket 2023</p>
     </footer>
     
-    <script src="playcarp/play.js"></script> 
+    <!-- <script src="playcarp/play.js"></script>  -->
 </body>
 </html>

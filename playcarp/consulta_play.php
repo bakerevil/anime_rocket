@@ -7,13 +7,14 @@ class modules extends mysqli{
     }
 
     public function get_sipnosis(){
-        $consulta = "SELECT sipnosis FROM listas"; 
+        $id =$_GET['id'];
+        $consulta = "SELECT sipnosis FROM listas WHERE id = $id"; 
         $result = $this->conexion->query($consulta);
         $array = [];
         while ($row = $result->fetch_array(MYSQLI_ASSOC)) {
             $array[] = $row["sipnosis"]; 
         }
-        echo json_encode($array);
+        return($array);
     }
 
 }
@@ -21,12 +22,9 @@ class modules extends mysqli{
 $modules = new modules();
 
 if (isset($_POST)) {
-    switch ($_POST["funcion"]) {
+    switch (isset($_POST["funcion"]) && $_POST["funcion"] ) {
         case 'get_sipnosis':
             $modules->get_sipnosis();
-            break;
-        default:
-            echo "Función incompleta";
             break;
     }
 }

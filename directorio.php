@@ -117,7 +117,7 @@ if (isset($resultfilter)) {
             ?>
       <div class="episode">
         <p class="icon">►</p>
-        <img src="<?php echo $row ['thumbnail']; ?>" alt="">
+        <img src="public/<?php echo $row ['thumbnail']; ?>" alt="">
         <div class="episode_description">
         <h3 class="episode_lis"><?php echo $row['status'];?></h3>
           <p class="episode_number">Anime <?php echo $row ['id'];?></p>
@@ -147,7 +147,7 @@ while ($row = $resultlistas->fetch_array()) {
       <a href="play.php?id=<?php echo $row['id']; ?>">
         <div title="<?php echo $row['sipnosis']; ?>">
           <p class="icon">►</p>
-          <img src="<?php echo $row['thumbnail']; ?>" alt="">
+          <img src="public/<?php echo $row['thumbnail']; ?>" alt="">
           <div class="episode_description">
             <h3 class="episode_lis"><?php echo $row['status']; ?></h3>
             <p class="episode_number">Anime <?php echo $row['id']; ?></p>
