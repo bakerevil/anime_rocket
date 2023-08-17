@@ -6,24 +6,14 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/styles.css">
-                  <title>🚀 Anime Rocket</title>
+  <title>🚀 Anime Rocket</title>
 </head>
 <body>
   <div id="sidebar">
     <a href="#" id="closesidebar"> Cerrar</a>
-    <br>
-    <br>
-    <br>
-    <div class="logo">
-        <!-- <img src="img/anim.jpeg" alt="" class="img-info" > -->
-    </div>
+    <div class="logo"></div>
     <h2 class="categ">Categorias</h2>
-    
-          
-    
-    
     <?php
-    
     require_once 'config/categorias.php';
 
     $categorias= new categorias("localhost","root","","anime_rocket");
@@ -34,22 +24,13 @@
       <?php
     }
     ?>
-    
-   
-
-    
-    </ul>
-
   </div>
   <?php require_once 'header.html'; ?>
-
-  <section id="main">
-    <h2>Últimos Episodios</h2>
-    <div class="episodes">
-
+<section id="main">
+  <h2>Últimos Episodios</h2>
+  <div class="episodes">
     <?php
         require_once 'config/videos.php';
-
         require_once 'config/listas.php';
 
         $videos= new videos("localhost","root","","anime_rocket");
@@ -58,30 +39,26 @@
         } else {
             $result = $videos ->get_videos();
         }
-
         while ($row = $result ->fetch_array()) {
     ?>
-
       <div class="episode">
         <p class="icon">►</p>
         <img src="<?php echo $row ['thumbnail']; ?>" alt="">
         <div class="episode_description">
-        <h3 class="episode_cat"><?php echo $row['categoria']  ?></h3>
+          <h3 class="episode_cat"><?php echo $row['categoria']  ?></h3>
           <p class="episode_number">Episodio <?php echo $row ['id'];?></p>
           <h3 class="episode_title"><?php echo $row ['capitulo'];?></h3>
         </div>
       </div>
-
     <?php
     }
     ?>
-
-    </div>
+  </div>
 </section>
 <section id="main">
-<h1>Ultimos animes agregados</h1>
-<div class="episodes">
-<?php
+  <h1>Ultimos animes agregados</h1>
+  <div class="episodes">
+    <?php
         $listas= new listas ("localhost","root","","anime_rocket");
         if (isset($_POST['search'])){
           $result = $listas ->get_listas($_POST['texto']);
@@ -92,21 +69,19 @@
     ?>
       <div class="episode">
         <p class="icon">►</p>
-        <img src="<?php echo $row ['thumbnail']; ?>" alt="">
+        <img src="public/<?php echo $row ['thumbnail']; ?>" alt="">
         <div class="episode_description">
-        <h3 class="episode_lis"><?php echo $row['status'];?></h3>
+          <h3 class="episode_lis"><?php echo $row['status'];?></h3>
           <p class="episode_number">Anime <?php echo $row ['id'];?></p>
           <h3 class="episode_title"><?php echo $row ['titulo'];?></h3>
         </div>
       </div>
-
     <?php
     }
     ?>
-
-    </div>
-  </section>
-  <script src="js/index.js"></script>
+  </div>
+</section>
+<script src="js/index.js"></script>
 </body>
 
 </html>
