@@ -125,6 +125,7 @@ tabla.addEventListener("click", event => {
                 fecha.value = row.fecha
                 votos.value = row.votos
                 año.value = row.año
+                avatarPreview.setAttribute('src','../../../public/'+ row.avatar)
                 btnSave.setAttribute("data-id", row.id)
                 btnSave.innerText = "Editar"
             })

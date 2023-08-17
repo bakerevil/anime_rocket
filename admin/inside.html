@@ -38,7 +38,7 @@
                 </a>
             </li>
             <li>
-                <a href="../categoria/index.php">
+                <a href="../categoria/">
                     <i class="fa fa-certificate"></i>
                     <span class="txtLink">Categoria</span>
                 </a>
@@ -54,9 +54,7 @@
 </nav>
 
 <script>
-    document.getElementById("logoutButton").addEventListener("click", function() {
-            window.location.href = "../../logout.php";
-        });
+    
 
     if(sessionStorage.getItem("user")){
         const usuario =  JSON.parse(sessionStorage.getItem("user"))
@@ -64,3 +62,4 @@
         nameInfo.innerText = usuario.nombre
     }
 </script>
+<script src="../../js/logout.js"></script>

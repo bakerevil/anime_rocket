@@ -9,23 +9,7 @@
 </head>
 
 <body>
-  <header>
-    <div class="header">
-    <div class="logo">🚀Directorio De Anime</div>
-      <nav>
-        <ul>
-          <li><a href="index">Inicio</a></li>
-          </ul>
-        <div id="search">
-         <form action= "directorio" method= "POST">
-          <input type="text" placeholder="Buscar..." name="texto">  
-          <input type="submit" name="search" value="🔍">
-       </form>
-      </div>
-        <a href="admin/" class="login">Login</a>
-      </nav>
-    </div>
-</header>
+<?php require_once 'header.html'; ?>
   <section id="main">
 <h1>Directorio De Animes</h1>
 <form id="filter" action="directorio.php" method="POST">
@@ -117,7 +101,7 @@ if (isset($resultfilter)) {
             ?>
       <div class="episode">
         <p class="icon">►</p>
-        <img src="<?php echo $row ['thumbnail']; ?>" alt="">
+        <img src="public/<?php echo $row ['thumbnail']; ?>" alt="">
         <div class="episode_description">
         <h3 class="episode_lis"><?php echo $row['status'];?></h3>
           <p class="episode_number">Anime <?php echo $row ['id'];?></p>
@@ -144,15 +128,17 @@ while ($row = $resultlistas->fetch_array()) {
       // Muestra información de la lista
       ?>
       <div class="episode">
+      <a href="play.php?id=<?php echo $row['id']; ?>">
         <div title="<?php echo $row['sipnosis']; ?>">
           <p class="icon">►</p>
-          <img src="<?php echo $row['thumbnail']; ?>" alt="">
+          <img src="public/<?php echo $row['thumbnail']; ?>" alt="">
           <div class="episode_description">
             <h3 class="episode_lis"><?php echo $row['status']; ?></h3>
             <p class="episode_number">Anime <?php echo $row['id']; ?></p>
             <h3 class="episode_title"><?php echo $row['titulo']; ?></h3>
           </div>
         </div>
+      </a>
       </div>
       <?php
   } else {

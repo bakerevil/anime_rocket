@@ -45,10 +45,10 @@
           <li><a href="directorio.php" class="directo">Directorio Anime</a></li>
         </ul>
         <div id="search">
-         <form action= "index.php" method= "POST">
+        <form action= "index.php" method= "POST">
           <input type="text" placeholder="Buscar..." name="texto">  
           <input type="submit" name="search" value="🔍">
-       </form>
+        </form>
       </div>
         <a href="admin/index.html" class="login">Login</a>
       </nav>
