@@ -60,34 +60,50 @@
                         <div class="col-6">
                             <label for="categoria" class="form-label">Categoria</label>
                             <select type="text" class="form-control" name="categoria" id="categoria">
-                                <option categoria="0">Seleciona tu opción</option>
-                                <option categoria="accion">accion</option>
-                                <option categoria="romance">romance</option>
-                                <option categoria="suspenso">suspenso</option>
-                                <option categoria="seinin">seinin</option>
-                                <option categoria="gore">gore</option>
-                                <option categoria="echi">echi</option>
+                                <option categoria="#">Seleciona tu opción</option>
+                                <option categoria="1">accion</option>
+                                <option categoria="2">romance</option>
+                                <option categoria="3">suspenso</option>
+                                <option categoria="4">seinin</option>
+                                <option categoria="5">gore</option>
+                                <option categoria="6">echi</option>
                             </select>
                         </div>
                         <div class="col-6">
                             <label for="status" class="form-label">Status</label>
                             <select type="text" class="form-control" name="status" id="statuses">
-                                <option status="0">Seleciona tu opción</option>
+                                <option status="#">Seleciona tu opción</option>
                                 <option status="0">Capitulo nuevo</option>
                                 <option status="5">anime temporada</option>
                                 <option status="6">anime estreno</option>
                             </select> 
                         </div>
                         <div class="col-6">
+                            <label for="anime" class="form-label">anime</label>
+                            <select type="text" class="form-control" name="anime" id="anime">
+                                <option listas="#">Seleciona tu opción</option>
+                                <option listas="1">Demons Slaye	</option>
+                                <option listas="2">clashhure</option>
+                            </select> 
+                        </div>
+                        <div class="col-6">
                             <label for="fechai" class="form-label">Fecha de publicacion</label>
                             <input type="date" class="form-control" name="fechai" id="fecha_insertada">
                         </div>
-                        <div class="col-12 mb-3">
+                        <div class="col-6">
                             <label for="foto" class="form-label">Foto</label>
                             <input class="form-control form-control-sm" type="file" name="photo" id= "photo">
                             <input type="hidden"name="avatar" id="avatar">
                         </div>
-                        <div>
+                        <div class="col-6 mb-3">
+                            <label for="video" class="form-label">Videos</label>
+                            <input class="form-control form-control-sm" type="file" name="video" id= "video">
+                            <input type="hidden"name="videoprev" id="videoprev">
+                            <div class="col-6 mb-3">
+                                <img src="https://picsum.photos/300/200" id="videoprev">
+                            </div>
+                        </div>
+                        <div class="col-6">
                             <img src="https://picsum.photos/300/200" id="avatarPreview">
                         </div>
                         <div class="col-12">
