@@ -128,7 +128,7 @@ while ($row = $resultlistas->fetch_array()) {
       // Muestra información de la lista
       ?>
       <div class="episode">
-      <a href="play.php?id=<?php echo $row['id']; ?>">
+      <a href="sinopsis.php?id=<?php echo $row['id']; ?>">
         <div title="<?php echo $row['sipnosis']; ?>">
           <p class="icon">►</p>
           <img src="public/<?php echo $row['thumbnail']; ?>" alt="">

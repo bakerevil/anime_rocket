@@ -44,13 +44,15 @@
         while ($row = $result ->fetch_array()) {
     ?>
       <div class="episode">
-        <p class="icon">►</p>
-        <img src="<?php echo $row ['thumbnail']; ?>" alt="">
-        <div class="episode_description">
-          <h3 class="episode_cat"><?php echo $row['categoria']  ?></h3>
-          <p class="episode_number">Episodio <?php echo $row ['id'];?></p>
-          <h3 class="episode_title"><?php echo $row ['capitulo'];?></h3>
-        </div>
+        <a href="play.php?id=<?php echo $row['id']; ?>">
+          <p class="icon">►</p>
+          <img src="<?php echo $row ['thumbnail']; ?>" alt="">
+          <div class="episode_description">
+            <h3 class="episode_cat"><?php echo $row['categoria']  ?></h3>
+            <p class="episode_number">Episodio <?php echo $row ['id'];?></p>
+            <h3 class="episode_title"><?php echo $row ['capitulo'];?></h3>
+          </div>
+        </a>
       </div>
     <?php
     }
@@ -70,13 +72,15 @@
         while ($row = $result ->fetch_array()) {
     ?>
       <div class="episode">
-        <p class="icon">►</p>
-        <img src="public/<?php echo $row ['thumbnail']; ?>" alt="">
-        <div class="episode_description">
-          <h3 class="episode_lis"><?php echo $row['status'];?></h3>
-          <p class="episode_number">Anime <?php echo $row ['id'];?></p>
-          <h3 class="episode_title"><?php echo $row ['titulo'];?></h3>
-        </div>
+        <a href="sinopsis.php?id=<?php echo $row['id']; ?>">
+          <p class="icon">►</p>
+          <img src="public/<?php echo $row ['thumbnail']; ?>" alt="">
+          <div class="episode_description">
+            <h3 class="episode_lis"><?php echo $row['status'];?></h3>
+            <p class="episode_number">Anime <?php echo $row ['id'];?></p>
+            <h3 class="episode_title"><?php echo $row ['titulo'];?></h3>
+          </div>
+        </a>
       </div>
     <?php
     }
