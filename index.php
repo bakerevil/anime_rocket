@@ -11,7 +11,9 @@
 <body>
   <div id="sidebar">
     <a href="#" id="closesidebar"> Cerrar</a>
-    <div class="logo"></div>
+    <div class="logo">
+        🚀 
+    </div>
     <h2 class="categ">Categorias</h2>
     <?php
     require_once 'config/categorias.php';
