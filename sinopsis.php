@@ -93,7 +93,7 @@
 
       </div>
       <div class="categorias">
-        <h3>Artes marciales</h3>
+        <h3>Artes marcials</h3>
       </div>
       <div class="descripcion">
         <h3>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illo reprehenderit odio repellendus placeat laboriosam neque, nam nesciunt inventore voluptatibus dolor similique laudantium, amet ad fuga atque unde pariatur magni id.</h3>
