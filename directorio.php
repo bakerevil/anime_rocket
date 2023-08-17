@@ -144,6 +144,7 @@ while ($row = $resultlistas->fetch_array()) {
       // Muestra información de la lista
       ?>
       <div class="episode">
+      <a href="play.php?id=<?php echo $row['id']; ?>">
         <div title="<?php echo $row['sipnosis']; ?>">
           <p class="icon">►</p>
           <img src="<?php echo $row['thumbnail']; ?>" alt="">
@@ -153,6 +154,7 @@ while ($row = $resultlistas->fetch_array()) {
             <h3 class="episode_title"><?php echo $row['titulo']; ?></h3>
           </div>
         </div>
+      </a>
       </div>
       <?php
   } else {
