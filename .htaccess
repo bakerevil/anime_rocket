@@ -484,7 +484,7 @@ Header set X-Content-Type-Options "nosniff"
 
 #<IfModule mod_rewrite.c>
 #RewriteCond %{SERVER_PORT} !^443
-#RewriteRule ^ http://localhost/anime_rocket/%{REQUEST_URI} [R=301,L]
+#RewriteRule ^ https://unid.8devmx.com/%{REQUEST_URI} [R=301,L]
 #</IfModule>
 
 # ------------------------------------------------------------------------------

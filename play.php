@@ -11,17 +11,7 @@ $sipnosis = $modules->get_sipnosis();
     <link rel="stylesheet" href="playcarp/css/styles_play.css">
 </head>
 <body>
-    <header>
-        <div class="logo">
-            <img src="#" alt="Logo">
-        </div>
-        <nav>
-            <ul>
-                <li><a href="#">Inicio</a></li>
-                <li><a href="#">Directorio Anime</a></li>
-            </ul>
-        </nav>
-    </header>
+<?php require_once 'header.html'; ?>
 
     <main>
         <section class="main-content">
