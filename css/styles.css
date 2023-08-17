@@ -212,7 +212,6 @@ nav ul a:hover {
   align-items: center;
 }
 
-/* Estilo para el ícono de búsqueda */
 #filter button[type="submit"]::before {
   content: "🔍";
   margin-right: 10px;

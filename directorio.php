@@ -28,7 +28,7 @@
 </header>
   <section id="main">
 <h1>Directorio de animes</h1>
-<div class="episodes">
+
 <div id="filter">
 <form id="filter" action="directorio.php" method="POST"> 
   
