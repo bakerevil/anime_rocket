@@ -1,15 +1,12 @@
 <?php
-class modules extends mysqli
-{
+class modules extends mysqli{
     public $conexion;
 
-    public function __construct()
-    {
+    public function __construct(){
         $this->conexion= new mysqli("localhost", "root", "", "anime_rocket");
     }
 
-    public function get_data()
-    {
+    public function get_data(){
         $consulta = "SELECT * FROM listas";
         $result = $this->conexion->query($consulta);
         $array = [];
@@ -18,7 +15,7 @@ class modules extends mysqli
                 "id"=> $row["id"],
                 "titulo"=> $row["titulo"],
                 "sipnosis"=> $row["sipnosis"],
-                "foto"=> $row["thumbnail"],
+                "avatar"=> $row["thumbnail"],
                 "cap"=> $row["capitulos"],
                 "fecha"=> $row["fecha_insercion"],
                 "voto"=> $row["votos"],
@@ -27,38 +24,36 @@ class modules extends mysqli
         }
         echo json_encode($array);
     }
-    public function get_one($id)
-    {
+    public function get_one($id){
         $consulta = "SELECT * FROM listas  WHERE id = $id";
         $result = $this->conexion->query($consulta);
         $row = $result->fetch_array(MYSQLI_ASSOC);
         $array = [
             "id"=> $row["id"],
-                "titulo"=> $row["titulo"],
-                "sipnosis"=> $row["sipnosis"],
-                "foto"=> $row["thumbnail"],
-                "cap"=> $row["capitulos"],
-                "fecha"=> $row["fecha_insercion"],
-                "voto"=> $row["votos"],
-                "año"=> $row["anio"]
+            "titulo"=> $row["titulo"],
+            "cap"=> $row["capitulos"],
+            "sipnosis"=> $row["sipnosis"],
+            "avatar"=> $row["thumbnail"],
+            "votos"=> $row["votos"],
+            "fecha"=> $row["fecha_insercion"],
+            "año"=> $row["anio"],
         ];
         echo json_encode($array);
     }
 
-    public function insert_data()
-    {
+    public function insert_data(){
         mysqli_report(MYSQLI_REPORT_OFF);
         $titulo = $_POST['titulo'];
         $sipnosis = $_POST['sipnosis'];
-        $thumbnail = $_POST['thumbnail'];
-        $capitulo = $_POST['cap'];
+        $avatar = $_POST['avatar'];
+        $capitulos = $_POST['cap'];
         $fecha_insercion = $_POST['fecha'];
         $votos = $_POST['votos'];
         $anio = $_POST['año'];
 
-        $consulta = "INSERT INTO listas (titulo, sipnosis, thumbnail, capitulos, fecha_insercion, votos, anio) VALUES ('$titulo', '$sipnosis', '$thumbnail', '$capitulo', '$fecha_insercion','$votos','$anio')";
+        $consulta = "INSERT INTO listas (titulo, sipnosis, thumbnail, capitulos, fecha_insercion, votos, anio) VALUES ('$titulo', '$sipnosis', '$avatar', '$capitulos', '$fecha_insercion','$votos','$anio')";
         $this->conexion->query($consulta);
-        if ($this->conexion->affected_rows>0) {
+        if ($this -> conexion -> affected_rows > 0) {
             $array = [
                 "status" => "success",
                 "text" => "Se insertó correctamente"
@@ -72,19 +67,18 @@ class modules extends mysqli
         echo json_encode($array);
     }
     
-    public function update_data()
-    {
+    public function update_data(){
         mysqli_report(MYSQLI_REPORT_OFF);
         $titulo = $_POST['titulo'];
         $capitulo = $_POST['cap'];
         $sipnosis = $_POST['sipnosis'];
-        $thumbnail = $_POST['thumbnail'];
+        $avatar = $_POST['avatar'];
         $fecha_insercion = $_POST['fecha'];
         $votos = $_POST['votos'];
         $anio = $_POST['año'];
         $id = $_POST['id'];
         
-        $consulta = "UPDATE listas set titulo = '$titulo', capitulos = '$capitulo', sipnosis = '$sipnosis', thumbnail = '$thumbnail', fecha_insercion = '$fecha_insercion', votos = '$votos', anio = '$anio' WHERE id =  $id";
+        $consulta = "UPDATE listas set titulo = '$titulo', sipnosis = '$sipnosis', capitulos = '$capitulo', thumbnail = '$avatar', fecha_insercion = '$fecha_insercion', votos = '$votos', anio = '$anio' WHERE id =  $id";
         $this->conexion->query($consulta);
         if($this->conexion->affected_rows>0){
         $array = [
@@ -99,8 +93,7 @@ class modules extends mysqli
         }
         echo json_encode($array);
     }
-    public function delete_data()
-    {
+    public function delete_data(){
         $datos = $_POST["data"];
         $consulta = "DELETE FROM listas WHERE id IN ($datos)";
         $this->conexion->query($consulta);

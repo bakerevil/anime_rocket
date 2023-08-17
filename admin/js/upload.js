@@ -1,9 +1,18 @@
+const pathArray = window.location.pathname.split('/')
+const module = (pathArray[5] != "") ? pathArray[5] : pathArray[4]
+
+const php = {
+  usuarios: "consulta.php",
+  videos: "consultav.php",
+  listas: "cons.php"
+}
+
 photo.addEventListener('change',(files) =>{
 const fileUpload = files.target.files[0]
 const form = new FormData()
 form.append ("file" , fileUpload)
 form.append("funcion", "set_avatar")
-fetch("consulta.php",{
+fetch(php[module],{
     method: "POST",
     body: form
 

@@ -167,4 +167,16 @@ table tbody tr:nth-child(even){
 #btnBorrar {
     display: none;
 }
+.btnact{
+    color: #fff;
+    background: #555;
+    padding: 5px;
+    border-radius: 10%;
+    text-decoration: none;
+
+}
+.btnact:hover{
+    background: #fff;
+    color: #555;
+}
 

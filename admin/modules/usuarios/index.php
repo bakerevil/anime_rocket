@@ -41,6 +41,7 @@
                         <th> Nombre</th>
                         <th> Rol</th>
                         <th> Status</th>
+                        <th> Avatar</th>
                         <th> Editar</th>
                     </tr>
                 </thead>
@@ -66,6 +67,7 @@
                         <div class="col-6">
                             <label for="status" class="form-label">Status</label>
                             <select name="statuses" id="statuses" class="form-control">
+                                <option value="#">selecione su opcion</option>
                                 <option value="0">Inactivo</option>
                                 <option value="1">Activo</option>
                             </select>
@@ -76,11 +78,11 @@
                         </div>
                         <div class="col-12 mb-3">
                             <input type="file" name="photo" id= "photo">
-                            <input type="hidden"name="avatar" id="avatar">
+                            <input type="text"name="avatar" id="avatar">
                         </div>
                         <div>
                             <img src="https://picsum.photos/300/200" id="avatarPreview">
-                            </div>
+                        </div>
                         <div class="col-12">
                             <button type="submit" class="btn btn-success" id="btnSave">Guardar</button>
                         </div>
