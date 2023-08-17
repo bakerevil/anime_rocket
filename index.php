@@ -60,7 +60,7 @@
   </div>
 </section>
 <section id="main">
-  <h1>Ultimos animes agregados</h1>
+  <h2>Ultimos animes agregados</h2>
   <div class="episodes">
     <?php
         $listas= new listas ("localhost","root","","anime_rocket");

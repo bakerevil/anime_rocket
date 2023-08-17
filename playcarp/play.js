@@ -23,11 +23,4 @@ function get_sipnosis() {
             console.error("Error al obtener la sinopsis:", error);
         });
 }
-
 get_sipnosis();
-
-
-
-
-
-

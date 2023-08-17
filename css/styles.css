@@ -233,7 +233,7 @@ color: transparent;
   background-color: #444;
   color: #fff;
   border: none;
-  border-radius: 0;
+  border-radius: 5px;
   text-align: flex;
 }
 
@@ -279,7 +279,7 @@ color: transparent;
 .table-responsive {
   overflow-x: auto;
 }
-h2, h1 {
+#main h2{
   color: aqua;
 }
 .sipnosis {
