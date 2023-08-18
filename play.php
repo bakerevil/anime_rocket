@@ -14,32 +14,47 @@ $sipnosis = $modules->get_sipnosis();
 <?php require_once 'header.html'; ?>
 
     <main>
-    <div class="anime-detalles">
-                <div id="sinopsisCont">
-                    <h1><?php echo $sipnosis[0]; ?></h1>
-                </div>
+        <div class="anime-detalles">
+            <div id="sinopsisCont">
+                <h1><?php echo $sipnosis[0]; ?></h1>
             </div>
+        </div>
         <section class="main-content">
             <div class="video-player">
                 <video controls>
-                    <source src="<?php ?>" type="video/mp4">
-                    Tu navegador no soporta el formato de video.
+                    <source src="videos/videoplayback.mp4" type="video/mp4">
                 </video>
             </div>
         </section>
-
-        <section class="episodes-list">
+        <section id="mainLE">
             <h2>Lista de Episodios</h2>
-            <ul>
-                <!-- Aqui debo poner la lista de episodios -->
-            </ul>
+            <div class="episodess">
+                <div class="episode">
+                    <a href="#">
+                        <p class="icon">►</p>
+                        <img src="public/Captura de pantalla (5).png" alt="">
+                        <div class="episode_description">
+                            <h3 class="episode_title">berserk</h3>
+                            <p class="episode_number">episodio 5</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="episode">
+                    <a href="#">
+                        <p class="icon">►</p>
+                        <img src="public/asria_simp.png" alt="">
+                        <div class="episode_description">
+                            <p class="episode_number">episodio 5</p>
+                            <h3 class="episode_title">berserk</h3>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <footer>
+                <p>&copy; Anime Rocket 2023</p>
+            </footer>
         </section>
-        
     </main>
-    
-    <footer>
-        <p>&copy; Anime Rocket 2023</p>
-    </footer>
     
     <!-- <script src="playcarp/play.js"></script>  -->
 </body>
