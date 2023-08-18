@@ -27,19 +27,7 @@ $sipnosis = $modules->get_sipnosis();
             </div>
         </section>
         <section id="mainLE">
-            <h2>Lista de Episodios</h2>
-            <div class="episodess">
-                <div class="episode">
-                    <a href="#">
-                        <p class="icon">►</p>
-                        <img src="public/Captura de pantalla (5).png" alt="">
-                        <div class="episode_description">
-                            <h3 class="episode_title">berserk</h3>
-                            <p class="episode_number">episodio 5</p>
-                        </div>
-                    </a>
-                </div>
-            </div>
+
             <footer>
                 <p>&copy; Anime Rocket 2023</p>
             </footer>
