@@ -43,6 +43,7 @@
                         <th> Fecha Publicada</th>
                         <th> Orden</th>
                         <th> Status</th>
+                        <th> Archivo </th>
                         <th> Editar</th>
                     </tr>
                 </thead>

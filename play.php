@@ -15,12 +15,13 @@ $sipnosis = $modules->get_sipnosis();
 
     <main>
         <section class="main-content">
-            <div class="video-player">
-                <video controls>
-                    <source src="#" type="video/mp4">
-                    Tu navegador no soporta el formato de video.
-                </video>
-            </div>
+        <div class="video-player">
+    <video controls>
+        <source src="<?php echo $video_url; ?>" type="video/mp4">
+        Tu navegador no soporta el formato de video.
+    </video>
+</div>
+
             <div class="anime-detalles">
                 <h1>Nombre del Anime</h1>
                 <br>
