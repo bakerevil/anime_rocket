@@ -62,7 +62,7 @@ $thumbnail = $modules->get_thumbnail();
         if ($value['anime'] == $anime) {
       ?>
       <div class="episode">
-        <a href="play.php?id=<?php echo $row['id']; ?>">
+      <a href="play.php?id=<?php echo $value['id'];?>"<?php echo $value["capitulo"];?>">
           <p class="icon">►</p>
           <img src="<?php echo $value['thumbnail']; ?>" alt="">
           <div class="episode_description">
