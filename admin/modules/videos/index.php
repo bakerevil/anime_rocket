@@ -88,7 +88,7 @@
                             </select> 
                         </div>
                         <div class="col-6">
-                            <label for="fechai" class="form-label">Fecha de publicacion</label>
+                            <label for="fechai" class="form-label">Fecha de insercion</label>
                             <input type="date" class="form-control" name="fechai" id="fecha_insertada">
                         </div>
                         <div class="col-6">

@@ -17,7 +17,7 @@ class modules extends mysqli
             $array[] = [
                 "id" => $row["id"],
                 "capitulo" => $row["capitulo"],
-                "foto" => $row["thumbnail"],
+                "avatar" => $row["thumbnail"],
                 "categoria" => $row["categoria"],
                 "anime" => $row["titulo"],
                 "fechai" => $row["fecha_insercion"],
@@ -41,7 +41,7 @@ class modules extends mysqli
         $array = [
             "id" => $row["id"],
             "capitulo" => $row["capitulo"],
-            "foto" => $row["thumbnail"],
+            "avatar" => $row["thumbnail"],
             "categoria" => $row["categoria"],
             "anime" => $row["anime"],
             "fechai" => $row["fecha_insercion"],
@@ -69,17 +69,16 @@ class modules extends mysqli
     {
         mysqli_report(MYSQLI_REPORT_OFF);
         $capitulo = $_POST['capitulo'];
-        $thumbnail = $_POST['foto'];
+        $thumbnail = $_POST['avatar'];
         $categoria = $_POST['categoria'];
         $anime = $_POST['anime'];
         $fecha_insercion = $_POST['fechai'];
-        $fecha_publicacion = $_POST['fechap'];
         $v_status = $_POST['status'];
         $archivo = $_POST['videoprev'];
 
-        $consulta = "INSERT INTO videos (capitulo, thumbnail, categoria, anime, v_status, fecha_insercion, fecha_publicacion, archivo) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+        $consulta = "INSERT INTO videos (capitulo, avatar, categoria, anime, v_status, fechai, archivo) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
         $stmt = $this->conexion->prepare($consulta);
-        $stmt->bind_param("ssssssss", $capitulo, $thumbnail, $categoria, $anime, $v_status, $fecha_insercion, $fecha_publicacion, $archivo);
+        $stmt->bind_param("ssssssss", $capitulo, $thumbnail, $categoria, $anime, $v_status, $fecha_insercion, $archivo);
         $result = $stmt->execute();
         if ($result) {
             $array = [
