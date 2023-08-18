@@ -45,33 +45,33 @@ $thumbnail = $modules->get_thumbnail();
     </div>
   </div>
   <section id="mainLE">
-            <h2>Lista de Episodios</h2>
-            <div class="episodess">
-              <?php
-                require_once 'config/episodios.php';
-                $videos= new videos("localhost","root","","anime_rocket");
-                  $result = $videos ->get_videos();
-                while ($row = $result ->fetch_array()) {
-              ?>
-              <div class="episode">
-                <a href="play.php?id=<?php echo $row['id']; ?>">
-                  <p class="icon">►</p>
-                  <img src="<?php echo $row ['thumbnail']; ?>" alt="">
-                  <div class="episode_description">
-                    <p class="episode_number">Capitulo <?php echo $row ['orden'];?></p>
-                  </div>
-                </a>
-              </div>
-            <?php
-            }
-            ?>
-            </div>
-        </section>
-  <div class="redes">
-    <!-- aqui van las imagenes del facebook y twiiter  -->
-    <div class="red1"><img src="#" alt=""></div>
-    <div class="red2"><img src="#" alt=""></div>
-  </div>
-  <script src="js/index.js"></script>
+    <h2>Lista de Episodios</h2>
+    <div class="episodess">
+      <?php
+        require_once 'config/episodios.php';
+        $episodios = new episodios("localhost", "root", "", "anime_rocket");
+        
+        $anime = $_GET['id'] ?? 0;
+        $cap = $episodios->get_episodios();
+        foreach ($cap as $key => $value) {
+        if ($value['anime'] == $anime) {
+      ?>
+      <div class="episode">
+        <a href="play.php?id=<?php echo $row['id']; ?>">
+          <p class="icon">►</p>
+          <img src="<?php echo $value['thumbnail']; ?>" alt="">
+          <div class="episode_description">
+            <p class="episode_number"><?php echo 'capitulo ' . $value['orden']; ?></p>
+            <h3 class="episode_title"><?php echo $value['capitulo']; ?></h3>
+          </div>
+        </a>
+      </div>
+    <?php
+    }
+  }
+  ?>
+    </div>
+  </section>
+  <!-- <script src="js/index.js"></script> -->
 </body>
 </html>
