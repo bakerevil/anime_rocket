@@ -76,39 +76,36 @@ class modules extends mysqli
         $v_status = $_POST['status'];
         $archivo = $_POST['videoprev'];
 
-        $consulta = "INSERT INTO videos (capitulo, avatar, categoria, anime, v_status, fechai, archivo) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
-        $stmt = $this->conexion->prepare($consulta);
-        $stmt->bind_param("ssssssss", $capitulo, $thumbnail, $categoria, $anime, $v_status, $fecha_insercion, $archivo);
-        $result = $stmt->execute();
-        if ($result) {
+        $consulta = "INSERT INTO videos (capitulo, avatar, categoria, anime, v_status, fecha_insercion) VALUES ('$capitulo', '$thumbnail', '$categoria', '$anime','$v_status', '$fecha_insercion',')";
+        $this->conexion->query($consulta);
+        if($this->conexion->affected_rows>0){
             $array = [
                 "status" => "success",
-                "text" => "Se insertó correctamente"
+                "text" => "Se editó correctamente"
             ];
-        } else {
-            $array = [
-                "status" => "error",
-                "text" => "No se pudo insertar el registro"
-            ];
+            }else{
+                $array = [
+                    "status" => "error",
+                    "text" => "No se pudo insertar el registro"
+                ];
+            }
+            echo json_encode($array);
         }
-        echo json_encode($array);
-    }
     
     public function update_data($id)
     {
         mysqli_report(MYSQLI_REPORT_OFF);
         $capitulo = $_POST['capitulo'];
-        $thumbnail = $_POST['foto'];
+        $thumbnail = $_POST['avatar'];
         $categoria = $_POST['categoria'];
         $anime = $_POST['anime'];
         $fecha_insercion = $_POST['fechai'];
-        $fecha_publicacion = $_POST['fechap'];
         $v_status = $_POST['status'];
         $archivo = $_POST['videoprev'];
 
-        $consulta = "UPDATE videos SET capitulo = ?, thumbnail = ?, categoria = ?, anime = ?, fecha_insercion = ?, fecha_publicacion = ?, v_status = ?, archivo = ? WHERE id = ?";
+        $consulta = "UPDATE videos SET capitulo = ?, thumbnail = ?, categoria = ?, anime = ?, fecha_insercion = ?, v_status = ?, archivo = ? WHERE id = ?";
         $stmt = $this->conexion->prepare($consulta);
-        $stmt->bind_param("ssssssssi", $capitulo, $thumbnail, $categoria, $anime, $fecha_insercion, $fecha_publicacion, $v_status, $archivo, $id);
+        $stmt->bind_param("ssssssssi", $capitulo, $thumbnail, $categoria, $anime, $fecha_insercion, $v_status, $archivo, $id);
         $result = $stmt->execute();
 
         $array = [

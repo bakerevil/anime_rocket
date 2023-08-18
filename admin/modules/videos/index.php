@@ -40,7 +40,6 @@
                         <th> Categoria</th>
                         <th> Anime</th>
                         <th> Fecha Insertada</th>
-                        <th> Fecha Publicada</th>
                         <th> Orden</th>
                         <th> Status</th>
                         <th> Archivo </th>

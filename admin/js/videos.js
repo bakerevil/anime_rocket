@@ -121,7 +121,7 @@ tabla.addEventListener("click", event => {
                 avatar.value = row.avatar
                 categoria.value = row.categoria
                 anime.value = row.anime
-                fecha_insercion.value = row.fechai
+                fecha_insertada.value = row.fechai
                 statuses.value = row.status
                 btnSave.setAttribute("data-id", row.id)
                 btnSave.innerText = "Editar"
