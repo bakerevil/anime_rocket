@@ -99,13 +99,17 @@
                             <label for="video" class="form-label">Videos</label>
                             <input class="form-control form-control-sm" type="file" name="video" id= "video">
                             <input type="hidden"name="videoprev" id="videoprev">
-                            <div class="col-6 mb-3">
-                                <img src="https://picsum.photos/300/200" id="videoprev">
-                            </div>
+
                         </div>
                         <div class="col-6">
                             <img src="https://picsum.photos/300/200" id="avatarPreview">
                         </div>
+                        <div class="video-player">
+                <video id="videoPreview" controls>
+                    <source src="#" type="video/mp4" >
+                    Tu navegador no soporta el formato de video.
+                </video>
+            </div>
                         <div class="col-12">
                             <button type="submit" class="btn btn-success" id="btnSave">Guardar</button>
                         </div>

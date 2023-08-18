@@ -28,6 +28,7 @@ function get_data () {
                                 <td>${elemento.fechap}</td>
                                 <td>${elemento.orden}</td>
                                 <td>${elemento.status}</td>
+                                <td>${elemento.videoprev}</td>
                                 <td>
                                 <a href="#" class="btn_editar btnact" data-id="${elemento.id}">Editar</a>
                                 </td>

@@ -139,7 +139,30 @@ class modules extends mysqli
         }
         echo json_encode ($response);
     }
+
+
+    public function set_video(){
+        $upload_dir = "../../../public/";
+        $tmp_name = $_FILES["file"]["tmp_name"];
+        $name = $upload_dir . $_FILES["file"]["name"];
+        $response = [
+            "status" => "error",
+            "text" => "no se pudo cargar"
+    ];
+    if(move_uploaded_file($tmp_name, $name)){
+        $response = [
+        "status" => "succes",
+        "text" => " se pudo cargar",
+        "file"=> $_FILES["file"]["name"]
+        ];
+    }
+    echo json_encode ($response);
 }
+
+}
+
+
+
 
 $modules = new modules("localhost", "root", "", "anime_rocket");
 
@@ -166,6 +189,9 @@ if (isset($_POST)) {
         case 'set_avatar':
             $modules->set_avatar();
             break;
+        case 'set_video':
+                $modules->set_video();
+                break;
         default:
             echo "Función incompleta";
             break;
