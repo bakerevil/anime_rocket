@@ -1,13 +1,15 @@
 .titulo{
-width: 100%;
-color: rgb(0, 255, 213);
-background: #25415a;
-text-align: center;
-color: white;
+    display: flex;
+    width: 100%;
+    color: rgb(0, 255, 213);
+    background: #25415a;
+    text-align: center;
+    color: white;
+}
+.titulo .nombrett{
+width: 75%;
 }
 .tipoanime{
-    width: 100%;
-    text-align: center;
     color: white;
     background-color: orange;
     border-radius: 5px;
@@ -18,4 +20,8 @@ color: white;
 }
 .img{
     display: flex;
+}
+.titulo .voto{
+    display: flex;
+    text-align: right;
 }

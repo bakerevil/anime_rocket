@@ -14,19 +14,17 @@ $sipnosis = $modules->get_sipnosis();
 <?php require_once 'header.html'; ?>
 
     <main>
+    <div class="anime-detalles">
+                <div id="sinopsisCont">
+                    <h1><?php echo $sipnosis[0]; ?></h1>
+                </div>
+            </div>
         <section class="main-content">
             <div class="video-player">
                 <video controls>
-                    <source src="#" type="video/mp4">
+                    <source src="<?php ?>" type="video/mp4">
                     Tu navegador no soporta el formato de video.
                 </video>
-            </div>
-            <div class="anime-detalles">
-                <h1>Nombre del Anime</h1>
-                <br>
-                <div id="sinopsisCont">
-                    <p><?php echo $sipnosis[0]; ?></p>
-                </div>
             </div>
         </section>
 

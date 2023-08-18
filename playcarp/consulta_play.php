@@ -8,11 +8,11 @@ class modules extends mysqli{
 
     public function get_sipnosis(){
         $id =$_GET['id'];
-        $consulta = "SELECT sipnosis FROM listas WHERE id = $id"; 
+        $consulta = "SELECT capitulo FROM videos WHERE id = $id"; 
         $result = $this->conexion->query($consulta);
         $array = [];
         while ($row = $result->fetch_array(MYSQLI_ASSOC)) {
-            $array[] = $row["sipnosis"]; 
+            $array[] = $row["capitulo"]; 
         }
         return($array);
     }

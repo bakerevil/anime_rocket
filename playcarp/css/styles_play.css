@@ -26,7 +26,10 @@ nav a {
 }
 
 main {
+    text-align: justify;
     padding: 20px;
+    width: 100%;
+    color: black;
 }
 
 .video-player video {
@@ -36,8 +39,8 @@ main {
     display: block;
     margin: 0 auto;
 }
-
 .anime-detalles {
+    display: flex;
     flex: 1;
     max-width: 800px; 
 }
@@ -62,6 +65,7 @@ main {
     .main-content {
         display: flex;
         gap: 40px;
+        padding: 10px;
     }
 }
 
