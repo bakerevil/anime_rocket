@@ -104,7 +104,7 @@
                             </div>
                         </div>
                         <div class="col-6">
-                            <img src="https://picsum.photos/300/200" id="avatarPreview">
+                            <img src="https://picsum.photos/300/200"  class="iimmgg" id="avatarPreview">
                         </div>
                         <div class="col-12">
                             <button type="submit" class="btn btn-success" id="btnSave">Guardar</button>
