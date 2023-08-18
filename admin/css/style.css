@@ -21,6 +21,15 @@
     justify-content: center;
     gap: 7px;
 }
+.iimmgg{
+    
+    width: 400px;
+    height: 300px;
+    background-image: url('ruta-de-tu-imagen.jpg');
+    background-size: cover;
+    border-radius: 10%;
+}
+
 .sideBar .logo .img-info{
     padding-top: 5px;
     width: 112px;

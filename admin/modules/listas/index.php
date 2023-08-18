@@ -102,7 +102,7 @@
                             <input type="text"name="avatar" id="avatar">
                         </div>
                         <div class="mb-3">
-                            <img src="https://picsum.photos/300/200" id="avatarPreview">
+                            <img src="https://picsum.photos/300/200" class="iimmgg" id="avatarPreview">
                         </div>
                         <div class="col-12">
                             <button type="submit" class="btn btn-success" id="btnSave">Guardar</button>
