@@ -39,16 +39,6 @@ $sipnosis = $modules->get_sipnosis();
                         </div>
                     </a>
                 </div>
-                <div class="episode">
-                    <a href="#">
-                        <p class="icon">►</p>
-                        <img src="public/asria_simp.png" alt="">
-                        <div class="episode_description">
-                            <p class="episode_number">episodio 5</p>
-                            <h3 class="episode_title">berserk</h3>
-                        </div>
-                    </a>
-                </div>
             </div>
             <footer>
                 <p>&copy; Anime Rocket 2023</p>

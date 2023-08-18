@@ -1,13 +1,18 @@
 .titulo{
     display: flex;
     width: 100%;
-    color: rgb(0, 255, 213);
     background: #25415a;
     text-align: center;
     color: white;
 }
 .titulo .nombrett{
-width: 75%;
+    width: 500px;
+}
+.cat{
+    width: 600px;
+}
+.voto{
+    padding-left: 20px;
 }
 .tipoanime{
     color: white;
@@ -21,7 +26,61 @@ width: 75%;
 .img{
     display: flex;
 }
+.img img{
+    padding: 0 0 0 20px;
+    width: 350px;
+}
 .titulo .voto{
+    width: 300px;
     display: flex;
-    text-align: right;
+}
+#mainLE {
+    max-width: 1024px;
+    margin: 40px auto;
+    color: black;
+}
+.episodess {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 15px;
+    margin-top: 20px;
+
+}
+.episod {
+    position: relative;
+    overflow: hidden;
+    border-radius: 6px;
+    cursor: pointer;
+}
+.episod:hover img {
+    transform: scale(1.25);
+}
+.episod img {
+    width: 50%;
+    height: 50%;
+    object-fit: cover;
+    transition: all 0.5s ease-in-out;
+}
+.icon {
+    color: #fff;
+    font-size: 1.5rem;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+.episode_description {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    color: #fff;
+}
+.episode_number {
+    background: orange;
+    font-size: 0.8rem;
+    font-weight: bold;
+    width: auto;
+    padding: 5px;
+    border-radius: 5px;
+    display: inline-block;
+    margin-bottom: 5px;
 }

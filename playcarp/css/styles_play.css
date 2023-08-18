@@ -10,7 +10,9 @@ main {
     width: 100%;
     color: black;
 }
-
+.nombrett .cat{
+    display: flex;
+}
 .video-player video {
     width: 100%;
     height: auto;

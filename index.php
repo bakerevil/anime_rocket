@@ -49,7 +49,7 @@
           <img src="<?php echo $row ['thumbnail']; ?>" alt="">
           <div class="episode_description">
             <h3 class="episode_cat"><?php echo $row['categoria']  ?></h3>
-            <p class="episode_number">Episodio <?php echo $row ['id'];?></p>
+            <p class="episode_number">Episodio <?php echo $row ['orden'];?></p>
             <h3 class="episode_title"><?php echo $row ['capitulo'];?></h3>
           </div>
         </a>

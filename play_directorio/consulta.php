@@ -60,6 +60,16 @@ class modules extends mysqli{
         }
         return($array);
     }
+    public function get_thumbnail(){
+        $id =$_GET['id'];
+        $consulta = "SELECT thumbnail FROM listas WHERE id = $id"; 
+        $result = $this->conexion->query($consulta);
+        $array = [];
+        while ($row = $result->fetch_array(MYSQLI_ASSOC)) {
+            $array[] = $row["thumbnail"]; 
+        }
+        return($array);
+    }
 
 }
 
