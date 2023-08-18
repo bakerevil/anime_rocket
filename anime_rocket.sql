@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 16-08-2023 a las 05:17:41
+-- Tiempo de generación: 19-08-2023 a las 01:44:22
 -- Versión del servidor: 10.4.25-MariaDB
 -- Versión de PHP: 8.1.10
 
@@ -36,8 +36,8 @@ CREATE TABLE `listas` (
   `fecha_insercion` date NOT NULL,
   `votos` decimal(2,1) NOT NULL,
   `anio` varchar(4) NOT NULL,
-  `l_tipo` float NOT NULL,
-  `l_categoria` float NOT NULL,
+  `l_tipo` float NOT NULL DEFAULT 1,
+  `l_categoria` float NOT NULL DEFAULT 1,
   `l_status` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -46,8 +46,10 @@ CREATE TABLE `listas` (
 --
 
 INSERT INTO `listas` (`id`, `titulo`, `sipnosis`, `thumbnail`, `capitulos`, `fecha_insercion`, `votos`, `anio`, `l_tipo`, `l_categoria`, `l_status`) VALUES
-(1, 'Demons Slayer', ' Tanjirou Kamado es un chico inteligente y de buen corazón que vive con su familia y gana dinero vendiendo carbón. Todo cambia cuando su familia es atacada y asesinada por un demonio (oni). Tanjirou y su hermana Nezuko son los únicos sobrevivientes del in', 'https://picsum.photos/300/200', '1', '2023-02-02', '3.0', '1995', 1, 2, 5),
-(2, 'clashhure', 'adsadsa', 'https://picsum.photos/300/200', '1', '2023-02-02', '3.5', '1995', 2, 1, 0);
+(1, 'Demons Slayer', ' Tanjirou Kamado es un chico inteligente y de buen corazón que vive con su familia y gana dinero vendiendo carbón. Todo cambia cuando su familia es atacada y asesinada por un demonio (oni). Tanjirou y su hermana Nezuko son los únicos sobrevivientes del in', 'Captura de pantalla 2023-07-20 174331.png', '1', '2023-02-02', '3.0', '1995', 1, 2, 5),
+(2, 'clashhure', 'adsadsa', 'Captura de pantalla 2023-07-20 174331.png', '1', '2023-02-02', '3.5', '1995', 2, 1, 0),
+(4, 'caballeros de zodiaco', 'sipno', 'Captura de pantalla 2023-07-20 174331.png', '12', '2023-08-18', '1.5', '1995', 2, 2, 0),
+(5, 'pruebatipos', 'adsadsa', 'Captura de pantalla 2023-07-20 174331.png', '1', '2023-08-18', '1.0', '1998', 1, 1, 0);
 
 -- --------------------------------------------------------
 
@@ -249,6 +251,16 @@ ALTER TABLE `rv_categoria`
 --
 ALTER TABLE `status`
   ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT de las tablas volcadas
+--
+
+--
+-- AUTO_INCREMENT de la tabla `listas`
+--
+ALTER TABLE `listas`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

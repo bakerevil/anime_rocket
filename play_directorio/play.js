@@ -1,5 +1,7 @@
 const sinopsisConte = document.getElementById("sinopsisConte");
 const nombrecont = document.getElementById("nombrecont");
+const catego = document.getElementById("catego");
+const tip = document.getElementById("tip");
 
 
 let opciones = {
@@ -63,7 +65,7 @@ function get_categoria() {
             resultado.forEach(categorias => {
                 template += `<p>${categorias}</p>`;
             });
-            nombrecont.innerHTML = template;
+            catego.innerHTML = template;
         })
         .catch(error => {
             console.error("Error al obtener la categoria:", error);
@@ -84,7 +86,7 @@ function get_tipo() {
             resultado.forEach(tipos => {
                 template += `<p>${tipos}</p>`;
             });
-            nombrecont.innerHTML = template;
+            tip.innerHTML = template;
         })
         .catch(error => {
             console.error("Error al obtener el tipo:", error);

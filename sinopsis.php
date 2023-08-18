@@ -24,9 +24,14 @@ $thumbnail = $modules->get_thumbnail();
   <div class="titulo">
     <div class="nombrett" id="nombrecont">
       <p><?php echo $titulo[0]; ?></p>
-      <a class="tipoanime"><?php echo $tipos[0]; ?></a>
+      <div id="tip">
+        <p><?php echo $tipos[0]; ?> </p>
+      </div>
     </div>
-    <div class="cat">
+    <div>
+      
+    </div>
+    <div class="cat" id="catego">
       <h3>categorias</h3>
       <p><?php echo $categorias[0]; ?></p>
     </div>
