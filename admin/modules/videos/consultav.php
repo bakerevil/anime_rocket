@@ -76,7 +76,7 @@ class modules extends mysqli
         $v_status = $_POST['status'];
         $archivo = $_POST['videoprev'];
 
-        $consulta = "INSERT INTO videos (capitulo, avatar, categoria, anime, v_status, fecha_insercion) VALUES ('$capitulo', '$thumbnail', '$categoria', '$anime','$v_status', '$fecha_insercion',')";
+        $consulta = "INSERT INTO videos (capitulo, thumbnail, categoria, anime, v_status, fecha_insercion) VALUES ('$capitulo', '$thumbnail', '$categoria', '$anime','$v_status', '$fecha_insercion')";
         $this->conexion->query($consulta);
         if($this->conexion->affected_rows>0){
             $array = [
