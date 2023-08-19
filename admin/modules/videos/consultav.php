@@ -18,13 +18,13 @@ class modules extends mysqli
                 "id" => $row["id"],
                 "capitulo" => $row["capitulo"],
                 "avatar" => $row["thumbnail"],
+                "videopreev" => $row["archivo"],
                 "categoria" => $row["categoria"],
                 "anime" => $row["titulo"],
                 "fechai" => $row["fecha_insercion"],
                 "fechap" => $row["fecha_publicacion"],
                 "orden" => $row["orden"],
                 "status" => $row["status"],
-                "videoprev" => $row["archivo"],
             ];
         }
         echo json_encode($array);
@@ -38,12 +38,11 @@ class modules extends mysqli
             "id" => $row["id"],
             "capitulo" => $row["capitulo"],
             "avatar" => $row["thumbnail"],
+            "videopreev" => $row["archivo"],
             "categoria" => $row["categoria"],
             "anime" => $row["anime"],
             "fechai" => $row["fecha_insercion"],
-            "fechap" => $row["fecha_publicacion"],
             "status" => $row["v_status"],
-            "videoprev" => $row["archivo"],
         ];
         echo json_encode($array);
     }
@@ -58,56 +57,54 @@ class modules extends mysqli
         echo json_encode($row);
     }
 
-    public function insert_data()
-    {
+    public function insert_data(){
         mysqli_report(MYSQLI_REPORT_OFF);
         $capitulo = $_POST['capitulo'];
         $thumbnail = $_POST['avatar'];
+        $archivo = $_POST['videoprev'];
         $categoria = $_POST['categoria'];
         $anime = $_POST['anime'];
         $fecha_insercion = $_POST['fechai'];
         $v_status = $_POST['status'];
-        $archivo = $_POST['videoprev'];
 
-        $consulta = "INSERT INTO videos (capitulo, avatar, categoria, anime, v_status, fecha_insercion) VALUES ('$capitulo', '$thumbnail', '$categoria', '$anime','$v_status', '$fecha_insercion',')";
+        $consulta = "INSERT INTO videos (capitulo, avatar, categoria, anime, v_status, fecha_insercion, archivo) VALUES ('$capitulo', '$thumbnail', '$categoria', '$anime','$v_status', '$fecha_insercion', '$archivo')";
         $this->conexion->query($consulta);
-        if($this->conexion->affected_rows>0){
+        if($this -> conexion -> affected_rows > 0) {
             $array = [
                 "status" => "success",
                 "text" => "Se editó correctamente"
             ];
-            }else{
-                $array = [
-                    "status" => "error",
-                    "text" => "No se pudo insertar el registro"
-                ];
-            }
-            echo json_encode($array);
+        }else{
+            $array = [
+                "status" => "error",
+                "text" => "No se pudo insertar el registro"
+            ];
         }
+        echo json_encode($array);
+    }
     
-    public function update_data()
-    {
+    public function update_data(){
         mysqli_report(MYSQLI_REPORT_OFF);
         $capitulo = $_POST['capitulo'];
         $thumbnail = $_POST['avatar'];
+        $archivo = $_POST['videoprev'];
         $categoria = $_POST['categoria'];
         $anime = $_POST['anime'];
         $fecha_insercion = $_POST['fechai'];
-        $fecha_publicacion = $_POST['fechap'];
         $v_status = $_POST['status'];
-        $archivo = $_POST['videoprev'];
         $id = $_POST['id'];
 
-        $consulta = "UPDATE videos set capitulo = '$capitulo', thumbnail = '$thumbnail', categoria = '$categoria', anime = '$anime', fecha_insercion = '$fecha_insercion', fecha_publicacion = '$fecha_publicacion', v_status = '$v_status', archivo = '$archivo' WHERE id =  $id";
+        $consulta = "UPDATE videos set capitulo = '$capitulo', thumbnail = '$thumbnail', archivo = '$archivo', categoria = '$categoria', anime = '$anime', fecha_insercion = '$fecha_insercion', v_status = '$v_status' WHERE id =  $id";
+        $this->conexion->query($consulta);
+        if($this -> conexion -> affected_rows > 0) {
         $array = [
             "status" => "success",
             "text" => "Se editó correctamente"
         ];
-
-        if (!mysqli::query($consulta)) {
+        }else{
             $array = [
                 "status" => "error",
-                "text" => "No se pudo editar el registrod"
+                "text" => "No se pudo insertar el registro"
             ];
         }
         echo json_encode($array);
@@ -117,7 +114,7 @@ class modules extends mysqli
     {
         $datos = $_POST["data"];
         $consulta = "DELETE FROM videos WHERE id IN ($datos)";
-        mysqli::query($consulta);
+        $this->conexion->query($consulta);
         $array = [
             "text" => "Se eliminó correctamente",
             "status" => "success",
@@ -142,10 +139,9 @@ class modules extends mysqli
         }
         echo json_encode ($response);
     }
-}
 
     public function set_video(){
-        $upload_dir = "../../../public/";
+        $upload_dir = "../../../videos/";
         $tmp_name = $_FILES["file"]["tmp_name"];
         $name = $upload_dir . $_FILES["file"]["name"];
         $response = [
@@ -154,15 +150,16 @@ class modules extends mysqli
         ];
         if (move_uploaded_file($tmp_name, $name)) {
             $response = [
-                "status" => "success",
-                "text" => "Se pudo cargar",
-                "file" => $_FILES["file"]["name"]
+            "status" => "success",
+            "text" => "Se pudo cargar",
+            "file" => $_FILES["file"]["name"]
             ];
         }
         echo json_encode($response);
     }
+}
 
-$modules = new modules("localhost", "root", "", "anime_rocket");
+$modules = new modules();
 
 if (isset($_POST)) {
     switch ($_POST["funcion"]) {

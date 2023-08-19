@@ -39,7 +39,7 @@ video.addEventListener('change',(files) =>{
       .then(json => {
         if (json.status == 'succes'){
             videoprev.value = json.file
-            videoPreview.setAttribute("src", "../../../public/" + json.file)
+            videoPreview.setAttribute("src", "../../../videos/" + json.file)
         }
         alert (json.text);
       })

@@ -21,13 +21,13 @@ function get_data () {
                             <input type="checkbox" value="${elemento.id}" class="checkboxes">
                     </th>
                     <td>${elemento.capitulo}</td>
-                    <td><img src="https://picsum.photos/50"></td>
+                    <td>${elemento.avatar}</td>
+                    <td>${elemento.videopreev}</td>
                     <td>${elemento.categoria}</td>
                     <td>${elemento.anime}</td>
                     <td>${elemento.fechai}</td>
                     <td>${elemento.orden}</td>
                     <td>${elemento.status}</td>
-                    <td>${elemento.videoprev}</td>
                     <td>
                         <a href="#" class="btn_editar btnact" data-id="${elemento.id}">Editar</a>
                     </td>
@@ -53,7 +53,7 @@ btnNew.addEventListener("click", (event) => {
 })
 btnSave.addEventListener("click", (event) => {
     event.preventDefault()
-    if (capitulo.value != "" && categoria.value != "" && statuses.value != "" && anime.value != "" && fecha_insertada.value != "" && avatar.value != "" && video.value != "" ){
+    if (capitulo.value != "" && categoria.value != "" && statuses.value != "" && anime.value != "" && fecha_insertada.value != "" && avatar.value != "" && videopreev.value != "" ){
         let formdata = new FormData(form)
         formdata.append("funcion", "insert_data")
         if (btnSave.hasAttribute("data-id")) {
@@ -119,11 +119,10 @@ tabla.addEventListener("click", event => {
             .then(row => {
                 capitulo.value = row.capitulo
                 avatar.value = row.avatar
+                videopreev.value = row.archivo
                 categoria.value = row.categoria
                 anime.value = row.anime
                 fecha_insertada.value = row.fechai
-                fecha_publicada.value = row.fechap
-                videoprev.value = row.video
                 statuses.value = row.status
                 btnSave.setAttribute("data-id", row.id)
                 btnSave.innerText = "Editar"
