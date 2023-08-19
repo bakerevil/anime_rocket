@@ -37,10 +37,10 @@
                         </th>
                         <th> Capitulo</th>
                         <th> Foto</th>
+                        <th> Archivo</th>
                         <th> Categoria</th>
                         <th> Anime</th>
                         <th> Fecha Insertada</th>
-                        <th> Fecha Publicada</th>
                         <th> Orden</th>
                         <th> Status</th>
                         <th> Editar</th>
@@ -60,34 +60,34 @@
                         <div class="col-6">
                             <label for="categoria" class="form-label">Categoria</label>
                             <select type="text" class="form-control" name="categoria" id="categoria">
-                                <option categoria="#">Seleciona tu opción</option>
-                                <option categoria="1">accion</option>
-                                <option categoria="2">romance</option>
-                                <option categoria="3">suspenso</option>
-                                <option categoria="4">seinin</option>
-                                <option categoria="5">gore</option>
-                                <option categoria="6">echi</option>
+                                <option value="#">Seleciona tu opción</option>
+                                <option value="1">accion</option>
+                                <option value="2">romance</option>
+                                <option value="3">suspenso</option>
+                                <option value="4">seinin</option>
+                                <option value="5">gore</option>
+                                <option value="6">echi</option>
                             </select>
                         </div>
                         <div class="col-6">
                             <label for="status" class="form-label">Status</label>
                             <select type="text" class="form-control" name="status" id="statuses">
-                                <option status="#">Seleciona tu opción</option>
-                                <option status="0">Capitulo nuevo</option>
-                                <option status="5">anime temporada</option>
-                                <option status="6">anime estreno</option>
+                                <option value="#">Seleciona tu opción</option>
+                                <option value="0">Capitulo nuevo</option>
+                                <option value="5">anime temporada</option>
+                                <option value="6">anime estreno</option>
                             </select> 
                         </div>
                         <div class="col-6">
                             <label for="anime" class="form-label">anime</label>
                             <select type="text" class="form-control" name="anime" id="anime">
-                                <option listas="#">Seleciona tu opción</option>
-                                <option listas="1">Demons Slaye	</option>
-                                <option listas="2">clashhure</option>
+                                <option value="#">Seleciona tu opción</option>
+                                <option value="1">Demons Slaye	</option>
+                                <option value="2">clashhure</option>
                             </select> 
                         </div>
                         <div class="col-6">
-                            <label for="fechai" class="form-label">Fecha de publicacion</label>
+                            <label for="fechai" class="form-label">Fecha de insertada</label>
                             <input type="date" class="form-control" name="fechai" id="fecha_insertada">
                         </div>
                         <div class="col-6">
@@ -98,10 +98,7 @@
                         <div class="col-6 mb-3">
                             <label for="video" class="form-label">Videos</label>
                             <input class="form-control form-control-sm" type="file" name="video" id= "video">
-                            <input type="hidden"name="videoprev" id="videoprev">
-                            <div class="col-6 mb-3">
-                                <img src="https://picsum.photos/300/200" id="videoprev">
-                            </div>
+                            <input type="hidden"name="videoprev" id="videopreev">
                         </div>
                         <div class="col-6">
                             <img src="https://picsum.photos/300/200"  class="iimmgg" id="avatarPreview">
