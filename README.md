@@ -1,2 +1,2 @@
 # anime_rocket
-proyecto de abraham pech
+proyecto para abraham pech
